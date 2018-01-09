@@ -58,6 +58,15 @@ class MainViewController: UITabBarController {
         return navigation
     }()
     
+    lazy var settingsFlow: UINavigationController = {
+       
+        let vc = SettingsViewController()
+        let navigation = UINavigationController(rootViewController: vc)
+        navigation.navigationBar.isTranslucent = false
+        
+        return navigation
+    }()
+    
     // MARK: - Contoller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

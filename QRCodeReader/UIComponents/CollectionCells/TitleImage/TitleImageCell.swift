@@ -23,6 +23,8 @@ class TitleImageCell: UICollectionViewCell {
     private var iconImageView: UIImageView = {
        
         let imageView = UIImageView()
+        
+        imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
         
         return imageView
