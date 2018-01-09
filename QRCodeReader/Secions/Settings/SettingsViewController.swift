@@ -21,6 +21,6 @@ private enum SettingsCellTitles: String {
 class SettingsViewController: UIViewController {
     
     /// Collection datasource
-    var datasource = SettingsCellTitles.allValues
+    fileprivate var datasource = SettingsCellTitles.allValues
     
 }
