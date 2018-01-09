@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C19A50075A154C6F8496D6D1 /* Pods_QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */; };
+		F506E3EC200545DE00DBC504 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EB200545DE00DBC504 /* MainViewController.swift */; };
+		F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EF200545F400DBC504 /* CameraViewController.swift */; };
+		F506E3F2200545FE00DBC504 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F1200545FE00DBC504 /* FavoritesViewController.swift */; };
 		F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E4E2005295700CB4D94 /* AppDelegate.swift */; };
-		F5786E512005295700CB4D94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E502005295700CB4D94 /* ViewController.swift */; };
 		F5786E542005295700CB4D94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E522005295700CB4D94 /* Main.storyboard */; };
 		F5786E562005295700CB4D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5786E552005295700CB4D94 /* Assets.xcassets */; };
 		F5786E592005295700CB4D94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E572005295700CB4D94 /* LaunchScreen.storyboard */; };
@@ -19,9 +21,11 @@
 		1DAF3606AC0631159D451D28 /* Pods-QRCodeReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRCodeReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.release.xcconfig"; sourceTree = "<group>"; };
 		2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRCodeReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.debug.xcconfig"; sourceTree = "<group>"; };
+		F506E3EB200545DE00DBC504 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F506E3EF200545F400DBC504 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		F506E3F1200545FE00DBC504 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F5786E4B2005295700CB4D94 /* QRCodeReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5786E4E2005295700CB4D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F5786E502005295700CB4D94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F5786E532005295700CB4D94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5786E552005295700CB4D94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5786E582005295700CB4D94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +61,32 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F506E3EA200545CC00DBC504 /* Secions */ = {
+			isa = PBXGroup;
+			children = (
+				F506E3EE200545E600DBC504 /* Favorites */,
+				F506E3ED200545E100DBC504 /* Camera */,
+				F506E3EB200545DE00DBC504 /* MainViewController.swift */,
+			);
+			path = Secions;
+			sourceTree = "<group>";
+		};
+		F506E3ED200545E100DBC504 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				F506E3EF200545F400DBC504 /* CameraViewController.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		F506E3EE200545E600DBC504 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				F506E3F1200545FE00DBC504 /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		F5786E422005295700CB4D94 = {
 			isa = PBXGroup;
 			children = (
@@ -78,8 +108,8 @@
 		F5786E4D2005295700CB4D94 /* QRCodeReader */ = {
 			isa = PBXGroup;
 			children = (
+				F506E3EA200545CC00DBC504 /* Secions */,
 				F5786E4E2005295700CB4D94 /* AppDelegate.swift */,
-				F5786E502005295700CB4D94 /* ViewController.swift */,
 				F5786E522005295700CB4D94 /* Main.storyboard */,
 				F5786E552005295700CB4D94 /* Assets.xcassets */,
 				F5786E572005295700CB4D94 /* LaunchScreen.storyboard */,
@@ -217,8 +247,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5786E512005295700CB4D94 /* ViewController.swift in Sources */,
 				F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */,
+				F506E3EC200545DE00DBC504 /* MainViewController.swift in Sources */,
+				F506E3F2200545FE00DBC504 /* FavoritesViewController.swift in Sources */,
+				F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
