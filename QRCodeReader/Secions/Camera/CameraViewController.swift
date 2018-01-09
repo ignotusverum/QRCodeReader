@@ -13,7 +13,9 @@ import AVFoundation
 class CameraViewController: UIViewController {
     
     /// QR session capture
+    var qrCodeFrameView:UIView?
     var captureSession: AVCaptureSession?
+    var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     
     /// Camera roll button
     lazy var rightButton: UIBarButtonItem = {
@@ -35,19 +37,8 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
-            //already authorized
-        } else {
-            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
-                if granted {
-                    //access allowed
-                } else {
-                    //access denied
-                }
-            })
-        }
-        
         layoutSetup()
+        cameraSetup()
     }
     
     private func layoutSetup() {
@@ -68,5 +59,8 @@ class CameraViewController: UIViewController {
     @objc
     private func onLeftButton(_ sender: Any?) {
         print("left")
+    }
+    
+    private func cameraSetup() {
     }
 }
