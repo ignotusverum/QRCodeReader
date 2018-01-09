@@ -11,6 +11,7 @@
 		F506E3EC200545DE00DBC504 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EB200545DE00DBC504 /* MainViewController.swift */; };
 		F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EF200545F400DBC504 /* CameraViewController.swift */; };
 		F506E3F2200545FE00DBC504 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F1200545FE00DBC504 /* FavoritesViewController.swift */; };
+		F506E3F720054B2A00DBC504 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F620054B2A00DBC504 /* String.swift */; };
 		F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E4E2005295700CB4D94 /* AppDelegate.swift */; };
 		F5786E542005295700CB4D94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E522005295700CB4D94 /* Main.storyboard */; };
 		F5786E562005295700CB4D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5786E552005295700CB4D94 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		F506E3EB200545DE00DBC504 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F506E3EF200545F400DBC504 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		F506E3F1200545FE00DBC504 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		F506E3F620054B2A00DBC504 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F5786E4B2005295700CB4D94 /* QRCodeReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5786E4E2005295700CB4D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5786E532005295700CB4D94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +89,30 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		F506E3F320054B1600DBC504 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F506E3F420054B1E00DBC504 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F506E3F420054B1E00DBC504 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F506E3F520054B2600DBC504 /* String */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F506E3F520054B2600DBC504 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				F506E3F620054B2A00DBC504 /* String.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		F5786E422005295700CB4D94 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +134,7 @@
 		F5786E4D2005295700CB4D94 /* QRCodeReader */ = {
 			isa = PBXGroup;
 			children = (
+				F506E3F320054B1600DBC504 /* Utilities */,
 				F506E3EA200545CC00DBC504 /* Secions */,
 				F5786E4E2005295700CB4D94 /* AppDelegate.swift */,
 				F5786E522005295700CB4D94 /* Main.storyboard */,
@@ -249,6 +276,7 @@
 			files = (
 				F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */,
 				F506E3EC200545DE00DBC504 /* MainViewController.swift in Sources */,
+				F506E3F720054B2A00DBC504 /* String.swift in Sources */,
 				F506E3F2200545FE00DBC504 /* FavoritesViewController.swift in Sources */,
 				F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */,
 			);
