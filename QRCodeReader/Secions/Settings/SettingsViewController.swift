@@ -11,22 +11,16 @@ import Foundation
 
 private enum SettingsCellTitles: String {
     
-    case linkOpen = "Link Open"
-    case browser
     case support
     
     var image: UIImage {
         switch self {
-        case .linkOpen:
-            return #imageLiteral(resourceName: "link")
-        case .browser:
-            return #imageLiteral(resourceName: "browser")
         case .support:
             return #imageLiteral(resourceName: "support")
         }
     }
     
-    static let allValues = [linkOpen, browser, support]
+    static let allValues = [support]
 }
 
 class SettingsViewController: UIViewController {
@@ -56,6 +50,8 @@ class SettingsViewController: UIViewController {
     }
     
     func layoutSetup() {
+        
+        setTitle("Settings")
         
         /// CollectionView layout
         view.addSubview(collectionView)

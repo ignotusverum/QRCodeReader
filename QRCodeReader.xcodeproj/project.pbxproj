@@ -12,14 +12,14 @@
 		F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EF200545F400DBC504 /* CameraViewController.swift */; };
 		F506E3F720054B2A00DBC504 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F620054B2A00DBC504 /* String.swift */; };
 		F506E3FA2005515E00DBC504 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F92005515E00DBC504 /* SettingsViewController.swift */; };
-		F506E3FF200553A100DBC504 /* TitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3FE200553A100DBC504 /* TitleImageCell.swift */; };
 		F506E4052005546900DBC504 /* SharpSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4032005546900DBC504 /* SharpSans-Bold.otf */; };
 		F506E4062005546A00DBC504 /* SharpSans-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4042005546900DBC504 /* SharpSans-BoldItalic.otf */; };
 		F506E4092005548E00DBC504 /* MarkOT.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4082005548E00DBC504 /* MarkOT.otf */; };
 		F506E40B2005549400DBC504 /* MarkOT-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E40A2005549400DBC504 /* MarkOT-Medium.otf */; };
 		F506E40D2005549A00DBC504 /* MarkOT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E40C2005549A00DBC504 /* MarkOT-Bold.otf */; };
 		F506E4102005553F00DBC504 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E40F2005553F00DBC504 /* Font.swift */; };
-		F506E41320055E7C00DBC504 /* RadioImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41220055E7C00DBC504 /* RadioImageCell.swift */; };
+		F506E41320055E7C00DBC504 /* TitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41220055E7C00DBC504 /* TitleImageCell.swift */; };
+		F506E41620056E5B00DBC504 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41520056E5B00DBC504 /* ViewController.swift */; };
 		F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E4E2005295700CB4D94 /* AppDelegate.swift */; };
 		F5786E562005295700CB4D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5786E552005295700CB4D94 /* Assets.xcassets */; };
 		F5786E592005295700CB4D94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E572005295700CB4D94 /* LaunchScreen.storyboard */; };
@@ -33,14 +33,14 @@
 		F506E3EF200545F400DBC504 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		F506E3F620054B2A00DBC504 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F506E3F92005515E00DBC504 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		F506E3FE200553A100DBC504 /* TitleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleImageCell.swift; sourceTree = "<group>"; };
 		F506E4032005546900DBC504 /* SharpSans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SharpSans-Bold.otf"; sourceTree = "<group>"; };
 		F506E4042005546900DBC504 /* SharpSans-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SharpSans-BoldItalic.otf"; sourceTree = "<group>"; };
 		F506E4082005548E00DBC504 /* MarkOT.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarkOT.otf; sourceTree = "<group>"; };
 		F506E40A2005549400DBC504 /* MarkOT-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkOT-Medium.otf"; sourceTree = "<group>"; };
 		F506E40C2005549A00DBC504 /* MarkOT-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkOT-Bold.otf"; sourceTree = "<group>"; };
 		F506E40F2005553F00DBC504 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		F506E41220055E7C00DBC504 /* RadioImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioImageCell.swift; sourceTree = "<group>"; };
+		F506E41220055E7C00DBC504 /* TitleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleImageCell.swift; sourceTree = "<group>"; };
+		F506E41520056E5B00DBC504 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F5786E4B2005295700CB4D94 /* QRCodeReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5786E4E2005295700CB4D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5786E552005295700CB4D94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +106,7 @@
 		F506E3F420054B1E00DBC504 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F506E41420056E5300DBC504 /* ViewController */,
 				F506E40E2005553A00DBC504 /* Font */,
 				F506E3F520054B2600DBC504 /* String */,
 			);
@@ -139,18 +140,9 @@
 		F506E3FC2005539100DBC504 /* CollectionCells */ = {
 			isa = PBXGroup;
 			children = (
-				F506E41120055E7200DBC504 /* RadioImage */,
-				F506E3FD2005539800DBC504 /* TitleImage */,
+				F506E41120055E7200DBC504 /* TitleImage */,
 			);
 			path = CollectionCells;
-			sourceTree = "<group>";
-		};
-		F506E3FD2005539800DBC504 /* TitleImage */ = {
-			isa = PBXGroup;
-			children = (
-				F506E3FE200553A100DBC504 /* TitleImageCell.swift */,
-			);
-			path = TitleImage;
 			sourceTree = "<group>";
 		};
 		F506E4002005544300DBC504 /* Supporting Files */ = {
@@ -197,12 +189,21 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		F506E41120055E7200DBC504 /* RadioImage */ = {
+		F506E41120055E7200DBC504 /* TitleImage */ = {
 			isa = PBXGroup;
 			children = (
-				F506E41220055E7C00DBC504 /* RadioImageCell.swift */,
+				F506E41220055E7C00DBC504 /* TitleImageCell.swift */,
 			);
-			path = RadioImage;
+			name = TitleImage;
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F506E41420056E5300DBC504 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F506E41520056E5B00DBC504 /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F5786E422005295700CB4D94 = {
@@ -371,14 +372,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F506E3FF200553A100DBC504 /* TitleImageCell.swift in Sources */,
 				F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */,
 				F506E3EC200545DE00DBC504 /* MainViewController.swift in Sources */,
 				F506E3F720054B2A00DBC504 /* String.swift in Sources */,
 				F506E4102005553F00DBC504 /* Font.swift in Sources */,
 				F506E3FA2005515E00DBC504 /* SettingsViewController.swift in Sources */,
 				F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */,
-				F506E41320055E7C00DBC504 /* RadioImageCell.swift in Sources */,
+				F506E41620056E5B00DBC504 /* ViewController.swift in Sources */,
+				F506E41320055E7C00DBC504 /* TitleImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
