@@ -35,6 +35,18 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+            //already authorized
+        } else {
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+                if granted {
+                    //access allowed
+                } else {
+                    //access denied
+                }
+            })
+        }
+        
         layoutSetup()
     }
     
@@ -50,11 +62,11 @@ class CameraViewController: UIViewController {
     // MARK: Utilities
     @objc
     private func onRightButton(_ sender: Any?) {
-        
+        print("right")
     }
     
     @objc
     private func onLeftButton(_ sender: Any?) {
-        
+        print("left")
     }
 }
