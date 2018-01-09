@@ -10,7 +10,6 @@
 		C19A50075A154C6F8496D6D1 /* Pods_QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */; };
 		F506E3EC200545DE00DBC504 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EB200545DE00DBC504 /* MainViewController.swift */; };
 		F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EF200545F400DBC504 /* CameraViewController.swift */; };
-		F506E3F2200545FE00DBC504 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F1200545FE00DBC504 /* FavoritesViewController.swift */; };
 		F506E3F720054B2A00DBC504 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F620054B2A00DBC504 /* String.swift */; };
 		F506E3FA2005515E00DBC504 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F92005515E00DBC504 /* SettingsViewController.swift */; };
 		F506E3FF200553A100DBC504 /* TitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3FE200553A100DBC504 /* TitleImageCell.swift */; };
@@ -32,7 +31,6 @@
 		D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRCodeReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.debug.xcconfig"; sourceTree = "<group>"; };
 		F506E3EB200545DE00DBC504 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F506E3EF200545F400DBC504 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		F506E3F1200545FE00DBC504 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F506E3F620054B2A00DBC504 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F506E3F92005515E00DBC504 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F506E3FE200553A100DBC504 /* TitleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleImageCell.swift; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				F506E3F82005515600DBC504 /* Settings */,
-				F506E3EE200545E600DBC504 /* Favorites */,
 				F506E3ED200545E100DBC504 /* Camera */,
 				F506E3EB200545DE00DBC504 /* MainViewController.swift */,
 			);
@@ -96,14 +93,6 @@
 				F506E3EF200545F400DBC504 /* CameraViewController.swift */,
 			);
 			path = Camera;
-			sourceTree = "<group>";
-		};
-		F506E3EE200545E600DBC504 /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-				F506E3F1200545FE00DBC504 /* FavoritesViewController.swift */,
-			);
-			path = Favorites;
 			sourceTree = "<group>";
 		};
 		F506E3F320054B1600DBC504 /* Utilities */ = {
@@ -388,7 +377,6 @@
 				F506E3F720054B2A00DBC504 /* String.swift in Sources */,
 				F506E4102005553F00DBC504 /* Font.swift in Sources */,
 				F506E3FA2005515E00DBC504 /* SettingsViewController.swift in Sources */,
-				F506E3F2200545FE00DBC504 /* FavoritesViewController.swift in Sources */,
 				F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */,
 				F506E41320055E7C00DBC504 /* RadioImageCell.swift in Sources */,
 			);

@@ -11,18 +11,18 @@ import Foundation
 
 private enum TabTitles: String, CustomStringConvertible {
     case camera
-    case favorite
+    case settings
     
     internal var description: String {
         return rawValue.capitalizeFirst()
     }
     
-    static let allValues = [camera, favorite]
+    static let allValues = [camera, settings]
 }
 
 private var tabIcons = [
     TabTitles.camera: "camera",
-    TabTitles.favorite: "favorite"
+    TabTitles.settings: "settings"
 ]
 
 class MainViewController: UITabBarController {
@@ -34,7 +34,7 @@ class MainViewController: UITabBarController {
         
         /// Setup datasource
         results.append(self.cameraFlow)
-        results.append(self.favoriteFlow)
+        results.append(self.settingsFlow)
         
         return results
     }()
@@ -43,15 +43,6 @@ class MainViewController: UITabBarController {
     lazy var cameraFlow: UINavigationController = {
        
         let vc = CameraViewController()
-        let navigation = UINavigationController(rootViewController: vc)
-        navigation.navigationBar.isTranslucent = false
-        
-        return navigation
-    }()
-    
-    lazy var favoriteFlow: UINavigationController = {
-       
-        let vc = FavoritesViewController()
         let navigation = UINavigationController(rootViewController: vc)
         navigation.navigationBar.isTranslucent = false
         
