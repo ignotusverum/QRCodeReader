@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setupFlows()
         
+        UIFont.familyNames.forEach({ familyName in
+            let fontNames = UIFont.fontNames(forFamilyName: familyName)
+            print(familyName, fontNames)
+        })
+        
         return true
     }
     

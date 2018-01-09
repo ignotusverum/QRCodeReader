@@ -11,6 +11,15 @@ import Foundation
 
 class CameraViewController: UIViewController {
     
+    // MARK: Controller lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        layoutSetup()
+    }
     
-    
+    private func layoutSetup() {
+        
+        setNavigationImage(#imageLiteral(resourceName: "logo"))
+    }
 }

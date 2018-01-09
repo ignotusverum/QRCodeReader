@@ -16,7 +16,7 @@ extension UIViewController {
         
         let label = UILabel()
         label.text = titleText
-        label.font = UIFont.type(type: .markPro, style: .medium, size: 16)
+        label.font = UIFont.type(type: .markPro, size: 24)
         
         label.sizeToFit()
         navigationItem.titleView = label

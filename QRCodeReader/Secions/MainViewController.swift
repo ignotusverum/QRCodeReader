@@ -62,8 +62,6 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationImage(#imageLiteral(resourceName: "logo"))
-        
         /// Init controllers
         viewControllers = controllers
         

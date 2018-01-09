@@ -11,7 +11,7 @@ import Foundation
 
 enum FontType: String {
     case markPro = "MarkOT"
-    case sharpSans = "SharpSans"
+    case sharpSans = "SharpSansNo1"
 }
 
 enum FontStyle: String {
@@ -27,7 +27,8 @@ extension UIFont {
     
     /// Default font setup
     static func type(type: FontType, style: FontStyle = .regular, size: CGFloat = 14)-> UIFont {
-        return UIFont(name: "\(type.rawValue)-\(style.rawValue)", size: size)!
+        let style = style != .regular ? "-\(style.rawValue)" : ""
+        return UIFont(name: "\(type.rawValue)\(style)", size: size)!
     }
 }
 
