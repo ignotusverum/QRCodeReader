@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C19A50075A154C6F8496D6D1 /* Pods_QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */; };
 		F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E4E2005295700CB4D94 /* AppDelegate.swift */; };
 		F5786E512005295700CB4D94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E502005295700CB4D94 /* ViewController.swift */; };
 		F5786E542005295700CB4D94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E522005295700CB4D94 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DAF3606AC0631159D451D28 /* Pods-QRCodeReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRCodeReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.release.xcconfig"; sourceTree = "<group>"; };
+		2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRCodeReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.debug.xcconfig"; sourceTree = "<group>"; };
 		F5786E4B2005295700CB4D94 /* QRCodeReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5786E4E2005295700CB4D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5786E502005295700CB4D94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19A50075A154C6F8496D6D1 /* Pods_QRCodeReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BB5F325B5D17B9B9586F67D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB7BFADC572B856C3C78142D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */,
+				1DAF3606AC0631159D451D28 /* Pods-QRCodeReader.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F5786E422005295700CB4D94 = {
 			isa = PBXGroup;
 			children = (
 				F5786E4D2005295700CB4D94 /* QRCodeReader */,
 				F5786E4C2005295700CB4D94 /* Products */,
+				AB7BFADC572B856C3C78142D /* Pods */,
+				2BB5F325B5D17B9B9586F67D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5786E5D2005295700CB4D94 /* Build configuration list for PBXNativeTarget "QRCodeReader" */;
 			buildPhases = (
+				2E252C6CE0B0C1883C334E20 /* [CP] Check Pods Manifest.lock */,
 				F5786E472005295700CB4D94 /* Sources */,
 				F5786E482005295700CB4D94 /* Frameworks */,
 				F5786E492005295700CB4D94 /* Resources */,
+				6556641EC2FCB65663A5A729 /* [CP] Embed Pods Frameworks */,
+				A328465D8F0F00497F1AF5EB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E252C6CE0B0C1883C334E20 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QRCodeReader-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6556641EC2FCB65663A5A729 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A328465D8F0F00497F1AF5EB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F5786E472005295700CB4D94 /* Sources */ = {
@@ -272,6 +353,7 @@
 		};
 		F5786E5E2005295700CB4D94 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +369,7 @@
 		};
 		F5786E5F2005295700CB4D94 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DAF3606AC0631159D451D28 /* Pods-QRCodeReader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

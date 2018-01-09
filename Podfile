@@ -9,6 +9,5 @@ def shared_pods
 end
 
 target ‘QRCodeReader’ do
-    pod 'Firebase/Auth', '~> 4.4.0'
     shared_pods
 end
