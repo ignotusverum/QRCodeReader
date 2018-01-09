@@ -11,18 +11,18 @@ import Foundation
 
 private enum TabTitles: String, CustomStringConvertible {
     case camera
-    case favorites
+    case favorite
     
     internal var description: String {
         return rawValue.capitalizeFirst()
     }
     
-    static let allValues = [camera, favorites]
+    static let allValues = [camera, favorite]
 }
 
 private var tabIcons = [
     TabTitles.camera: "camera",
-    TabTitles.favorites: "favorites"
+    TabTitles.favorite: "favorite"
 ]
 
 class MainViewController: UITabBarController {
@@ -34,7 +34,7 @@ class MainViewController: UITabBarController {
         
         /// Setup datasource
         results.append(self.cameraFlow)
-        results.append(self.favoritesFlow)
+        results.append(self.favoriteFlow)
         
         return results
     }()
@@ -44,14 +44,16 @@ class MainViewController: UITabBarController {
        
         let vc = CameraViewController()
         let navigation = UINavigationController(rootViewController: vc)
+        navigation.navigationBar.isTranslucent = false
         
         return navigation
     }()
     
-    lazy var favoritesFlow: UINavigationController = {
+    lazy var favoriteFlow: UINavigationController = {
        
         let vc = FavoritesViewController()
         let navigation = UINavigationController(rootViewController: vc)
+        navigation.navigationBar.isTranslucent = false
         
         return navigation
     }()
@@ -94,8 +96,8 @@ class MainViewController: UITabBarController {
                 return
             }
             
-            item.tag = index
             item.image = UIImage(named: tabBarItem.description)
+            item.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
             item.selectedImage = UIImage(named: "\(tabBarItem.description)_selected")
         }
     }

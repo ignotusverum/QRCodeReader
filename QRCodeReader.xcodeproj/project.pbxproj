@@ -13,7 +13,6 @@
 		F506E3F2200545FE00DBC504 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F1200545FE00DBC504 /* FavoritesViewController.swift */; };
 		F506E3F720054B2A00DBC504 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F620054B2A00DBC504 /* String.swift */; };
 		F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E4E2005295700CB4D94 /* AppDelegate.swift */; };
-		F5786E542005295700CB4D94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E522005295700CB4D94 /* Main.storyboard */; };
 		F5786E562005295700CB4D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5786E552005295700CB4D94 /* Assets.xcassets */; };
 		F5786E592005295700CB4D94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E572005295700CB4D94 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -28,7 +27,6 @@
 		F506E3F620054B2A00DBC504 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F5786E4B2005295700CB4D94 /* QRCodeReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5786E4E2005295700CB4D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F5786E532005295700CB4D94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5786E552005295700CB4D94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5786E582005295700CB4D94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5786E5A2005295700CB4D94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				F506E3F320054B1600DBC504 /* Utilities */,
 				F506E3EA200545CC00DBC504 /* Secions */,
 				F5786E4E2005295700CB4D94 /* AppDelegate.swift */,
-				F5786E522005295700CB4D94 /* Main.storyboard */,
 				F5786E552005295700CB4D94 /* Assets.xcassets */,
 				F5786E572005295700CB4D94 /* LaunchScreen.storyboard */,
 				F5786E5A2005295700CB4D94 /* Info.plist */,
@@ -209,7 +206,6 @@
 			files = (
 				F5786E592005295700CB4D94 /* LaunchScreen.storyboard in Resources */,
 				F5786E562005295700CB4D94 /* Assets.xcassets in Resources */,
-				F5786E542005295700CB4D94 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,14 +281,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F5786E522005295700CB4D94 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5786E532005295700CB4D94 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F5786E572005295700CB4D94 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -419,6 +407,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9CHSEMW6LK;
 				INFOPLIST_FILE = QRCodeReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Fevo.QRCodeReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -435,6 +424,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9CHSEMW6LK;
 				INFOPLIST_FILE = QRCodeReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Fevo.QRCodeReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
