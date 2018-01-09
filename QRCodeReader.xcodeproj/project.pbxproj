@@ -20,6 +20,7 @@
 		F506E40B2005549400DBC504 /* MarkOT-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E40A2005549400DBC504 /* MarkOT-Medium.otf */; };
 		F506E40D2005549A00DBC504 /* MarkOT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E40C2005549A00DBC504 /* MarkOT-Bold.otf */; };
 		F506E4102005553F00DBC504 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E40F2005553F00DBC504 /* Font.swift */; };
+		F506E41320055E7C00DBC504 /* RadioImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41220055E7C00DBC504 /* RadioImageCell.swift */; };
 		F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E4E2005295700CB4D94 /* AppDelegate.swift */; };
 		F5786E562005295700CB4D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5786E552005295700CB4D94 /* Assets.xcassets */; };
 		F5786E592005295700CB4D94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E572005295700CB4D94 /* LaunchScreen.storyboard */; };
@@ -41,6 +42,7 @@
 		F506E40A2005549400DBC504 /* MarkOT-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkOT-Medium.otf"; sourceTree = "<group>"; };
 		F506E40C2005549A00DBC504 /* MarkOT-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkOT-Bold.otf"; sourceTree = "<group>"; };
 		F506E40F2005553F00DBC504 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		F506E41220055E7C00DBC504 /* RadioImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioImageCell.swift; sourceTree = "<group>"; };
 		F5786E4B2005295700CB4D94 /* QRCodeReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5786E4E2005295700CB4D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5786E552005295700CB4D94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		F506E3FC2005539100DBC504 /* CollectionCells */ = {
 			isa = PBXGroup;
 			children = (
+				F506E41120055E7200DBC504 /* RadioImage */,
 				F506E3FD2005539800DBC504 /* TitleImage */,
 			);
 			path = CollectionCells;
@@ -203,6 +206,14 @@
 				F506E40F2005553F00DBC504 /* Font.swift */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		F506E41120055E7200DBC504 /* RadioImage */ = {
+			isa = PBXGroup;
+			children = (
+				F506E41220055E7C00DBC504 /* RadioImageCell.swift */,
+			);
+			path = RadioImage;
 			sourceTree = "<group>";
 		};
 		F5786E422005295700CB4D94 = {
@@ -379,6 +390,7 @@
 				F506E3FA2005515E00DBC504 /* SettingsViewController.swift in Sources */,
 				F506E3F2200545FE00DBC504 /* FavoritesViewController.swift in Sources */,
 				F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */,
+				F506E41320055E7C00DBC504 /* RadioImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
