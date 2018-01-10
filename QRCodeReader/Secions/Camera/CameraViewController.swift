@@ -51,6 +51,7 @@ class CameraViewController: UIViewController {
         
         /// QR reader view layout
         view.addSubview(qrReaderView)
+        qrReaderView.delegate = self
         qrReaderView.snp.makeConstraints { [unowned self] maker in
             maker.top.bottom.left.right.equalTo(self.view)
         }
@@ -98,5 +99,19 @@ class CameraViewController: UIViewController {
     @objc
     private func onFlash(_ sender: UIButton?) {
         qrReaderView.toggleFlash()
+    }
+}
+
+extension CameraViewController: QRReaderViewDelegate {
+    
+    /// Failed to get current camera
+    func qrReader(_ qrReader: QRReaderView, failedToGetCamera error: Error) {
+        
+    }
+    
+    /// Discovered output
+    func qrReader(_ qrReader: QRReaderView, didOutput: String) {
+        
+       print(didOutput)
     }
 }

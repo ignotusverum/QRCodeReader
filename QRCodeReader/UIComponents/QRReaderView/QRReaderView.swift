@@ -31,7 +31,7 @@ protocol QRReaderViewDelegate {
     func qrReader(_ qrReader: QRReaderView, failedToGetCamera error: Error)
     
     /// Discovered output
-    func qrReader(_ qrReader: QRReaderView, didOutput: [AVMetadataObject])
+    func qrReader(_ qrReader: QRReaderView, didOutput:String)
 }
 
 class QRReaderView: UIView {
@@ -151,7 +151,20 @@ extension QRReaderView: AVCaptureMetadataOutputObjectsDelegate {
             return
         }
         
-        /// Discovered metadata objects
-        delegate?.qrReader(self, didOutput: metadataObjects)
+        // Get the metadata object.
+        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        
+        if supportedCodeTypes.contains(metadataObj.type) {
+            // If the found metadata is equal to the QR code metadata (or barcode) then update the status label's text and set the bounds
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            qrCodeFrameView?.frame = barCodeObject!.bounds
+            
+            guard let metadataString = metadataObj.stringValue else {
+                return
+            }
+            
+            /// Discovered metadata objects
+            delegate?.qrReader(self, didOutput: metadataString)
+        }
     }
 }
