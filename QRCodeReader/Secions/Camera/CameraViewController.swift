@@ -77,10 +77,16 @@ class CameraViewController: UIViewController {
         
         /// Layer updates
         galleryButton.layer.cornerRadius = galleryButton.frame.width / 2
+        
         galleryButton.clipsToBounds = true
+        galleryButton.layer.borderWidth = 1
+        galleryButton.layer.borderColor = UIColor.blue.cgColor
         
         flashButton.layer.cornerRadius = flashButton.frame.width / 2
+        
         flashButton.clipsToBounds = true
+        flashButton.layer.borderWidth = 1
+        flashButton.layer.borderColor = UIColor.blue.cgColor
     }
     
     // MARK: Utilities
@@ -91,6 +97,6 @@ class CameraViewController: UIViewController {
     
     @objc
     private func onFlash(_ sender: UIButton?) {
-        print("flash")
+        qrReaderView.toggleFlash()
     }
 }

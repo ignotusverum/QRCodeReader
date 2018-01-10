@@ -38,6 +38,9 @@ class QRReaderView: UIView {
     
     var delegate: QRReaderViewDelegate?
     
+    /// Device configurations
+    var device: AVCaptureDevice?
+    
     /// QR session capture
     var qrCodeFrameView: UIView?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -65,7 +68,7 @@ class QRReaderView: UIView {
     }
     
     private func cameraSetup() {
-        
+       
         // Get the back-facing camera for capturing videos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
         
@@ -75,10 +78,13 @@ class QRReaderView: UIView {
             return
         }
         
+        device = captureDevice
+        
         do {
+            
             // Get an instance of the AVCaptureDeviceInput class using the previous device object.
             let input = try AVCaptureDeviceInput(device: captureDevice)
-            
+
             // Set the input device on the capture session.
             captureSession.addInput(input)
             
@@ -117,6 +123,22 @@ class QRReaderView: UIView {
         qrCodeFrameView.layer.borderWidth = 2
         addSubview(qrCodeFrameView)
         bringSubview(toFront: qrCodeFrameView)
+    }
+    
+    func toggleFlash() {
+        
+        /// Tourch is not available
+        guard let device = device, device.hasTorch == true else {
+            return
+        }
+        
+        /// Toggle harware torch
+        do {
+            try device.lockForConfiguration()
+            device.torchMode = device.torchMode == .on ? .off : .on
+        } catch {
+            print("configuration issues")
+        }
     }
 }
 
