@@ -20,6 +20,7 @@
 		F506E4102005553F00DBC504 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E40F2005553F00DBC504 /* Font.swift */; };
 		F506E41320055E7C00DBC504 /* TitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41220055E7C00DBC504 /* TitleImageCell.swift */; };
 		F506E41620056E5B00DBC504 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41520056E5B00DBC504 /* ViewController.swift */; };
+		F5673FAB2006B4B70024B663 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAA2006B4B70024B663 /* Button.swift */; };
 		F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E4E2005295700CB4D94 /* AppDelegate.swift */; };
 		F5786E562005295700CB4D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5786E552005295700CB4D94 /* Assets.xcassets */; };
 		F5786E592005295700CB4D94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E572005295700CB4D94 /* LaunchScreen.storyboard */; };
@@ -41,6 +42,7 @@
 		F506E40F2005553F00DBC504 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		F506E41220055E7C00DBC504 /* TitleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleImageCell.swift; sourceTree = "<group>"; };
 		F506E41520056E5B00DBC504 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F5673FAA2006B4B70024B663 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		F5786E4B2005295700CB4D94 /* QRCodeReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5786E4E2005295700CB4D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5786E552005295700CB4D94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		F506E3F420054B1E00DBC504 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F5673FA92006B4B10024B663 /* Button */,
 				F506E41420056E5300DBC504 /* ViewController */,
 				F506E40E2005553A00DBC504 /* Font */,
 				F506E3F520054B2600DBC504 /* String */,
@@ -204,6 +207,14 @@
 				F506E41520056E5B00DBC504 /* ViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F5673FA92006B4B10024B663 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				F5673FAA2006B4B70024B663 /* Button.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		F5786E422005295700CB4D94 = {
@@ -379,6 +390,7 @@
 				F506E3FA2005515E00DBC504 /* SettingsViewController.swift in Sources */,
 				F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */,
 				F506E41620056E5B00DBC504 /* ViewController.swift in Sources */,
+				F5673FAB2006B4B70024B663 /* Button.swift in Sources */,
 				F506E41320055E7C00DBC504 /* TitleImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,7 +526,7 @@
 				INFOPLIST_FILE = QRCodeReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Fevo.QRCodeReader;
+				PRODUCT_BUNDLE_IDENTIFIER = vz.QRCodeReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -531,7 +543,7 @@
 				INFOPLIST_FILE = QRCodeReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Fevo.QRCodeReader;
+				PRODUCT_BUNDLE_IDENTIFIER = vz.QRCodeReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

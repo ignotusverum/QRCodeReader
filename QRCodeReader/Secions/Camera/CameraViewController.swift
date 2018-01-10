@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Foundation
+import SnapKit
 import AVFoundation
 
 class CameraViewController: UIViewController {
@@ -18,18 +18,24 @@ class CameraViewController: UIViewController {
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     
     /// Camera roll button
-    lazy var rightButton: UIBarButtonItem = {
+    lazy var galleryButton: UIButton = {
        
-        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "camera-roll"), style: .plain, target: self, action: #selector(onRightButton(_:)))
-        button.tintColor = .black
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "camera-roll"), for: .normal)
+        button.setBackgroundColor(.white, forState: .normal)
+        button.addTarget(self, action: #selector(onGallery(_:)), for: .touchUpInside)
+        
         return button
     }()
     
     /// Flashlight button
-    lazy var leftButton: UIBarButtonItem = {
-    
-        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "flash"), style: .plain, target: self, action: #selector(onLeftButton(_:)))
-        button.tintColor = .black
+    lazy var flashButton: UIButton = {
+       
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "flash"), for: .normal)
+        button.setBackgroundColor(.white, forState: .normal)
+        button.addTarget(self, action: #selector(onFlash(_:)), for: .touchUpInside)
+        
         return button
     }()
     
@@ -43,22 +49,46 @@ class CameraViewController: UIViewController {
     
     private func layoutSetup() {
      
-        navigationItem.leftBarButtonItem = leftButton
-        navigationItem.rightBarButtonItem = rightButton
-        
         setNavigationImage(#imageLiteral(resourceName: "logo"))
-        view.backgroundColor = .white
+        view.backgroundColor = .black
+        
+        /// Flash button layout
+        view.addSubview(flashButton)
+        flashButton.snp.makeConstraints { [unowned self] maker in
+            maker.bottom.equalTo(self.view).offset(-80)
+            maker.left.equalTo(self.view).offset(70)
+            maker.width.height.equalTo(80)
+        }
+        
+        /// Gallery button layout
+        view.addSubview(galleryButton)
+        galleryButton.snp.makeConstraints { [unowned self] maker in
+            maker.bottom.equalTo(self.view).offset(-80)
+            maker.right.equalTo(self.view).offset(-70)
+            maker.width.height.equalTo(80)
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        /// Layer updates
+        galleryButton.layer.cornerRadius = galleryButton.frame.width / 2
+        galleryButton.clipsToBounds = true
+        
+        flashButton.layer.cornerRadius = flashButton.frame.width / 2
+        flashButton.clipsToBounds = true
     }
     
     // MARK: Utilities
     @objc
-    private func onRightButton(_ sender: Any?) {
-        print("right")
+    private func onGallery(_ sender: UIButton?) {
+        print("gallery")
     }
     
     @objc
-    private func onLeftButton(_ sender: Any?) {
-        print("left")
+    private func onFlash(_ sender: UIButton?) {
+        print("flash")
     }
     
     private func cameraSetup() {
