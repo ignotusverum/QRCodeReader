@@ -16,7 +16,7 @@ class CameraViewController: UIViewController {
     lazy var qrReaderView: QRReaderView = QRReaderView()
     
     /// Camera roll button
-    lazy var galleryButton: UIButton = {
+    lazy var galleryButton: UIButton = { [unowned self] in
        
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "camera-roll"), for: .normal)
@@ -27,7 +27,7 @@ class CameraViewController: UIViewController {
     }()
     
     /// Flashlight button
-    lazy var flashButton: UIButton = {
+    lazy var flashButton: UIButton = { [unowned self] in
        
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "flash"), for: .normal)
@@ -59,7 +59,7 @@ class CameraViewController: UIViewController {
         view.addSubview(flashButton)
         flashButton.snp.makeConstraints { [unowned self] maker in
             maker.bottom.equalTo(self.view).offset(-80)
-            maker.left.equalTo(self.view).offset(70)
+            maker.centerX.equalTo(self.view).offset(-60)
             maker.width.height.equalTo(80)
         }
         
@@ -67,7 +67,7 @@ class CameraViewController: UIViewController {
         view.addSubview(galleryButton)
         galleryButton.snp.makeConstraints { [unowned self] maker in
             maker.bottom.equalTo(self.view).offset(-80)
-            maker.right.equalTo(self.view).offset(-70)
+            maker.centerX.equalTo(self.view).offset(60)
             maker.width.height.equalTo(80)
         }
     }
@@ -80,13 +80,13 @@ class CameraViewController: UIViewController {
         
         galleryButton.clipsToBounds = true
         galleryButton.layer.borderWidth = 1
-        galleryButton.layer.borderColor = UIColor.blue.cgColor
+        galleryButton.layer.borderColor = UIColor.black.cgColor
         
         flashButton.layer.cornerRadius = flashButton.frame.width / 2
         
         flashButton.clipsToBounds = true
         flashButton.layer.borderWidth = 1
-        flashButton.layer.borderColor = UIColor.blue.cgColor
+        flashButton.layer.borderColor = UIColor.black.cgColor
     }
     
     // MARK: Utilities
