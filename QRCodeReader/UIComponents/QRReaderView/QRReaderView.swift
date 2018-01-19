@@ -12,26 +12,38 @@ import AVFoundation
 
 enum QRReaderError: Error {
     
-    case devideNotAvailable
+    case invalidLink
+    case noQRDetected
     case inputNotAvailable
+    case devideNotAvailable
+}
+
+extension QRReaderError: LocalizedError {
     
-    func copy()-> String {
+    public var errorDescription: String? {
         switch self {
-        case .devideNotAvailable:
-            return "Whoops, please check your camera permissions in settings"
         case .inputNotAvailable:
             return "Whoops, please try again later"
+        case .invalidLink:
+            return "Whoops, looks like this link is invalid"
+        case .devideNotAvailable:
+            return "Whoops, please check your camera permissions in settings"
+        case .noQRDetected:
+            return "Whoops, we were unable to detect any qr code in that image"
         }
     }
 }
 
 protocol QRReaderViewDelegate {
     
+    /// Discovered output
+    func qrReader(_ qrReader: QRReaderView, didOutput url: URL)
+    
+    /// Failed to detect code
+    func qrReader(_ qrReader: QRReaderView, failedToDetect error: Error)
+    
     /// Failed to get current camera
     func qrReader(_ qrReader: QRReaderView, failedToGetCamera error: Error)
-    
-    /// Discovered output
-    func qrReader(_ qrReader: QRReaderView, didOutput:String)
 }
 
 class QRReaderView: UIView {
@@ -39,34 +51,41 @@ class QRReaderView: UIView {
     var delegate: QRReaderViewDelegate?
     
     /// Device configurations
-    var device: AVCaptureDevice?
+    private var device: AVCaptureDevice?
+    
+    /// Should show error
+    /// Checks if previous validation was successfull
+    var isNeedToShowError: Bool = true
     
     /// QR session capture
-    var qrCodeFrameView: UIView?
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    var captureSession: AVCaptureSession = AVCaptureSession()
+    private var qrCodeFrameView: UIView?
+    private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    private var captureSession: AVCaptureSession = AVCaptureSession()
     
     /// QR Code types
-    private let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
-                                      AVMetadataObject.ObjectType.code39,
-                                      AVMetadataObject.ObjectType.code39Mod43,
-                                      AVMetadataObject.ObjectType.code93,
-                                      AVMetadataObject.ObjectType.code128,
-                                      AVMetadataObject.ObjectType.ean8,
-                                      AVMetadataObject.ObjectType.ean13,
-                                      AVMetadataObject.ObjectType.aztec,
-                                      AVMetadataObject.ObjectType.pdf417,
-                                      AVMetadataObject.ObjectType.itf14,
-                                      AVMetadataObject.ObjectType.dataMatrix,
-                                      AVMetadataObject.ObjectType.interleaved2of5,
-                                      AVMetadataObject.ObjectType.qr]
+    private let supportedCodeTypes: [AVMetadataObject.ObjectType] = [.qr,
+                                                                     .dataMatrix,
+                                                                     .pdf417]
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    // MARK: Initialization
+    init() {
+        super.init(frame: .zero)
         
         cameraSetup()
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        /// Preview layout
+        videoPreviewLayer?.frame = layer.bounds
+    }
+    
+    // MARK: Setup
     private func cameraSetup() {
        
         // Get the back-facing camera for capturing videos
@@ -81,16 +100,19 @@ class QRReaderView: UIView {
         device = captureDevice
         
         do {
-            
             // Get an instance of the AVCaptureDeviceInput class using the previous device object.
             let input = try AVCaptureDeviceInput(device: captureDevice)
 
             // Set the input device on the capture session.
-            captureSession.addInput(input)
+            if captureSession.inputs.isEmpty {
+                captureSession.addInput(input)
+            }
             
             // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
             let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession.addOutput(captureMetadataOutput)
+            if captureSession.outputs.isEmpty {
+                captureSession.addOutput(captureMetadataOutput)
+            }
             
             // Set delegate and use the default dispatch queue to execute the call back
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
@@ -106,7 +128,6 @@ class QRReaderView: UIView {
         // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer?.frame = layer.bounds
         layer.addSublayer(videoPreviewLayer!)
         
         // Start video capture.
@@ -125,6 +146,7 @@ class QRReaderView: UIView {
         bringSubview(toFront: qrCodeFrameView)
     }
     
+    // MARK: Utilities
     func toggleFlash() {
         
         /// Tourch is not available
@@ -140,6 +162,49 @@ class QRReaderView: UIView {
             print("configuration issues")
         }
     }
+    
+    func performQRCodeDetection(image: UIImage) {
+        
+        /// Transform
+        guard let ciImage = CIImage(image: image) else {
+            
+            /// Error handler
+            delegate?.qrReader(self, failedToDetect: QRReaderError.noQRDetected)
+            
+            return
+        }
+        
+        /// Get qr code from image
+        var result: String?
+        let detector = prepareQRCodeDetector()
+        let features = detector.features(in: ciImage)
+        for feature in features as! [CIQRCodeFeature] {
+            result = feature.messageString
+        }
+        
+        /// Detection handler
+        guard let resultString = result else {
+            delegate?.qrReader(self, failedToDetect: QRReaderError.noQRDetected)
+            return
+        }
+        
+        guard let url = URL(string: resultString) else {
+            delegate?.qrReader(self, failedToDetect: QRReaderError.invalidLink)
+            return
+        }
+        
+        delegate?.qrReader(self, didOutput: url)
+    }
+    
+    func startCapture() {
+        captureSession.startRunning()
+        qrCodeFrameView?.frame = .zero
+    }
+    
+    private func prepareQRCodeDetector() -> CIDetector {
+        let options = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
+        return CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: options)!
+    }
 }
 
 extension QRReaderView: AVCaptureMetadataOutputObjectsDelegate {
@@ -152,7 +217,16 @@ extension QRReaderView: AVCaptureMetadataOutputObjectsDelegate {
         }
         
         // Get the metadata object.
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        guard let metadataObj = metadataObjects[0] as? AVMetadataMachineReadableCodeObject else {
+            
+            if isNeedToShowError {
+                delegate?.qrReader(self, failedToDetect: QRReaderError.invalidLink)
+            }
+            
+            isNeedToShowError = false
+            
+            return
+        }
         
         if supportedCodeTypes.contains(metadataObj.type) {
             // If the found metadata is equal to the QR code metadata (or barcode) then update the status label's text and set the bounds
@@ -160,11 +234,33 @@ extension QRReaderView: AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             guard let metadataString = metadataObj.stringValue else {
+                
+                if isNeedToShowError {
+                    delegate?.qrReader(self, failedToDetect: QRReaderError.noQRDetected)
+                }
+                
+                isNeedToShowError = false
+                return
+            }
+            
+            /// Check if url is valid
+            guard let url = URL(string: metadataString), UIApplication.shared.canOpenURL(url) else {
+                
+                if isNeedToShowError {
+                    delegate?.qrReader(self, failedToDetect: QRReaderError.invalidLink)
+                }
+                
+                isNeedToShowError = false
                 return
             }
             
             /// Discovered metadata objects
-            delegate?.qrReader(self, didOutput: metadataString)
+            delegate?.qrReader(self, didOutput: url)
+            
+            /// Stop
+            captureSession.stopRunning()
+            
+            isNeedToShowError = true
         }
     }
 }

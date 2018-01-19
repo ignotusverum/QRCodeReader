@@ -9,17 +9,28 @@
 import UIKit
 import SnapKit
 import AVFoundation
+import SafariServices
+import JDStatusBarNotification
 
 class CameraViewController: UIViewController {
+    
+    /// Success/Failure feedback
+    let generator = UINotificationFeedbackGenerator()
     
     /// QR Code reader view
     lazy var qrReaderView: QRReaderView = QRReaderView()
     
+    /// Empty view for camera permissions
+    lazy var emptyView: EmptyView = EmptyView(title: "Please check your camera permissions in settings")
+    
+    /// Gallery image picker
+    var imagePicker = UIImagePickerController()
+    
     /// Camera roll button
     lazy var galleryButton: UIButton = { [unowned self] in
        
-        let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "camera-roll"), for: .normal)
+        let button = UIButton.button(style: .gradient)
+        button.setImage(#imageLiteral(resourceName: "gallery"), for: .normal)
         button.setBackgroundColor(.white, forState: .normal)
         button.addTarget(self, action: #selector(onGallery(_:)), for: .touchUpInside)
         
@@ -29,7 +40,7 @@ class CameraViewController: UIViewController {
     /// Flashlight button
     lazy var flashButton: UIButton = { [unowned self] in
        
-        let button = UIButton()
+        let button = UIButton.button(style: .gradient)
         button.setImage(#imageLiteral(resourceName: "flash"), for: .normal)
         button.setBackgroundColor(.white, forState: .normal)
         button.addTarget(self, action: #selector(onFlash(_:)), for: .touchUpInside)
@@ -42,6 +53,25 @@ class CameraViewController: UIViewController {
         super.viewDidLoad()
         
         layoutSetup()
+        
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { [unowned self] response in
+            DispatchQueue.main.sync {
+                self.emptyViewLayout()
+            }
+        }
+        
+        /// Wake notification
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidWake), name: NSNotification.Name(rawValue: AppWakeNotificationKey), object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        qrReaderView.startCapture()
+    }
+    
+    @objc func appDidWake() {
+        emptyViewLayout()
     }
     
     private func layoutSetup() {
@@ -77,41 +107,96 @@ class CameraViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         /// Layer updates
+        flashButton.layer.cornerRadius = flashButton.frame.width / 2
         galleryButton.layer.cornerRadius = galleryButton.frame.width / 2
         
-        galleryButton.clipsToBounds = true
-        galleryButton.layer.borderWidth = 1
-        galleryButton.layer.borderColor = UIColor.black.cgColor
-        
-        flashButton.layer.cornerRadius = flashButton.frame.width / 2
-        
         flashButton.clipsToBounds = true
-        flashButton.layer.borderWidth = 1
-        flashButton.layer.borderColor = UIColor.black.cgColor
+        galleryButton.clipsToBounds = true
     }
     
-    // MARK: Utilities
+    // MARK: Actions
     @objc
     private func onGallery(_ sender: UIButton?) {
-        print("gallery")
+        showGallery()
     }
     
     @objc
     private func onFlash(_ sender: UIButton?) {
         qrReaderView.toggleFlash()
     }
-}
-
-extension CameraViewController: QRReaderViewDelegate {
     
-    /// Failed to get current camera
-    func qrReader(_ qrReader: QRReaderView, failedToGetCamera error: Error) {
+    // MARK: Utilities
+    private func showGallery() {
         
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.navigationBar.isTranslucent = false
+        present(imagePicker, animated: true, completion: nil)
     }
     
-    /// Discovered output
-    func qrReader(_ qrReader: QRReaderView, didOutput: String) {
+    private func emptyViewLayout() {
+        if AVCaptureDevice.authorizationStatus(for: .video) == .denied {
+            /// Empty view setup
+            if !view.subviews.contains(emptyView) {
+                view.addSubview(emptyView)
+                emptyView.snp.makeConstraints { [unowned self] maker in
+                    maker.top.bottom.left.right.equalTo(self.view)
+                }
+            }
+        }
+    }
+    
+    fileprivate func openLink(_ URL: URL) {
         
-       print(didOutput)
+        let webController = WebViewController(url: URL)
+        let webFlow = UINavigationController(rootViewController: webController)
+        webFlow.navigationBar.isTranslucent = false
+        
+        webController.onClose { [unowned self] in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        present(webFlow, animated: true, completion: nil)
+    }
+    
+    fileprivate func showError(_ error: Error) {
+     
+        generator.notificationOccurred(.error)
+        JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
+    }
+}
+
+// MARK: QRReader delegate
+extension CameraViewController: QRReaderViewDelegate {
+    
+    /// Discovered output
+    func qrReader(_ qrReader: QRReaderView, didOutput url: URL) {
+
+        generator.notificationOccurred(.success)
+        openLink(url)
+    }
+    
+    func qrReader(_ qrReader: QRReaderView, failedToDetect error: Error) {
+        showError(error)
+    }
+    
+    func qrReader(_ qrReader: QRReaderView, failedToGetCamera error: Error) {
+        showError(error)
+    }
+}
+
+// MARK: ImagePickerController delegate
+extension CameraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        dismiss(animated: true) { [unowned self] in
+            
+            /// Safety check
+            guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage  else {
+                return
+            }
+            
+            self.qrReaderView.performQRCodeDetection(image: image)
+        }
     }
 }

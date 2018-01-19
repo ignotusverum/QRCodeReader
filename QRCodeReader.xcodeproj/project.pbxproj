@@ -8,10 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		C19A50075A154C6F8496D6D1 /* Pods_QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */; };
-		F506E3EC200545DE00DBC504 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EB200545DE00DBC504 /* MainViewController.swift */; };
+		F500CB0D200FE31B00D70260 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0C200FE31B00D70260 /* SettingsViewController.swift */; };
+		F500CB0F200FE32100D70260 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0E200FE32100D70260 /* MainViewController.swift */; };
+		F500CB12200FE4B900D70260 /* SignOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB11200FE4B900D70260 /* SignOutCell.swift */; };
+		F500CB15200FE8A700D70260 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB14200FE8A700D70260 /* WebViewController.swift */; };
+		F500CB1820113A3D00D70260 /* AccessoryCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB1720113A3D00D70260 /* AccessoryCellProtocol.swift */; };
+		F500CB1C2011403B00D70260 /* OnboardingRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB1B2011403B00D70260 /* OnboardingRouteHandler.swift */; };
+		F500CB1E2011409200D70260 /* TransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB1D2011409200D70260 /* TransitionHandler.swift */; };
 		F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EF200545F400DBC504 /* CameraViewController.swift */; };
 		F506E3F720054B2A00DBC504 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F620054B2A00DBC504 /* String.swift */; };
-		F506E3FA2005515E00DBC504 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F92005515E00DBC504 /* SettingsViewController.swift */; };
 		F506E4052005546900DBC504 /* SharpSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4032005546900DBC504 /* SharpSans-Bold.otf */; };
 		F506E4062005546A00DBC504 /* SharpSans-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4042005546900DBC504 /* SharpSans-BoldItalic.otf */; };
 		F506E4092005548E00DBC504 /* MarkOT.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4082005548E00DBC504 /* MarkOT.otf */; };
@@ -20,22 +25,63 @@
 		F506E4102005553F00DBC504 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E40F2005553F00DBC504 /* Font.swift */; };
 		F506E41320055E7C00DBC504 /* TitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41220055E7C00DBC504 /* TitleImageCell.swift */; };
 		F506E41620056E5B00DBC504 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41520056E5B00DBC504 /* ViewController.swift */; };
+		F50EE2692007E32600B489CE /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2682007E32600B489CE /* EmptyView.swift */; };
+		F50EE26F2007ECC100B489CE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE26E2007ECC100B489CE /* Colors.swift */; };
+		F50EE2732009089B00B489CE /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2722009089B00B489CE /* GradientButton.swift */; };
+		F50EE275200908F200B489CE /* GradientButtonStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */; };
+		F50EE2772009099200B489CE /* CircleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2762009099200B489CE /* CircleButtonStyle.swift */; };
 		F5673FAB2006B4B70024B663 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAA2006B4B70024B663 /* Button.swift */; };
-		F5673FAE2006B8010024B663 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAD2006B8010024B663 /* CameraManager.swift */; };
 		F5673FB12006BA0D0024B663 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FB02006BA0D0024B663 /* QRReaderView.swift */; };
 		F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E4E2005295700CB4D94 /* AppDelegate.swift */; };
 		F5786E562005295700CB4D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5786E552005295700CB4D94 /* Assets.xcassets */; };
 		F5786E592005295700CB4D94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E572005295700CB4D94 /* LaunchScreen.storyboard */; };
+		F5804038200FAE2600FD1268 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5804037200FAE2600FD1268 /* APIManager.swift */; };
+		F5969BF52011589200F27DD7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB14200FE8A700D70260 /* WebViewController.swift */; };
+		F5969BF62011589200F27DD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E4E2005295700CB4D94 /* AppDelegate.swift */; };
+		F5969BF72011589200F27DD7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE26E2007ECC100B489CE /* Colors.swift */; };
+		F5969BF82011589200F27DD7 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2682007E32600B489CE /* EmptyView.swift */; };
+		F5969BF92011589200F27DD7 /* AccessoryCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB1720113A3D00D70260 /* AccessoryCellProtocol.swift */; };
+		F5969BFA2011589200F27DD7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F620054B2A00DBC504 /* String.swift */; };
+		F5969BFB2011589200F27DD7 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2722009089B00B489CE /* GradientButton.swift */; };
+		F5969BFC2011589200F27DD7 /* OnboardingRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB1B2011403B00D70260 /* OnboardingRouteHandler.swift */; };
+		F5969BFD2011589200F27DD7 /* CircleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2762009099200B489CE /* CircleButtonStyle.swift */; };
+		F5969BFE2011589200F27DD7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5804037200FAE2600FD1268 /* APIManager.swift */; };
+		F5969BFF2011589200F27DD7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0E200FE32100D70260 /* MainViewController.swift */; };
+		F5969C002011589200F27DD7 /* TransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB1D2011409200D70260 /* TransitionHandler.swift */; };
+		F5969C012011589200F27DD7 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E40F2005553F00DBC504 /* Font.swift */; };
+		F5969C022011589200F27DD7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0C200FE31B00D70260 /* SettingsViewController.swift */; };
+		F5969C032011589200F27DD7 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FB02006BA0D0024B663 /* QRReaderView.swift */; };
+		F5969C042011589200F27DD7 /* SignOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB11200FE4B900D70260 /* SignOutCell.swift */; };
+		F5969C052011589200F27DD7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EF200545F400DBC504 /* CameraViewController.swift */; };
+		F5969C062011589200F27DD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41520056E5B00DBC504 /* ViewController.swift */; };
+		F5969C072011589200F27DD7 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAA2006B4B70024B663 /* Button.swift */; };
+		F5969C082011589200F27DD7 /* TitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41220055E7C00DBC504 /* TitleImageCell.swift */; };
+		F5969C092011589200F27DD7 /* GradientButtonStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */; };
+		F5969C0B2011589200F27DD7 /* Pods_QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */; };
+		F5969C0D2011589200F27DD7 /* SharpSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4032005546900DBC504 /* SharpSans-Bold.otf */; };
+		F5969C0E2011589200F27DD7 /* MarkOT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E40C2005549A00DBC504 /* MarkOT-Bold.otf */; };
+		F5969C0F2011589200F27DD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E572005295700CB4D94 /* LaunchScreen.storyboard */; };
+		F5969C102011589200F27DD7 /* SharpSans-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4042005546900DBC504 /* SharpSans-BoldItalic.otf */; };
+		F5969C112011589200F27DD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5786E552005295700CB4D94 /* Assets.xcassets */; };
+		F5969C122011589200F27DD7 /* MarkOT-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E40A2005549400DBC504 /* MarkOT-Medium.otf */; };
+		F5969C132011589200F27DD7 /* MarkOT.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4082005548E00DBC504 /* MarkOT.otf */; };
+		F5969C2020115BC500F27DD7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5969C1F20115BC500F27DD7 /* Config.swift */; };
+		F5969C2120115BC900F27DD7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5969C1F20115BC500F27DD7 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1DAF3606AC0631159D451D28 /* Pods-QRCodeReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRCodeReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.release.xcconfig"; sourceTree = "<group>"; };
 		2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRCodeReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.debug.xcconfig"; sourceTree = "<group>"; };
-		F506E3EB200545DE00DBC504 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F500CB0C200FE31B00D70260 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F500CB0E200FE32100D70260 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F500CB11200FE4B900D70260 /* SignOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutCell.swift; sourceTree = "<group>"; };
+		F500CB14200FE8A700D70260 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		F500CB1720113A3D00D70260 /* AccessoryCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryCellProtocol.swift; sourceTree = "<group>"; };
+		F500CB1B2011403B00D70260 /* OnboardingRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouteHandler.swift; sourceTree = "<group>"; };
+		F500CB1D2011409200D70260 /* TransitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionHandler.swift; sourceTree = "<group>"; };
 		F506E3EF200545F400DBC504 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		F506E3F620054B2A00DBC504 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		F506E3F92005515E00DBC504 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F506E4032005546900DBC504 /* SharpSans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SharpSans-Bold.otf"; sourceTree = "<group>"; };
 		F506E4042005546900DBC504 /* SharpSans-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SharpSans-BoldItalic.otf"; sourceTree = "<group>"; };
 		F506E4082005548E00DBC504 /* MarkOT.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarkOT.otf; sourceTree = "<group>"; };
@@ -44,14 +90,25 @@
 		F506E40F2005553F00DBC504 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		F506E41220055E7C00DBC504 /* TitleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleImageCell.swift; sourceTree = "<group>"; };
 		F506E41520056E5B00DBC504 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F50EE2682007E32600B489CE /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		F50EE26A2007EC3700B489CE /* QRCodeReader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QRCodeReader-Bridging-Header.h"; sourceTree = "<group>"; };
+		F50EE26E2007ECC100B489CE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F50EE2722009089B00B489CE /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonStyleProtocol.swift; sourceTree = "<group>"; };
+		F50EE2762009099200B489CE /* CircleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonStyle.swift; sourceTree = "<group>"; };
 		F5673FAA2006B4B70024B663 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		F5673FAD2006B8010024B663 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		F5673FB02006BA0D0024B663 /* QRReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderView.swift; sourceTree = "<group>"; };
-		F5786E4B2005295700CB4D94 /* QRCodeReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5786E4B2005295700CB4D94 /* Fevo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fevo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5786E4E2005295700CB4D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5786E552005295700CB4D94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5786E582005295700CB4D94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F5786E5A2005295700CB4D94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5786E5A2005295700CB4D94 /* Prod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Prod.plist; sourceTree = "<group>"; };
+		F5804037200FAE2600FD1268 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		F5969C1A2011589200F27DD7 /* Stage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5969C1B2011589200F27DD7 /* Stage.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Stage.plist; path = "/Users/vlad/Desktop/ios-qrReader/QRCodeReader/Supporting Files/Stage.plist"; sourceTree = "<absolute>"; };
+		F5969C1C2011598300F27DD7 /* Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stage.entitlements; sourceTree = "<group>"; };
+		F5969C1D2011598B00F27DD7 /* Fevo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fevo.entitlements; sourceTree = "<group>"; };
+		F5969C1F20115BC500F27DD7 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +117,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C19A50075A154C6F8496D6D1 /* Pods_QRCodeReader.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5969C0A2011589200F27DD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5969C0B2011589200F27DD7 /* Pods_QRCodeReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,12 +148,62 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F500CB0B200FE2FF00D70260 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F500CB0C200FE31B00D70260 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F500CB10200FE4B100D70260 /* SignOut */ = {
+			isa = PBXGroup;
+			children = (
+				F500CB11200FE4B900D70260 /* SignOutCell.swift */,
+			);
+			path = SignOut;
+			sourceTree = "<group>";
+		};
+		F500CB13200FE89B00D70260 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				F500CB14200FE8A700D70260 /* WebViewController.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		F500CB1620113A3400D70260 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F500CB1720113A3D00D70260 /* AccessoryCellProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F500CB192011402900D70260 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				F500CB1A2011402F00D70260 /* Onboarding */,
+				F500CB1D2011409200D70260 /* TransitionHandler.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		F500CB1A2011402F00D70260 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F500CB1B2011403B00D70260 /* OnboardingRouteHandler.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		F506E3EA200545CC00DBC504 /* Secions */ = {
 			isa = PBXGroup;
 			children = (
-				F506E3F82005515600DBC504 /* Settings */,
+				F500CB13200FE89B00D70260 /* Web */,
+				F500CB0B200FE2FF00D70260 /* Settings */,
 				F506E3ED200545E100DBC504 /* Camera */,
-				F506E3EB200545DE00DBC504 /* MainViewController.swift */,
+				F500CB0E200FE32100D70260 /* MainViewController.swift */,
 			);
 			path = Secions;
 			sourceTree = "<group>";
@@ -104,7 +219,10 @@
 		F506E3F320054B1600DBC504 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F5673FAC2006B7F80024B663 /* Managers */,
+				F5969C1E20115BC000F27DD7 /* Config */,
+				F500CB192011402900D70260 /* Routing */,
+				F5804036200FAE1C00FD1268 /* Networking */,
+				F50EE26D2007ECB500B489CE /* Colors */,
 				F506E3F420054B1E00DBC504 /* Extensions */,
 			);
 			path = Utilities;
@@ -129,17 +247,11 @@
 			path = String;
 			sourceTree = "<group>";
 		};
-		F506E3F82005515600DBC504 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				F506E3F92005515E00DBC504 /* SettingsViewController.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
 		F506E3FB2005538800DBC504 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				F50EE2712009087A00B489CE /* Buttons */,
+				F50EE2672007E31D00B489CE /* EmptyView */,
 				F5673FAF2006BA030024B663 /* QRReaderView */,
 				F506E3FC2005539100DBC504 /* CollectionCells */,
 			);
@@ -149,6 +261,8 @@
 		F506E3FC2005539100DBC504 /* CollectionCells */ = {
 			isa = PBXGroup;
 			children = (
+				F500CB1620113A3400D70260 /* Protocols */,
+				F500CB10200FE4B100D70260 /* SignOut */,
 				F506E41120055E7200DBC504 /* TitleImage */,
 			);
 			path = CollectionCells;
@@ -157,7 +271,12 @@
 		F506E4002005544300DBC504 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F5969C1C2011598300F27DD7 /* Stage.entitlements */,
+				F5969C1D2011598B00F27DD7 /* Fevo.entitlements */,
+				F5786E5A2005295700CB4D94 /* Prod.plist */,
+				F5969C1B2011589200F27DD7 /* Stage.plist */,
 				F506E4012005545B00DBC504 /* Fonts */,
+				F50EE26A2007EC3700B489CE /* QRCodeReader-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -215,20 +334,38 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		F50EE2672007E31D00B489CE /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				F50EE2682007E32600B489CE /* EmptyView.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		F50EE26D2007ECB500B489CE /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				F50EE26E2007ECC100B489CE /* Colors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		F50EE2712009087A00B489CE /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				F50EE2722009089B00B489CE /* GradientButton.swift */,
+				F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */,
+				F50EE2762009099200B489CE /* CircleButtonStyle.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		F5673FA92006B4B10024B663 /* Button */ = {
 			isa = PBXGroup;
 			children = (
 				F5673FAA2006B4B70024B663 /* Button.swift */,
 			);
 			path = Button;
-			sourceTree = "<group>";
-		};
-		F5673FAC2006B7F80024B663 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				F5673FAD2006B8010024B663 /* CameraManager.swift */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		F5673FAF2006BA030024B663 /* QRReaderView */ = {
@@ -252,7 +389,8 @@
 		F5786E4C2005295700CB4D94 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F5786E4B2005295700CB4D94 /* QRCodeReader.app */,
+				F5786E4B2005295700CB4D94 /* Fevo.app */,
+				F5969C1A2011589200F27DD7 /* Stage.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -267,17 +405,32 @@
 				F5786E4E2005295700CB4D94 /* AppDelegate.swift */,
 				F5786E552005295700CB4D94 /* Assets.xcassets */,
 				F5786E572005295700CB4D94 /* LaunchScreen.storyboard */,
-				F5786E5A2005295700CB4D94 /* Info.plist */,
 			);
 			path = QRCodeReader;
+			sourceTree = "<group>";
+		};
+		F5804036200FAE1C00FD1268 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F5804037200FAE2600FD1268 /* APIManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F5969C1E20115BC000F27DD7 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F5969C1F20115BC500F27DD7 /* Config.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F5786E4A2005295700CB4D94 /* QRCodeReader */ = {
+		F5786E4A2005295700CB4D94 /* Prod */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5786E5D2005295700CB4D94 /* Build configuration list for PBXNativeTarget "QRCodeReader" */;
+			buildConfigurationList = F5786E5D2005295700CB4D94 /* Build configuration list for PBXNativeTarget "Prod" */;
 			buildPhases = (
 				2E252C6CE0B0C1883C334E20 /* [CP] Check Pods Manifest.lock */,
 				F5786E472005295700CB4D94 /* Sources */,
@@ -285,14 +438,36 @@
 				F5786E492005295700CB4D94 /* Resources */,
 				6556641EC2FCB65663A5A729 /* [CP] Embed Pods Frameworks */,
 				A328465D8F0F00497F1AF5EB /* [CP] Copy Pods Resources */,
+				F50EE2702007F36F00B489CE /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = QRCodeReader;
+			name = Prod;
 			productName = QRCodeReader;
-			productReference = F5786E4B2005295700CB4D94 /* QRCodeReader.app */;
+			productReference = F5786E4B2005295700CB4D94 /* Fevo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F5969BF22011589200F27DD7 /* Stage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5969C172011589200F27DD7 /* Build configuration list for PBXNativeTarget "Stage" */;
+			buildPhases = (
+				F5969BF32011589200F27DD7 /* [CP] Check Pods Manifest.lock */,
+				F5969BF42011589200F27DD7 /* Sources */,
+				F5969C0A2011589200F27DD7 /* Frameworks */,
+				F5969C0C2011589200F27DD7 /* Resources */,
+				F5969C142011589200F27DD7 /* [CP] Embed Pods Frameworks */,
+				F5969C152011589200F27DD7 /* [CP] Copy Pods Resources */,
+				F5969C162011589200F27DD7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Stage;
+			productName = QRCodeReader;
+			productReference = F5969C1A2011589200F27DD7 /* Stage.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -307,7 +482,21 @@
 				TargetAttributes = {
 					F5786E4A2005295700CB4D94 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+					F5969BF22011589200F27DD7 = {
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -324,7 +513,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F5786E4A2005295700CB4D94 /* QRCodeReader */,
+				F5786E4A2005295700CB4D94 /* Prod */,
+				F5969BF22011589200F27DD7 /* Stage */,
 			);
 		};
 /* End PBXProject section */
@@ -341,6 +531,20 @@
 				F5786E562005295700CB4D94 /* Assets.xcassets in Resources */,
 				F506E40B2005549400DBC504 /* MarkOT-Medium.otf in Resources */,
 				F506E4092005548E00DBC504 /* MarkOT.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5969C0C2011589200F27DD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5969C0D2011589200F27DD7 /* SharpSans-Bold.otf in Resources */,
+				F5969C0E2011589200F27DD7 /* MarkOT-Bold.otf in Resources */,
+				F5969C0F2011589200F27DD7 /* LaunchScreen.storyboard in Resources */,
+				F5969C102011589200F27DD7 /* SharpSans-BoldItalic.otf in Resources */,
+				F5969C112011589200F27DD7 /* Assets.xcassets in Resources */,
+				F5969C122011589200F27DD7 /* MarkOT-Medium.otf in Resources */,
+				F5969C132011589200F27DD7 /* MarkOT.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,10 +576,20 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Common/Common.framework",
+				"${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Common.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JDStatusBarNotification.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +612,93 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F50EE2702007F36F00B489CE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" c736fea85f29bf6401482ac9b449904fe6c64b43 aa69933c3470880ef5e084f0ffa89bac5f12f11f121a7b0b291c9999b2906b81";
+		};
+		F5969BF32011589200F27DD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QRCodeReader-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5969C142011589200F27DD7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Common/Common.framework",
+				"${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Common.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JDStatusBarNotification.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5969C152011589200F27DD7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5969C162011589200F27DD7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" c736fea85f29bf6401482ac9b449904fe6c64b43 aa69933c3470880ef5e084f0ffa89bac5f12f11f121a7b0b291c9999b2906b81";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -405,17 +706,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F500CB15200FE8A700D70260 /* WebViewController.swift in Sources */,
 				F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */,
-				F506E3EC200545DE00DBC504 /* MainViewController.swift in Sources */,
+				F50EE26F2007ECC100B489CE /* Colors.swift in Sources */,
+				F50EE2692007E32600B489CE /* EmptyView.swift in Sources */,
+				F500CB1820113A3D00D70260 /* AccessoryCellProtocol.swift in Sources */,
 				F506E3F720054B2A00DBC504 /* String.swift in Sources */,
+				F50EE2732009089B00B489CE /* GradientButton.swift in Sources */,
+				F500CB1C2011403B00D70260 /* OnboardingRouteHandler.swift in Sources */,
+				F50EE2772009099200B489CE /* CircleButtonStyle.swift in Sources */,
+				F5804038200FAE2600FD1268 /* APIManager.swift in Sources */,
+				F500CB0F200FE32100D70260 /* MainViewController.swift in Sources */,
+				F500CB1E2011409200D70260 /* TransitionHandler.swift in Sources */,
 				F506E4102005553F00DBC504 /* Font.swift in Sources */,
-				F5673FAE2006B8010024B663 /* CameraManager.swift in Sources */,
-				F506E3FA2005515E00DBC504 /* SettingsViewController.swift in Sources */,
+				F500CB0D200FE31B00D70260 /* SettingsViewController.swift in Sources */,
 				F5673FB12006BA0D0024B663 /* QRReaderView.swift in Sources */,
+				F5969C2020115BC500F27DD7 /* Config.swift in Sources */,
+				F500CB12200FE4B900D70260 /* SignOutCell.swift in Sources */,
 				F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */,
 				F506E41620056E5B00DBC504 /* ViewController.swift in Sources */,
 				F5673FAB2006B4B70024B663 /* Button.swift in Sources */,
 				F506E41320055E7C00DBC504 /* TitleImageCell.swift in Sources */,
+				F50EE275200908F200B489CE /* GradientButtonStyleProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5969BF42011589200F27DD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5969BF52011589200F27DD7 /* WebViewController.swift in Sources */,
+				F5969BF62011589200F27DD7 /* AppDelegate.swift in Sources */,
+				F5969BF72011589200F27DD7 /* Colors.swift in Sources */,
+				F5969BF82011589200F27DD7 /* EmptyView.swift in Sources */,
+				F5969BF92011589200F27DD7 /* AccessoryCellProtocol.swift in Sources */,
+				F5969BFA2011589200F27DD7 /* String.swift in Sources */,
+				F5969BFB2011589200F27DD7 /* GradientButton.swift in Sources */,
+				F5969BFC2011589200F27DD7 /* OnboardingRouteHandler.swift in Sources */,
+				F5969BFD2011589200F27DD7 /* CircleButtonStyle.swift in Sources */,
+				F5969BFE2011589200F27DD7 /* APIManager.swift in Sources */,
+				F5969BFF2011589200F27DD7 /* MainViewController.swift in Sources */,
+				F5969C002011589200F27DD7 /* TransitionHandler.swift in Sources */,
+				F5969C012011589200F27DD7 /* Font.swift in Sources */,
+				F5969C022011589200F27DD7 /* SettingsViewController.swift in Sources */,
+				F5969C032011589200F27DD7 /* QRReaderView.swift in Sources */,
+				F5969C2120115BC900F27DD7 /* Config.swift in Sources */,
+				F5969C042011589200F27DD7 /* SignOutCell.swift in Sources */,
+				F5969C052011589200F27DD7 /* CameraViewController.swift in Sources */,
+				F5969C062011589200F27DD7 /* ViewController.swift in Sources */,
+				F5969C072011589200F27DD7 /* Button.swift in Sources */,
+				F5969C082011589200F27DD7 /* TitleImageCell.swift in Sources */,
+				F5969C092011589200F27DD7 /* GradientButtonStyleProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,13 +886,16 @@
 			baseConfigurationReference = D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9CHSEMW6LK;
-				INFOPLIST_FILE = QRCodeReader/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/QRCodeReader/Supporting Files/Prod.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vz.QRCodeReader;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vz.qrReader;
+				PRODUCT_NAME = Fevo;
+				SWIFT_OBJC_BRIDGING_HEADER = "QRCodeReader/Supporting Files/QRCodeReader-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -562,13 +906,54 @@
 			baseConfigurationReference = 1DAF3606AC0631159D451D28 /* Pods-QRCodeReader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9CHSEMW6LK;
-				INFOPLIST_FILE = QRCodeReader/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/QRCodeReader/Supporting Files/Prod.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vz.QRCodeReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vz.qrReader;
+				PRODUCT_NAME = Fevo;
+				SWIFT_OBJC_BRIDGING_HEADER = "QRCodeReader/Supporting Files/QRCodeReader-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F5969C182011589200F27DD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9CHSEMW6LK;
+				INFOPLIST_FILE = "$(SRCROOT)/QRCodeReader/Supporting Files/Stage.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vz.qrReader.stage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QRCodeReader/Supporting Files/QRCodeReader-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F5969C192011589200F27DD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DAF3606AC0631159D451D28 /* Pods-QRCodeReader.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9CHSEMW6LK;
+				INFOPLIST_FILE = "$(SRCROOT)/QRCodeReader/Supporting Files/Stage.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vz.qrReader.stage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QRCodeReader/Supporting Files/QRCodeReader-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -586,11 +971,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F5786E5D2005295700CB4D94 /* Build configuration list for PBXNativeTarget "QRCodeReader" */ = {
+		F5786E5D2005295700CB4D94 /* Build configuration list for PBXNativeTarget "Prod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F5786E5E2005295700CB4D94 /* Debug */,
 				F5786E5F2005295700CB4D94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5969C172011589200F27DD7 /* Build configuration list for PBXNativeTarget "Stage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5969C182011589200F27DD7 /* Debug */,
+				F5969C192011589200F27DD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

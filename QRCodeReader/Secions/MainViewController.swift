@@ -2,8 +2,8 @@
 //  MainViewController.swift
 //  QRCodeReader
 //
-//  Created by Vladislav Zagorodnyuk on 1/9/18.
-//  Copyright © 2018 Vladislav Zagorodnyuk. All rights reserved.
+//  Created by Vladislav Zagorodnyuk on 1/17/18.
+//  Copyright © 2018 Fevo. All rights reserved.
 //
 
 import UIKit
@@ -29,7 +29,7 @@ class MainViewController: UITabBarController {
     
     /// Controllers
     lazy var controllers: [UIViewController] = { [unowned self] in
-       
+        
         var results: [UIViewController] = []
         
         /// Setup datasource
@@ -37,11 +37,11 @@ class MainViewController: UITabBarController {
         results.append(self.settingsFlow)
         
         return results
-    }()
+        }()
     
     /// Tab bar flows
     lazy var cameraFlow: UINavigationController = {
-       
+        
         let vc = CameraViewController()
         let navigation = UINavigationController(rootViewController: vc)
         navigation.navigationBar.isTranslucent = false
@@ -49,10 +49,13 @@ class MainViewController: UITabBarController {
         return navigation
     }()
     
-    lazy var settingsFlow: UINavigationController = {
-       
-        let vc = SettingsViewController()
-        let navigation = UINavigationController(rootViewController: vc)
+    lazy var settingsVC: SettingsViewController = {
+        return SettingsViewController()
+    }()
+    
+    lazy var settingsFlow: UINavigationController = { [unowned self] in
+        
+        let navigation = UINavigationController(rootViewController: self.settingsVC)
         navigation.navigationBar.isTranslucent = false
         
         return navigation
@@ -67,6 +70,23 @@ class MainViewController: UITabBarController {
         
         /// Setup tabbar
         setupTabBar()
+        
+        /// Handle controller actions
+        handleControllers()
+    }
+    
+    /// Controller handlers
+    func handleControllers() {
+        
+        settingsVC.onLogout { [unowned self] in
+            
+            /// Return to initial state
+            self.selectedIndex = 0
+            
+            /// Present login flow
+            let webVC = WebViewController(url: URL(string: "https://checkin.fevo.com/login")!)
+            self.navigationController?.present(webVC, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Utilities
@@ -102,3 +122,4 @@ class MainViewController: UITabBarController {
         }
     }
 }
+
