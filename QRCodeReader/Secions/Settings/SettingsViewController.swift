@@ -49,45 +49,11 @@ class SettingsViewController: UIViewController {
         return collectionView
     }()
     
-    /// Signout button
-    lazy var signOutButton: UIButton = {
-      
-        let button = UIButton.button(style: .gradient)
-        
-        button.setTitle("SIGN OUT", for: .normal)
-        button.setBackgroundColor(.white, forState: .normal)
-        button.setTitleColor(UIColor.defaultRed, for: .normal)
-        
-        return button
-    }()
-    
     // MARK: Controller lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        /// Check if need to show Logout button
-        signOutButton.isHidden = APIManager.shared.cookies == nil
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         layoutSetup()
-        
-        /// Signout handler
-        signOutButton.setAction(block: { [unowned self] sender in
-            
-            /// Logout -> Clear cookies
-            let storage = HTTPCookieStorage.shared
-            for cookie in storage.cookies! {
-                storage.deleteCookie(cookie)
-            }
-            
-            APIManager.shared.cookies = nil
-            
-            self.logoutHandler?()
-            
-        }, for: .touchUpInside)
     }
     
     func layoutSetup() {
@@ -102,18 +68,6 @@ class SettingsViewController: UIViewController {
         collectionView.snp.updateConstraints { maker in
             maker.top.bottom.left.right.equalToSuperview()
         }
-        
-        /// Button layout
-        view.addSubview(signOutButton)
-        signOutButton.snp.updateConstraints { maker in
-            maker.bottom.equalToSuperview().offset(-80)
-            maker.width.equalToSuperview().offset(-80)
-            maker.height.equalTo(60)
-            maker.centerX.equalToSuperview()
-        }
-        
-        signOutButton.layer.cornerRadius = 8
-        signOutButton.clipsToBounds = true
     }
     
     // MARK: Utilities

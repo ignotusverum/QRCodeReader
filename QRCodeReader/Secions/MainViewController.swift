@@ -83,7 +83,10 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
         
         if APIManager.shared.cookies == nil {
+            selectedIndex = 0
             APIManager.shared.cookies = HTTPCookieStorage.shared.cookies
+        } else {
+            selectedIndex = 1
         }
         
         /// Init controllers
@@ -94,8 +97,7 @@ class MainViewController: UITabBarController {
         
         /// Handle controller actions
         handleControllers()
-        
-        selectedIndex = 1
+
     }
     
     /// Controller handlers
@@ -103,15 +105,9 @@ class MainViewController: UITabBarController {
         
         settingsVC.onLogout { [unowned self] in
             
+            self.searchV.webView.reload()
             /// Return to initial state
-            self.selectedIndex = 1
-            
-            /// Present login flow
-            let webVC = WebViewController(url: URL(string: "https://checkin\(Config.envWebString).fevo.com")!, isNeedToShowCameraButton: false)
-            let navigation = UINavigationController(rootViewController: webVC)
-            navigation.navigationBar.isTranslucent = false
-            
-            self.present(webVC, animated: true, completion: nil)
+            self.selectedIndex = 0
         }
     }
     
