@@ -28,6 +28,10 @@ def shared_pods
     pod 'JDStatusBarNotification'
 end
 
-target ‘QRCodeReader’ do
+target ‘Prod’ do
+    shared_pods
+end
+
+target ‘Stage’ do
     shared_pods
 end
