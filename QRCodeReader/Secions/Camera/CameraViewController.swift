@@ -28,25 +28,25 @@ class CameraViewController: UIViewController {
     
     /// Camera roll button
     lazy var galleryButton: UIButton = { [unowned self] in
-       
+        
         let button = UIButton.button(style: .gradient)
         button.setImage(#imageLiteral(resourceName: "gallery"), for: .normal)
         button.setBackgroundColor(.white, forState: .normal)
         button.addTarget(self, action: #selector(onGallery(_:)), for: .touchUpInside)
         
         return button
-    }()
+        }()
     
     /// Flashlight button
     lazy var flashButton: UIButton = { [unowned self] in
-       
+        
         let button = UIButton.button(style: .gradient)
         button.setImage(#imageLiteral(resourceName: "flash"), for: .normal)
         button.setBackgroundColor(.white, forState: .normal)
         button.addTarget(self, action: #selector(onFlash(_:)), for: .touchUpInside)
         
         return button
-    }()
+        }()
     
     // MARK: Controller lifecycle
     override func viewDidLoad() {
@@ -75,7 +75,7 @@ class CameraViewController: UIViewController {
     }
     
     private func layoutSetup() {
-     
+        
         setNavigationImage(#imageLiteral(resourceName: "logo"))
         view.backgroundColor = .black
         
@@ -89,18 +89,18 @@ class CameraViewController: UIViewController {
         /// Flash button layout
         view.addSubview(flashButton)
         flashButton.snp.makeConstraints { [unowned self] maker in
-            maker.bottom.equalTo(self.view).offset(-80)
-            maker.centerX.equalTo(self.view).offset(-60)
+            maker.bottom.equalTo(self.view).offset(-50)
+            maker.centerX.equalTo(self.view)
             maker.width.height.equalTo(80)
         }
         
-        /// Gallery button layout
-        view.addSubview(galleryButton)
-        galleryButton.snp.makeConstraints { [unowned self] maker in
-            maker.bottom.equalTo(self.view).offset(-80)
-            maker.centerX.equalTo(self.view).offset(60)
-            maker.width.height.equalTo(80)
-        }
+        //        /// Gallery button layout
+        //        view.addSubview(galleryButton)
+        //        galleryButton.snp.makeConstraints { [unowned self] maker in
+        //            maker.bottom.equalTo(self.view).offset(-80)
+        //            maker.centerX.equalTo(self.view).offset(60)
+        //            maker.width.height.equalTo(80)
+        //        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -160,7 +160,7 @@ class CameraViewController: UIViewController {
     }
     
     fileprivate func showError(_ error: Error) {
-     
+        
         generator.notificationOccurred(.error)
         JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
     }
@@ -171,7 +171,7 @@ extension CameraViewController: QRReaderViewDelegate {
     
     /// Discovered output
     func qrReader(_ qrReader: QRReaderView, didOutput url: URL) {
-
+        
         generator.notificationOccurred(.success)
         openLink(url)
     }
@@ -200,3 +200,4 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
         }
     }
 }
+
