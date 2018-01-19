@@ -1,8 +1,5 @@
 PODS:
   - Alamofire (4.6.0)
-  - Common (0.0.1):
-    - Alamofire
-    - PromiseKit
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
   - Fabric (1.7.2)
@@ -23,7 +20,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - Common (from `https://github.com/fevo-tech/iOS-common.git`)
   - Crashlytics
   - Fabric
   - JDStatusBarNotification
@@ -31,18 +27,8 @@ DEPENDENCIES:
   - PromiseKit
   - SnapKit (~> 4.0.0)
 
-EXTERNAL SOURCES:
-  Common:
-    :git: https://github.com/fevo-tech/iOS-common.git
-
-CHECKOUT OPTIONS:
-  Common:
-    :commit: 5f42a8bb1fc2ecb0b863eb022ce56adc56a0845e
-    :git: https://github.com/fevo-tech/iOS-common.git
-
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  Common: bb1dcb51e971f372a4254840a61f24486d298c08
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   JDStatusBarNotification: d5829a8f2f291b23b8a54b87fac8bf2549945a2f
@@ -50,6 +36,6 @@ SPEC CHECKSUMS:
   PromiseKit: 445dac9b2c3c3b4b31b5f842bc325700b848a8bd
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 9fd83d4469d06b7c1d6f08a858fa2dc746da3da4
+PODFILE CHECKSUM: ec5e41e466372b1992990d188710091e3fe63503
 
 COCOAPODS: 1.3.1
