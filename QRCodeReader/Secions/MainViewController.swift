@@ -54,7 +54,7 @@ class MainViewController: UITabBarController {
     
     /// Search flow
     lazy var searchV: WebViewController = {
-        let vc = WebViewController(url: URL(string: "https://checkin\(Config.envWebString).fevo.com")!, isNeedToShowCameraButton: false)
+        let vc = WebViewController(url: URL(string: "https://checkin\(Config.envWebString).fevo.com")!, type: .back)
         return vc
     }()
     

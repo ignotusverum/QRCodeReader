@@ -35,7 +35,7 @@ class CameraViewController: UIViewController {
         button.addTarget(self, action: #selector(onGallery(_:)), for: .touchUpInside)
         
         return button
-        }()
+    }()
     
     /// Flashlight button
     lazy var flashButton: UIButton = { [unowned self] in
@@ -46,7 +46,7 @@ class CameraViewController: UIViewController {
         button.addTarget(self, action: #selector(onFlash(_:)), for: .touchUpInside)
         
         return button
-        }()
+    }()
     
     // MARK: Controller lifecycle
     override func viewDidLoad() {

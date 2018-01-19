@@ -10,18 +10,23 @@ import UIKit
 import WebKit
 import Foundation
 
+enum WebViewControllerType {
+    case back
+    case camera
+    case none
+}
+
 class WebViewController: UIViewController {
     
     var url: URL
+    
+    var type: WebViewControllerType
 
     /// Cookies handler
     private var cookiesHandler: (() -> ())?
     
     /// Handle cancel
     private var onClose: (()->())?
-    
-    /// Show Camera view
-    var isNeedToShowCameraButton: Bool = true
     
     /// Action button
     lazy var actionButton: UIButton = {
@@ -42,8 +47,6 @@ class WebViewController: UIViewController {
                 let userContentController = WKUserContentController()
                 
                 if let cookies = APIManager.shared.cookies {
-                    
-                    print(cookies)
                     
                     let script = getJSCookiesString(cookies: cookies)
                     let cookieScript = WKUserScript(source: script, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: false)
@@ -72,13 +75,18 @@ class WebViewController: UIViewController {
         
         /// Close button handler
         actionButton.setAction(block: { [unowned self] sender in
-            self.onClose?()
+            
+            if self.type == .back {
+                self.webView.goBack()
+            } else {
+                self.onClose?()
+            }
         }, for: .touchUpInside)
     }
     
-    init(url: URL, isNeedToShowCameraButton: Bool = true) {
+    init(url: URL, type: WebViewControllerType = .camera) {
         self.url = url
-        self.isNeedToShowCameraButton = isNeedToShowCameraButton
+        self.type = type
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -104,13 +112,18 @@ class WebViewController: UIViewController {
         view.addSubview(webView)
         webView.frame = view.frame
         
-        if isNeedToShowCameraButton {
+        if type != .none {
             /// Action button setup
             view.addSubview(actionButton)
             actionButton.snp.updateConstraints { maker in
                 maker.bottom.equalToSuperview().offset(-50)
                 maker.width.height.equalTo(80)
                 maker.centerX.equalToSuperview()
+            }
+            
+            if type == .back {
+                
+                actionButton.setImage(#imageLiteral(resourceName: "back"), for: .normal)
             }
         }
     }
