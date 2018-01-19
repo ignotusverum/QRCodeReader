@@ -12,15 +12,17 @@ import Foundation
 private enum TabTitles: String, CustomStringConvertible {
     case camera
     case settings
+    case search
     
     internal var description: String {
         return rawValue.capitalizeFirst()
     }
     
-    static let allValues = [camera, settings]
+    static let allValues = [search, camera, settings]
 }
 
 private var tabIcons = [
+    TabTitles.search: "search",
     TabTitles.camera: "camera",
     TabTitles.settings: "settings"
 ]
@@ -33,17 +35,32 @@ class MainViewController: UITabBarController {
         var results: [UIViewController] = []
         
         /// Setup datasource
+        results.append(self.searchFlow)
         results.append(self.cameraFlow)
         results.append(self.settingsFlow)
         
         return results
-        }()
+    }()
     
     /// Tab bar flows
     lazy var cameraFlow: UINavigationController = {
         
         let vc = CameraViewController()
         let navigation = UINavigationController(rootViewController: vc)
+        navigation.navigationBar.isTranslucent = false
+        
+        return navigation
+    }()
+    
+    /// Search flow
+    lazy var searchV: WebViewController = {
+        let vc = WebViewController(url: URL(string: "https://checkin\(Config.envWebString).fevo.com")!, isNeedToShowCameraButton: false)
+        return vc
+    }()
+    
+    lazy var searchFlow: UINavigationController = { [unowned self] in
+        
+        let navigation = UINavigationController(rootViewController: self.searchV)
         navigation.navigationBar.isTranslucent = false
         
         return navigation
@@ -65,6 +82,10 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if APIManager.shared.cookies == nil {
+            APIManager.shared.cookies = HTTPCookieStorage.shared.cookies
+        }
+        
         /// Init controllers
         viewControllers = controllers
         
@@ -73,6 +94,8 @@ class MainViewController: UITabBarController {
         
         /// Handle controller actions
         handleControllers()
+        
+        selectedIndex = 1
     }
     
     /// Controller handlers
@@ -81,11 +104,14 @@ class MainViewController: UITabBarController {
         settingsVC.onLogout { [unowned self] in
             
             /// Return to initial state
-            self.selectedIndex = 0
+            self.selectedIndex = 1
             
             /// Present login flow
-            let webVC = WebViewController(url: URL(string: "https://checkin.fevo.com/login")!)
-            self.navigationController?.present(webVC, animated: true, completion: nil)
+            let webVC = WebViewController(url: URL(string: "https://checkin\(Config.envWebString).fevo.com")!, isNeedToShowCameraButton: false)
+            let navigation = UINavigationController(rootViewController: webVC)
+            navigation.navigationBar.isTranslucent = false
+            
+            self.present(webVC, animated: true, completion: nil)
         }
     }
     

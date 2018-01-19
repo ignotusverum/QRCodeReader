@@ -21,6 +21,9 @@ def shared_pods
     # Layout
     pod 'SnapKit', '~> 4.0.0'
     
+    # Common
+    pod 'Common', :git => 'https://github.com/fevo-tech/iOS-common.git'
+    
     # Status bar view
     pod 'JDStatusBarNotification'
 end
@@ -32,3 +35,4 @@ end
 target ‘Stage’ do
     shared_pods
 end
+

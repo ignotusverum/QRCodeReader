@@ -63,9 +63,7 @@ class QRReaderView: UIView {
     private var captureSession: AVCaptureSession = AVCaptureSession()
     
     /// QR Code types
-    private let supportedCodeTypes: [AVMetadataObject.ObjectType] = [.qr,
-                                                                     .dataMatrix,
-                                                                     .pdf417]
+    private let supportedCodeTypes = [AVMetadataObject.ObjectType.qr]
     
     // MARK: Initialization
     init() {

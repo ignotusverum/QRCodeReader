@@ -14,9 +14,7 @@ class OnboardingRouteHandler {
             return
         }
         
-        let environmentString = Config.environmentType == .prod ? "" : "-stage"
-        
-        let webVC = WebViewController(url: URL(string: "https://checkin\(environmentString).fevo.com/login")!)
+        let webVC = WebViewController(url: URL(string: "https://checkin\(Config.envWebString).fevo.com")!)
         let webFlow = UINavigationController(rootViewController: webVC)
         webFlow.navigationBar.isTranslucent = false
         webVC.handleCookiesUdpate {

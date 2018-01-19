@@ -20,11 +20,14 @@ class WebViewController: UIViewController {
     /// Handle cancel
     private var onClose: (()->())?
     
+    /// Show Camera view
+    var isNeedToShowCameraButton: Bool = true
+    
     /// Action button
     lazy var actionButton: UIButton = {
        
         let button = UIButton.button(style: .gradient)
-        button.setImage(#imageLiteral(resourceName: "cancel"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "Camera_selected"), for: .normal)
         button.setBackgroundColor(.white, forState: .normal)
         
         return button
@@ -39,6 +42,8 @@ class WebViewController: UIViewController {
                 let userContentController = WKUserContentController()
                 
                 if let cookies = APIManager.shared.cookies {
+                    
+                    print(cookies)
                     
                     let script = getJSCookiesString(cookies: cookies)
                     let cookieScript = WKUserScript(source: script, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: false)
@@ -71,8 +76,9 @@ class WebViewController: UIViewController {
         }, for: .touchUpInside)
     }
     
-    init(url: URL) {
+    init(url: URL, isNeedToShowCameraButton: Bool = true) {
         self.url = url
+        self.isNeedToShowCameraButton = isNeedToShowCameraButton
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -98,12 +104,14 @@ class WebViewController: UIViewController {
         view.addSubview(webView)
         webView.frame = view.frame
         
-        /// Action button setup
-        view.addSubview(actionButton)
-        actionButton.snp.updateConstraints { maker in
-            maker.bottom.equalToSuperview().offset(-80)
-            maker.width.height.equalTo(80)
-            maker.centerX.equalToSuperview()
+        if isNeedToShowCameraButton {
+            /// Action button setup
+            view.addSubview(actionButton)
+            actionButton.snp.updateConstraints { maker in
+                maker.bottom.equalToSuperview().offset(-80)
+                maker.width.height.equalTo(80)
+                maker.centerX.equalToSuperview()
+            }
         }
     }
     
@@ -160,8 +168,14 @@ extension WebViewController: WKNavigationDelegate, UIScrollViewDelegate {
         if let cookies = HTTPCookieStorage.shared.cookies, cookies.count != 0 {
         
             APIManager.shared.cookies = cookies
-            cookiesHandler?()
         }
+        
+        if navigationAction.request.url?.absoluteString == "https://checkin-stage.fevo.com/logout" {
+
+            APIManager.shared.cookies = nil
+        }
+        
+        cookiesHandler?()
     
         decisionHandler(.allow)
     }

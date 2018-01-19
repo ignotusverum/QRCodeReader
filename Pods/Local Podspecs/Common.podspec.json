@@ -1,0 +1,30 @@
+{
+  "name": "Common",
+  "version": "0.0.1",
+  "license": "MIT",
+  "summary": "Common libraries/utilities for Fevo iOS projects.",
+  "homepage": "https://github.com/fevo-tech/iOS-common",
+  "social_media_url": "https://www.fevo.com",
+  "authors": {
+    "Fevo peeps": "vzagorodnyuk@fevo.com"
+  },
+  "source": {
+    "git": "https://github.com/fevo-tech/iOS-common.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source_files": "Common/**/*.swift",
+  "dependencies": {
+    "Alamofire": [
+
+    ],
+    "PromiseKit": [
+
+    ]
+  }
+}

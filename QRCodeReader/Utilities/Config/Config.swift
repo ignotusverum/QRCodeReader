@@ -22,4 +22,8 @@ class Config {
     static var environmentType: EnvironmentType {
         return EnvironmentType(rawValue: environmentString) ?? .unknown
     }
+    
+    static var envWebString: String {
+        return Config.environmentType == .prod ? "" : "-stage"
+    }
 }

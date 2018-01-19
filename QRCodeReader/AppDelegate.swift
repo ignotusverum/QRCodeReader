@@ -52,16 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             for cookie in cookies {
                 if cookie.expiresDate ?? Date() < Date() {
                     APIManager.shared.cookies = nil
-                    OnboardingRouteHandler.rootTransition()
-                    return
                 }
             }
-            
-            window?.rootViewController = MainViewController()
-            
-        } else {
-            OnboardingRouteHandler.rootTransition()
         }
+        
+        window?.rootViewController = MainViewController()
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
