@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C19A50075A154C6F8496D6D1 /* Pods_QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */; };
+		AEC71C0AAF618C53F6285F7F /* Pods_Prod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5867269C6CD9BC03A86D56D6 /* Pods_Prod.framework */; };
 		F500CB0D200FE31B00D70260 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0C200FE31B00D70260 /* SettingsViewController.swift */; };
 		F500CB0F200FE32100D70260 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0E200FE32100D70260 /* MainViewController.swift */; };
 		F500CB12200FE4B900D70260 /* SignOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB11200FE4B900D70260 /* SignOutCell.swift */; };
@@ -30,6 +30,8 @@
 		F50EE2732009089B00B489CE /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2722009089B00B489CE /* GradientButton.swift */; };
 		F50EE275200908F200B489CE /* GradientButtonStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */; };
 		F50EE2772009099200B489CE /* CircleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2762009099200B489CE /* CircleButtonStyle.swift */; };
+		F556EC6B20127C3400234037 /* NetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F556EC6A20127C3300234037 /* NetworkingProtocol.swift */; };
+		F556EC6C20127C3400234037 /* NetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F556EC6A20127C3300234037 /* NetworkingProtocol.swift */; };
 		F5673FAB2006B4B70024B663 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAA2006B4B70024B663 /* Button.swift */; };
 		F5673FB12006BA0D0024B663 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FB02006BA0D0024B663 /* QRReaderView.swift */; };
 		F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5786E4E2005295700CB4D94 /* AppDelegate.swift */; };
@@ -57,7 +59,6 @@
 		F5969C072011589200F27DD7 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAA2006B4B70024B663 /* Button.swift */; };
 		F5969C082011589200F27DD7 /* TitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41220055E7C00DBC504 /* TitleImageCell.swift */; };
 		F5969C092011589200F27DD7 /* GradientButtonStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */; };
-		F5969C0B2011589200F27DD7 /* Pods_QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */; };
 		F5969C0D2011589200F27DD7 /* SharpSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4032005546900DBC504 /* SharpSans-Bold.otf */; };
 		F5969C0E2011589200F27DD7 /* MarkOT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E40C2005549A00DBC504 /* MarkOT-Bold.otf */; };
 		F5969C0F2011589200F27DD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E572005295700CB4D94 /* LaunchScreen.storyboard */; };
@@ -67,11 +68,18 @@
 		F5969C132011589200F27DD7 /* MarkOT.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4082005548E00DBC504 /* MarkOT.otf */; };
 		F5969C2020115BC500F27DD7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5969C1F20115BC500F27DD7 /* Config.swift */; };
 		F5969C2120115BC900F27DD7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5969C1F20115BC500F27DD7 /* Config.swift */; };
+		F675522A4A05EDFEC208EB85 /* Pods_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE937D4F965892E8D5B3C6C8 /* Pods_Stage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11EACFCD37E035945BAADDEE /* Pods-Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stage.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stage/Pods-Stage.release.xcconfig"; sourceTree = "<group>"; };
 		1DAF3606AC0631159D451D28 /* Pods-QRCodeReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRCodeReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.release.xcconfig"; sourceTree = "<group>"; };
 		2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5867269C6CD9BC03A86D56D6 /* Pods_Prod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CC632C2792358B8375AE159 /* Pods-Stage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stage/Pods-Stage.debug.xcconfig"; sourceTree = "<group>"; };
+		82D75F22DAECA0B5F08D24A6 /* Pods-Prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prod.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prod/Pods-Prod.debug.xcconfig"; sourceTree = "<group>"; };
+		AE937D4F965892E8D5B3C6C8 /* Pods_Stage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0112AA152F03BD92434B766 /* Pods-Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prod.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prod/Pods-Prod.release.xcconfig"; sourceTree = "<group>"; };
 		D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRCodeReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.debug.xcconfig"; sourceTree = "<group>"; };
 		F500CB0C200FE31B00D70260 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F500CB0E200FE32100D70260 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +104,7 @@
 		F50EE2722009089B00B489CE /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonStyleProtocol.swift; sourceTree = "<group>"; };
 		F50EE2762009099200B489CE /* CircleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonStyle.swift; sourceTree = "<group>"; };
+		F556EC6A20127C3300234037 /* NetworkingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingProtocol.swift; sourceTree = "<group>"; };
 		F5673FAA2006B4B70024B663 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		F5673FB02006BA0D0024B663 /* QRReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderView.swift; sourceTree = "<group>"; };
 		F5786E4B2005295700CB4D94 /* Fevo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fevo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C19A50075A154C6F8496D6D1 /* Pods_QRCodeReader.framework in Frameworks */,
+				AEC71C0AAF618C53F6285F7F /* Pods_Prod.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5969C0B2011589200F27DD7 /* Pods_QRCodeReader.framework in Frameworks */,
+				F675522A4A05EDFEC208EB85 /* Pods_Stage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */,
+				5867269C6CD9BC03A86D56D6 /* Pods_Prod.framework */,
+				AE937D4F965892E8D5B3C6C8 /* Pods_Stage.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,6 +155,10 @@
 			children = (
 				D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */,
 				1DAF3606AC0631159D451D28 /* Pods-QRCodeReader.release.xcconfig */,
+				82D75F22DAECA0B5F08D24A6 /* Pods-Prod.debug.xcconfig */,
+				D0112AA152F03BD92434B766 /* Pods-Prod.release.xcconfig */,
+				5CC632C2792358B8375AE159 /* Pods-Stage.debug.xcconfig */,
+				11EACFCD37E035945BAADDEE /* Pods-Stage.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -219,6 +234,7 @@
 		F506E3F320054B1600DBC504 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F556EC6A20127C3300234037 /* NetworkingProtocol.swift */,
 				F5969C1E20115BC000F27DD7 /* Config */,
 				F500CB192011402900D70260 /* Routing */,
 				F5804036200FAE1C00FD1268 /* Networking */,
@@ -562,7 +578,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-QRCodeReader-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Prod-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -575,9 +591,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Prod/Pods-Prod-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Common/Common.framework",
 				"${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
@@ -586,7 +601,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Common.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JDStatusBarNotification.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
@@ -594,7 +608,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Prod/Pods-Prod-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A328465D8F0F00497F1AF5EB /* [CP] Copy Pods Resources */ = {
@@ -609,7 +623,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Prod/Pods-Prod-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F50EE2702007F36F00B489CE /* ShellScript */ = {
@@ -636,7 +650,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-QRCodeReader-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Stage-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -649,9 +663,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Stage/Pods-Stage-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Common/Common.framework",
 				"${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
@@ -660,7 +673,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Common.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JDStatusBarNotification.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
@@ -668,7 +680,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stage/Pods-Stage-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F5969C152011589200F27DD7 /* [CP] Copy Pods Resources */ = {
@@ -683,7 +695,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stage/Pods-Stage-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F5969C162011589200F27DD7 /* ShellScript */ = {
@@ -714,6 +726,7 @@
 				F506E3F720054B2A00DBC504 /* String.swift in Sources */,
 				F50EE2732009089B00B489CE /* GradientButton.swift in Sources */,
 				F500CB1C2011403B00D70260 /* OnboardingRouteHandler.swift in Sources */,
+				F556EC6B20127C3400234037 /* NetworkingProtocol.swift in Sources */,
 				F50EE2772009099200B489CE /* CircleButtonStyle.swift in Sources */,
 				F5804038200FAE2600FD1268 /* APIManager.swift in Sources */,
 				F500CB0F200FE32100D70260 /* MainViewController.swift in Sources */,
@@ -743,6 +756,7 @@
 				F5969BFA2011589200F27DD7 /* String.swift in Sources */,
 				F5969BFB2011589200F27DD7 /* GradientButton.swift in Sources */,
 				F5969BFC2011589200F27DD7 /* OnboardingRouteHandler.swift in Sources */,
+				F556EC6C20127C3400234037 /* NetworkingProtocol.swift in Sources */,
 				F5969BFD2011589200F27DD7 /* CircleButtonStyle.swift in Sources */,
 				F5969BFE2011589200F27DD7 /* APIManager.swift in Sources */,
 				F5969BFF2011589200F27DD7 /* MainViewController.swift in Sources */,
@@ -883,7 +897,7 @@
 		};
 		F5786E5E2005295700CB4D94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */;
+			baseConfigurationReference = 82D75F22DAECA0B5F08D24A6 /* Pods-Prod.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -903,7 +917,7 @@
 		};
 		F5786E5F2005295700CB4D94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DAF3606AC0631159D451D28 /* Pods-QRCodeReader.release.xcconfig */;
+			baseConfigurationReference = D0112AA152F03BD92434B766 /* Pods-Prod.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -922,7 +936,7 @@
 		};
 		F5969C182011589200F27DD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */;
+			baseConfigurationReference = 5CC632C2792358B8375AE159 /* Pods-Stage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -942,7 +956,7 @@
 		};
 		F5969C192011589200F27DD7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DAF3606AC0631159D451D28 /* Pods-QRCodeReader.release.xcconfig */;
+			baseConfigurationReference = 11EACFCD37E035945BAADDEE /* Pods-Stage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

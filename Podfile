@@ -21,9 +21,6 @@ def shared_pods
     # Layout
     pod 'SnapKit', '~> 4.0.0'
     
-    # Common
-    pod 'Common', :git => 'git@github.com:ignotusverum/iOS-common.git'
-    
     # Status bar view
     pod 'JDStatusBarNotification'
 end
