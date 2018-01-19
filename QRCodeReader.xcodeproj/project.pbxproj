@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9C17F1EDFB7562B72A6F7B5B /* Pods_Prod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9559F55C7FA6155770F13B /* Pods_Prod.framework */; };
 		9FFEF36F2BF0ABF816FA19AF /* Pods_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAD44B508E610A032FECD43 /* Pods_Stage.framework */; };
-		C19A50075A154C6F8496D6D1 /* Pods_QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */; };
 		F500CB0D200FE31B00D70260 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0C200FE31B00D70260 /* SettingsViewController.swift */; };
 		F500CB0F200FE32100D70260 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0E200FE32100D70260 /* MainViewController.swift */; };
 		F500CB12200FE4B900D70260 /* SignOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB11200FE4B900D70260 /* SignOutCell.swift */; };
@@ -61,7 +60,6 @@
 		F5969C072011589200F27DD7 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAA2006B4B70024B663 /* Button.swift */; };
 		F5969C082011589200F27DD7 /* TitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41220055E7C00DBC504 /* TitleImageCell.swift */; };
 		F5969C092011589200F27DD7 /* GradientButtonStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */; };
-		F5969C0B2011589200F27DD7 /* Pods_QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA75944678301329F3DDCC3 /* Pods_QRCodeReader.framework */; };
 		F5969C0D2011589200F27DD7 /* SharpSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4032005546900DBC504 /* SharpSans-Bold.otf */; };
 		F5969C0E2011589200F27DD7 /* MarkOT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E40C2005549A00DBC504 /* MarkOT-Bold.otf */; };
 		F5969C0F2011589200F27DD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5786E572005295700CB4D94 /* LaunchScreen.storyboard */; };
@@ -127,7 +125,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C19A50075A154C6F8496D6D1 /* Pods_QRCodeReader.framework in Frameworks */,
 				9C17F1EDFB7562B72A6F7B5B /* Pods_Prod.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,7 +133,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5969C0B2011589200F27DD7 /* Pods_QRCodeReader.framework in Frameworks */,
 				9FFEF36F2BF0ABF816FA19AF /* Pods_Stage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
