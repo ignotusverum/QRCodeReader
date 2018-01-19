@@ -108,7 +108,7 @@ class WebViewController: UIViewController {
             /// Action button setup
             view.addSubview(actionButton)
             actionButton.snp.updateConstraints { maker in
-                maker.bottom.equalToSuperview().offset(-80)
+                maker.bottom.equalToSuperview().offset(-50)
                 maker.width.height.equalTo(80)
                 maker.centerX.equalToSuperview()
             }
