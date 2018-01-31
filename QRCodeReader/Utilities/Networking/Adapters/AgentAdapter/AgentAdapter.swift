@@ -38,11 +38,11 @@ class AgentAdapter {
     class func me()-> Promise<Agent?> {
         
         let config = Config.shared
-//        guard let currentAgentID = config.agentGUID else {
-//            return Promise(value: nil)
-//        }
+        guard let currentAgentID = config.agentGUID else {
+            return Promise(value: nil)
+        }
         
-        let currentAgentID = "297c55b2-f7d0-4dfc-a840-d6d43beda769"
+//        let currentAgentID = "297c55b2-f7d0-4dfc-a840-d6d43beda769"
         
         /// Networking
         let apiMan = APIManager.shared
