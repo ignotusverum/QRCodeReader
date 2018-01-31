@@ -29,4 +29,14 @@ extension UIViewController {
         imageView.tintColor = UIColor.black
         navigationItem.titleView = imageView
     }
+    
+    /// Back button
+    func setBackButton(image: UIImage = #imageLiteral(resourceName: "back_icon")) {
+        navigationController?.navigationBar.backIndicatorImage = image
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = image
+        navigationController?.navigationBar.backItem?.title = ""
+        navigationController?.navigationBar.topItem?.title = ""
+        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+    }
 }

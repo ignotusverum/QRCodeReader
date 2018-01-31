@@ -19,6 +19,9 @@ extension UIColor {
     static let firstGradient = UIColor.hex("#901A35")
     static let secondGradient = UIColor.hex("#391464")
     
+    /// Grays
+    static let defaultGray = UIColor.hex("#F8F7F6")
+    
     class func hex(_ hexString: String)-> UIColor {
         var cString:String = hexString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         

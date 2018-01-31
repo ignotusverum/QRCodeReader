@@ -13,6 +13,7 @@ extension UIButton {
     ///Styles for custom buttons.
     enum ButtonStyle: Int {
         case gradient = 1
+        case defaultButton = 2
     }
     
     /// Creates a new custom button from a style.
@@ -23,6 +24,8 @@ extension UIButton {
         switch style {
         case .gradient:
             return GradientButton(styleDelegate: CircleButtonStyle())
+        case .defaultButton:
+            return GradientButton(styleDelegate: DefaultButtonStyle())
         }
     }
     
@@ -34,6 +37,19 @@ extension UIButton {
     /// - Returns: Custom button with specified styling.
     static func button(styleDelegate: GradientButtonStyleProtocol) -> UIButton {
         return GradientButton(styleDelegate: styleDelegate)
+    }
+    
+    ///  Loader pressentation logic.
+    public func showLoader() {
+        if let button = self as? GradientButton {
+            button.presentLoader()
+        }
+    }
+    
+    public func hideLoader() {
+        if let button = self as? GradientButton {
+            button.dismissLoader()
+        }
     }
 }
 
@@ -89,6 +105,34 @@ private class GradientButton: UIButton {
                 
                 setGradientNormal() //If a gradient is present, set the gradient's normal state.
             }
+        }
+    }
+    
+    /// Loading indicator view. Using default spinner image from assets.
+    fileprivate lazy var loadingView: SpinnerView = SpinnerView()
+    
+    /// Flag for loading state. This flag defines if need to show/hide loadingView. When changed to loading state, blocks button actions from occuring. If state doesn't changes in 1min (most likely networking request is stuck), it goes back to original state.
+    fileprivate var isLoading: Bool = false {
+        didSet {
+            if isLoading {
+                /// Change to original state
+                let when = DispatchTime.now() + 60
+                DispatchQueue.main.asyncAfter(deadline: when) { [unowned self] in
+                    if self.isLoading {
+                        self.isLoading = false
+                        self.dismissLoader()
+                    }
+                }
+            }
+            
+            /// Block actions untill loadedl
+            isUserInteractionEnabled = !isLoading
+            
+            /// Update UI
+            let loaderAlpha: CGFloat = isLoading ? 1 : 0
+            
+            loadingView.alpha = loaderAlpha
+            isLoading ? hideImageView() : showImageView()
         }
     }
     
@@ -170,6 +214,12 @@ private class GradientButton: UIButton {
         
         gradientLayer.mask = shape
         gradientLayer.cornerRadius = layer.cornerRadius
+        
+        //---Loading view---//
+        loadingView.snp.updateConstraints { maker in
+            maker.center.equalToSuperview()
+            maker.width.height.equalTo(self.frame.height * 0.5)
+        }
     }
     
     // MARK: - Private
@@ -181,7 +231,12 @@ private class GradientButton: UIButton {
         adjustsImageWhenDisabled = false
         
         //---Layer---//
+        gradientLayer.removeFromSuperlayer()
         layer.addSublayer(gradientLayer)
+        
+        //---Loading view---//
+        addSubview(loadingView)
+        loadingView.alpha = 0
         
         //---Image View---//
         
@@ -222,6 +277,29 @@ private class GradientButton: UIButton {
                 gradientInHighlightedState = false //Gradient is no longer in a highlighted state.
             }
         }
+    }
+    
+    /// Presents activity indicator
+    public func presentLoader() {
+        isLoading = true
+        loadingView.startSpinning()
+    }
+    
+    /// Hides activity indicator
+    public func dismissLoader() {
+        isLoading = false
+        loadingView.stopSpinning()
+    }
+    
+    // MARK: Utilities
+    private func showImageView() {
+        imageView?.layer.transform = CATransform3DIdentity
+        titleLabel?.layer.transform = CATransform3DIdentity
+    }
+    
+    private func hideImageView() {
+        imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
+        titleLabel?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
     }
 }
 

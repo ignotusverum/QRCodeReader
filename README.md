@@ -20,3 +20,52 @@ For commit format we're using emoji codes that can be found here - https://githu
 ## Notes
 
 When app detects valid QR code with valid URL - it's going to automatically open WebView with that link, otherwise it will throw a warning.
+
+
+# Screenshots
+
+## Onboarding
+<p float="center">
+  <img src="Screenshots/0.png" width="250" />
+  <img src="Screenshots/1.png" width="250" /> 
+</p>
+
+## Empty states
+<p float="center">
+  <img src="Screenshots/2.png" width="250" />
+  <img src="Screenshots/4.png" width="250" /> 
+</p>
+
+## Checkin - native flow
+<p float="center">
+  <img src="Screenshots/3.png" width="250" />
+  <img src="Screenshots/5.png" width="250" /> 
+  <img src="Screenshots/7.png" width="250" /> 
+  <img src="Screenshots/8.png" width="250" /> 
+</p>
+
+## Account 
+<p float="center">
+  <img src="Screenshots/9.png" width="250" />
+  <img src="Screenshots/10.png" width="250" /> 
+</p>
+
+## QR Scanning confirmation 
+<p float="center">
+  <img src="Screenshots/11.png" width="250" />
+</p>
+
+## Loading state
+<p float="center">
+  <img src="Screenshots/12.png" width="250" />
+</p>
+
+## Web checkin
+<p float="center">
+  <img src="Screenshots/13.png" width="250" />
+</p>
+
+## Error state
+<p float="center">
+  <img src="Screenshots/6.png" width="250" />
+</p>

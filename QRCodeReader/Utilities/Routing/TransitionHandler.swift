@@ -9,7 +9,6 @@
 import UIKit
 
 class TransitionHandler {
-    
     class func transitionTo(_ viewController: UIViewController) {
         
         guard let window = AppDelegate.shared.window else {
@@ -27,5 +26,20 @@ class TransitionHandler {
             UIView.setAnimationsEnabled(oldState)
             
         }) { finished in }
+    }
+    
+    class func signOut() {
+        
+        let config = Config.shared
+        config.agentGUID = nil
+        config.currentAgent = nil
+        
+        let apiMan = APIManager.shared
+        apiMan.accessToken = nil
+        
+        let loginFlow = UINavigationController(rootViewController: LoginViewController())
+        loginFlow.navigationBar.isTranslucent = false
+        
+        transitionTo(loginFlow)
     }
 }

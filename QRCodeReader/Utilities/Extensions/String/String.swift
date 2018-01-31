@@ -13,4 +13,13 @@ extension String {
     func capitalizeFirst() -> String {
         return prefix(1).uppercased() + dropFirst()
     }
+    
+    var noSpaces: String {
+        var string = self
+        if string.contains(" "){
+            string =  string.replacingOccurrences(of: " ", with: "")
+        }
+        
+        return string
+    }
 }

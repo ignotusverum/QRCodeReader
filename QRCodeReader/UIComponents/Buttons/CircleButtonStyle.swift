@@ -31,7 +31,6 @@ struct CircleButtonStyle: GradientButtonStyleProtocol {
     }
     
     func gradientColors() -> [CGColor] {
-        
         return [UIColor.firstGradient.cgColor, UIColor.secondGradient.cgColor]
     }
 }

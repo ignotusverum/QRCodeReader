@@ -44,6 +44,9 @@ protocol QRReaderViewDelegate {
     
     /// Failed to get current camera
     func qrReader(_ qrReader: QRReaderView, failedToGetCamera error: Error)
+    
+    /// Discovered Event ID
+    func qrReader(_ qrReader: QRReaderView, didOutput orderItemGUID: String)
 }
 
 class QRReaderView: UIView {
@@ -87,7 +90,7 @@ class QRReaderView: UIView {
     private func cameraSetup() {
        
         // Get the back-facing camera for capturing videos
-        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
+        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
         
         guard let captureDevice = deviceDiscoverySession.devices.first else {
             print("Failed to get the camera device")
@@ -145,6 +148,14 @@ class QRReaderView: UIView {
     }
     
     // MARK: Utilities
+    fileprivate func parseOrderItemGUID(_ string: String)-> String? {
+        if let range = string.range(of: "check_in/") {
+            return String(string[range.upperBound...])
+        }
+        
+        return nil
+    }
+    
     func toggleFlash() {
         
         /// Tourch is not available
@@ -203,6 +214,8 @@ class QRReaderView: UIView {
         let options = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
         return CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: options)!
     }
+    
+    
 }
 
 extension QRReaderView: AVCaptureMetadataOutputObjectsDelegate {
@@ -252,8 +265,14 @@ extension QRReaderView: AVCaptureMetadataOutputObjectsDelegate {
                 return
             }
             
-            /// Discovered metadata objects
-            delegate?.qrReader(self, didOutput: url)
+            /// Check if need to handle or or Event ID
+            let config = Config.shared
+            
+            if config.qrWebEnabled {
+                delegate?.qrReader(self, didOutput: url)
+            } else if let eventID = parseOrderItemGUID(metadataString) {
+                delegate?.qrReader(self, didOutput: eventID)
+            }
             
             /// Stop
             captureSession.stopRunning()

@@ -6,15 +6,26 @@
 //  Copyright © 2018 Fevo. All rights reserved.
 //
 
+/// Networking
 import Alamofire
+
+/// Utils
+import Common
 import PromiseKit
 
+/// JSON
+import Marshal
+
 //localhost:7050
+//localhost:3000
 //"checkin.fevo.com"
-let hostName = "localhost:7050/check_in"
+let hostName = "api-mobile-stage.fevo.com:3000"
 
 public let NetworkingManagerAccessTokenKey = "NetworkingManagerAccessTokenKey"
 public let NetworkingManagerCookiesTokenKey = "NetworkingManagerCookiesTokenKey"
+
+/// General error
+public let GeneralError = NSError(domain: hostName, code: 1001, userInfo: nil)
 
 class APIManager: NetworkingProtocol {
     
@@ -54,12 +65,10 @@ class APIManager: NetworkingProtocol {
     /// Api key
     var accessToken: String? {
         get {
-            let keychain = AppDelegate.shared.keychain
-            return keychain[NetworkingManagerAccessTokenKey]
+            return UserDefaults.standard.object(forKey: NetworkingManagerAccessTokenKey) as? String
         }
         set {
-            let keychain = AppDelegate.shared.keychain
-            keychain[NetworkingManagerAccessTokenKey] = newValue
+            UserDefaults.standard.set(newValue, forKey: NetworkingManagerAccessTokenKey)
         }
     }
     
@@ -75,11 +84,22 @@ class APIManager: NetworkingProtocol {
             return
         }
         
-        headers["Authorization"] = accessToken
+        headers["Authorization"] = "Bearer \(accessToken)"
     }
     
     /// Base URL setup
     func baseURL(path: String) -> URL {
         return URL(string: "http://\(hostName)/\(path)")!
+    }
+    
+    /// Networking request with predefined response type
+    func request(_ method: HTTPMethod, path URLString: String, parameters: [String : Any]? = nil, ignoreAuthenticationError: Bool = true) -> Promise<MarshalDictionary> {
+        return request(method, path: URLString, parameters: parameters, responseType: MarshalDictionary.self).catch { error in
+            
+            if error.code == 401, ignoreAuthenticationError {
+                /// Handle logout & redirect
+                TransitionHandler.signOut()
+            }
+        }
     }
 }
