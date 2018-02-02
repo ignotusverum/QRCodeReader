@@ -29,9 +29,9 @@ class AccountView: UIView {
         
         /// Label setup
         label.numberOfLines = 1
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.textColor = UIColor.black
-        label.font = UIFont.type(type: .sharpSans, style: .bold, size: 34)
+        label.font = UIFont.type(type: .sharpSans, style: .bold, size: 23)
         
         return label
     }()
@@ -43,9 +43,9 @@ class AccountView: UIView {
         
         /// Label setup
         label.numberOfLines = 0
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.textColor = UIColor.black.withAlphaComponent(0.6)
-        label.font = UIFont.type(type: .markPro, size: 20)
+        label.font = UIFont.type(type: .markPro, size: 17)
         
         return label
     }()
@@ -60,7 +60,7 @@ class AccountView: UIView {
         label.textAlignment = .center
         label.textColor = UIColor.black
         label.backgroundColor = UIColor.white
-        label.font = UIFont.type(type: .markPro, size: 44)
+        label.font = UIFont.type(type: .markPro, size: 30)
         
         return label
     }()
@@ -108,31 +108,27 @@ class AccountView: UIView {
         
         /// Initials label layout
         initialsLabel.snp.updateConstraints { maker in
-            maker.height.equalTo(128)
-            maker.width.equalTo(128)
-            maker.top.equalTo(42)
-            maker.centerX.equalTo(self)
+            maker.height.equalTo(80)
+            maker.width.equalTo(80)
+            maker.top.equalTo(20)
+            maker.left.equalToSuperview().offset(20)
         }
         
         /// Name label layout
         nameLabel.snp.updateConstraints { maker in
-            maker.top.equalTo(self).offset(128 + 42 + 16)
             maker.height.equalTo(40)
-            maker.centerX.equalTo(self)
-            maker.width.equalTo(self)
+            maker.width.equalToSuperview().offset(-100)
+            maker.left.equalTo(initialsLabel.snp.right).offset(10)
+            maker.centerY.equalToSuperview().offset(-10)
         }
         
         /// Email label layout
         emailLabel.snp.updateConstraints { maker in
-            maker.top.equalTo(nameLabel.snp.bottom).offset(2)
             maker.height.equalTo(30)
-            maker.centerX.equalTo(self)
-            maker.width.equalTo(self)
+            maker.centerY.equalToSuperview().offset(10)
+            maker.left.equalTo(initialsLabel.snp.right).offset(10)
+            maker.width.equalToSuperview().offset(-100)
         }
-        
-        /// Layers - initials
-        initialsLabel.layer.cornerRadius = 128 / 2
-        initialsLabel.clipsToBounds = true
     }
 }
 

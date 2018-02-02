@@ -42,8 +42,6 @@ class AgentAdapter {
             return Promise(value: nil)
         }
         
-//        let currentAgentID = "297c55b2-f7d0-4dfc-a840-d6d43beda769"
-        
         /// Networking
         let apiMan = APIManager.shared
         return apiMan.request(.get, path: "agents/\(currentAgentID)").then { response-> Agent in

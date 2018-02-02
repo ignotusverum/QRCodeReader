@@ -10,9 +10,19 @@ import UIKit
 import SnapKit
 import Foundation
 
-class TitleImageCell: UICollectionViewCell, AccessoryCellProtocol {
+class TitleImageCell: UICollectionViewCell {
     
-    lazy var accessoryImageView: UIImageView = self.generateAccessoryImage()
+    var title: String? {
+        didSet {
+            titleLabel.text = title
+        }
+    }
+    
+    var image: UIImage? {
+        didSet {
+            iconImageView.image = image
+        }
+    }
     
     private var titleLabel: UILabel = {
         
@@ -22,11 +32,9 @@ class TitleImageCell: UICollectionViewCell, AccessoryCellProtocol {
         return label
     }()
     
-    private var iconImageView: UIImageView = {
+    var iconImageView: UIImageView = {
         
         let imageView = UIImageView()
-        
-        imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
         
         return imageView
@@ -38,9 +46,9 @@ class TitleImageCell: UICollectionViewCell, AccessoryCellProtocol {
         /// Image layout
         addSubview(iconImageView)
         iconImageView.snp.updateConstraints { maker in
-            maker.centerY.equalToSuperview()
             maker.left.equalTo(20)
-            maker.width.height.equalTo(30)
+            maker.width.height.equalTo(18)
+            maker.centerY.equalToSuperview()
         }
         
         /// Title layout
@@ -51,9 +59,6 @@ class TitleImageCell: UICollectionViewCell, AccessoryCellProtocol {
             maker.left.equalTo(iconImageView.snp.right).offset(20)
             maker.right.equalTo(self).offset(-20)
         }
-        
-        /// Accessory image
-        accessoryLayout()
     }
     
     func setupTitle(_ title: String, iconImage: UIImage = UIImage()) {

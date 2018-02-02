@@ -25,10 +25,13 @@ class EventCell: UICollectionViewCell {
             
             /// Timeframe
             let dateFormat = Date.startFormat(event.startDate, end: event.endDate)
-            timeframeLabel.text = dateFormat
+            timeframeLabel.attributedText = NSAttributedString(string: dateFormat, attributes: [NSAttributedStringKey.paragraphStyle: paragraph, NSAttributedStringKey.font: UIFont.type(type: .markPro, size: 14)])
             
             /// Checkin
-            checkinCountLabel.text = "\(event.numberOfCheckedInGuests) of \(event.numberOfGuests) Checked in"
+            let suffix = NSAttributedString(string: "CHECKED IN", attributes: [.font: UIFont.type(type: .markPro, style: .medium, size: 14), .foregroundColor: UIColor.defaultGreen])
+            let result = NSMutableAttributedString(string: "\(event.numberOfCheckedInGuests.formattedWithSeparator) of \(event.numberOfGuests.formattedWithSeparator) ", attributes: [.font: UIFont.type(type: .markPro, style: .medium, size: 14)])
+            result.append(suffix)
+            checkinCountLabel.attributedText = result
             
             layoutSubviews()
         }
@@ -50,7 +53,6 @@ class EventCell: UICollectionViewCell {
         
         label.numberOfLines = 2
         label.isWindlessable = true
-        label.font = UIFont.type(type: .markPro, size: 12)
         
         return label
     }()
@@ -61,7 +63,7 @@ class EventCell: UICollectionViewCell {
         
         label.isWindlessable = true
         label.textAlignment = .right
-        label.font = UIFont.type(type: .markPro, size: 10)
+        label.font = UIFont.type(type: .markPro, style: .medium, size: 14)
         
         return label
     }()
@@ -73,7 +75,7 @@ class EventCell: UICollectionViewCell {
         addSubview(titleLabel)
         titleLabel.snp.updateConstraints { maker in
             maker.top.equalToSuperview().offset(20)
-            maker.height.equalTo(60)
+            maker.height.equalTo(50)
             maker.right.equalToSuperview().offset(-20)
             maker.left.top.equalToSuperview().offset(20)
         }
@@ -84,17 +86,16 @@ class EventCell: UICollectionViewCell {
         timeframeLabel.snp.updateConstraints { maker in
             maker.top.equalTo(titleLabel.snp.bottom).offset(20)
             maker.left.equalToSuperview().offset(20)
-            maker.right.equalToSuperview().offset(-150)
-            maker.bottom.equalToSuperview().offset(-20)
+            maker.right.equalToSuperview().offset(-20)
         }
         
         /// Checkin count layout
         addSubview(checkinCountLabel)
         checkinCountLabel.sizeToFit()
         checkinCountLabel.snp.updateConstraints { maker in
-            maker.top.equalTo(titleLabel.snp.bottom).offset(20)
-            maker.right.equalToSuperview().offset(-20)
-            maker.bottom.equalToSuperview().offset(-20)
+            maker.top.equalTo(timeframeLabel.snp.bottom).offset(10)
+            maker.left.equalToSuperview().offset(20)
+            maker.right.bottom.equalToSuperview().offset(-20)
         }
     }
 }

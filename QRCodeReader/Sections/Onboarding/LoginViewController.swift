@@ -11,9 +11,36 @@ import Foundation
 import PromiseKit
 import JDStatusBarNotification
 
+/// LoginVC datasource with validation logic
 enum LoginViewControllerCellType: String {
     case email = "email"
     case password
+    
+    func validationModel()-> ValidationFieldModel {
+        switch self {
+        case .email:
+            
+            var model = ValidationFieldModel()
+            
+            model.placeholder = "Email"
+            model.keyboardType = .emailAddress
+            model.errorCopy = "Please enter a valid email address"
+            model.validationRule = Validation.isValidEmail(_:)
+            
+            return model
+            
+        case .password:
+            
+            var model = ValidationFieldModel()
+            
+            model.isSecure = true
+            model.placeholder = "Password"
+            model.errorCopy = "Please enter a valid password"
+            model.validationRule = Validation.isValidPassword(_:)
+            
+            return model
+        }
+    }
 }
 
 class LoginViewController: UIViewController {
@@ -31,15 +58,14 @@ class LoginViewController: UIViewController {
     // MARK: UI
     private lazy var backgroundImage: UIImageView = {
        
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "login-background"))
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "default-background"))
         return imageView
     }()
     
-    private lazy var forwardButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         
-        let button = UIButton.button(style: .gradient)
-        button.setImage(#imageLiteral(resourceName: "forward"), for: .normal)
-        button.setBackgroundColor(.white, forState: .normal)
+        let button = UIButton.button(style: .black)
+        button.setTitle("SIGN IN", for: .normal)
         
         /// Hide button
         button.alpha = 0
@@ -51,14 +77,15 @@ class LoginViewController: UIViewController {
        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        
+    
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
-        collectionView.register(InputCollectionCell.self, forCellWithReuseIdentifier: "\(InputCollectionCell.self)")
+        collectionView.register(ValidationCell.self, forCellWithReuseIdentifier: "\(ValidationCell.self)")
         
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -73,6 +100,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
+        view.backgroundColor = .white
+        
         /// Image setup
         setNavigationImage(#imageLiteral(resourceName: "logo"))
         
@@ -80,8 +109,8 @@ class LoginViewController: UIViewController {
         layoutSetup()
         
         /// Forward button handler
-        forwardButton.setAction(block: { [unowned self] sender in
-            self.onForward()
+        loginButton.setAction(block: { [unowned self] sender in
+            self.onLogin()
             }, for: .touchUpInside)
         
         /// Show keyboard after delay
@@ -97,16 +126,8 @@ class LoginViewController: UIViewController {
         /// Initial animation
         UIView.animate(withDuration: 0.5) { [unowned self] in
             self.collecionView.alpha = 1
-            self.forwardButton.alpha = 1
+            self.loginButton.alpha = 1
         }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        /// Layer updates
-        forwardButton.makeRound()
-        collecionView.layer.cornerRadius = 10
     }
     
     private func layoutSetup() {
@@ -120,23 +141,24 @@ class LoginViewController: UIViewController {
         /// Collection view layout
         view.addSubview(collecionView)
         collecionView.snp.updateConstraints { maker in
-            maker.height.equalTo(140)
+            maker.height.equalTo(190)
             maker.centerX.equalToSuperview()
             maker.width.equalToSuperview().offset(-70)
             maker.top.equalToSuperview().offset(60)
         }
         
         /// Forward btn layout
-        view.addSubview(forwardButton)
-        forwardButton.snp.updateConstraints { maker in
-            maker.width.height.equalTo(80)
+        view.addSubview(loginButton)
+        loginButton.snp.updateConstraints { maker in
+            maker.height.equalTo(60)
             maker.centerX.equalToSuperview()
-            maker.top.equalTo(collecionView.snp.bottom).offset(40)
+            maker.width.equalToSuperview().offset(-70)
+            maker.top.equalTo(collecionView.snp.bottom).offset(20)
         }
     }
     
     // MARK: Utilities
-    fileprivate func onForward() {
+    fileprivate func onLogin() {
         handleLogin()
     }
     
@@ -183,9 +205,9 @@ class LoginViewController: UIViewController {
                 /// Transition
                 TransitionHandler.transitionTo(MainViewController(agent: agent))
             }.catch { [unowned self] error in
-                JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
                 self.handleLoading(false)
                 self.emailFormInput?.becomeFirstResponder()
+                JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
         }
     }
     
@@ -199,19 +221,19 @@ class LoginViewController: UIViewController {
             view.endEditing(true)
             
             /// Loading
-            forwardButton.showLoader()
+            loginButton.showLoader()
             
             return
         }
         
-        forwardButton.hideLoader()
+        loginButton.hideLoader()
         UIApplication.shared.endIgnoringInteractionEvents()
     }
 }
 
 extension LoginViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath)-> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 70)
+        return CGSize(width: collectionView.frame.width, height: 95)
     }
 }
 
@@ -226,52 +248,43 @@ extension LoginViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
      
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(InputCollectionCell.self)", for: indexPath) as! InputCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ValidationCell.self)", for: indexPath) as! ValidationCell
         
         let type = datasource[indexPath.row]
+
+        cell.inputModel = type.validationModel()
         
-        /// Cell estup
-        cell.placeholder = type.rawValue
-        cell.indexPath = indexPath
         cell.delegate = self
-        
-        if type == .email {
-            cell.formInput.keyboardType = .emailAddress
-        } else {
-            cell.formInput.isSecureTextEntry = true
-        }
-        
-        /// Disable capitalization
-        cell.formInput.autocapitalizationType = .none
+        cell.indexPath = indexPath
         
         /// Used to present initial keyboard
         if indexPath.row == 0 {
-            emailFormInput = cell.formInput
+            emailFormInput = cell.textInput
         }
         
         return cell
     }
 }
 
-extension LoginViewController: FormInputCellDelegate {
-    
-    /// Text field did change
-    func textFieldDidChange(_ textField: UITextField, indexPath: IndexPath) {
-        let type = datasource[indexPath.row]
-        
-        switch type {
-        case .email:
-            email = textField.text
-        case .password:
-            password = textField.text
-        }
-    }
+extension LoginViewController: ValidationCellDelegate {
     
     /// Return button pressed
     func textFieldHitReturn(_ textField: UITextField, indexPath: IndexPath) {
         /// Hit return on last cell
         if indexPath.row == datasource.count {
-            onForward()
+            onLogin()
+        }
+    }
+
+    /// Text field did change
+    func validationField(_ field: ValidationField, textChanged: String?, indexPath: IndexPath) {
+        
+        let type = datasource[indexPath.row]
+        switch type {
+        case .email:
+            email = field.status == .success ? textChanged : nil
+        case .password:
+            password = field.status == .success ? textChanged : nil
         }
     }
 }

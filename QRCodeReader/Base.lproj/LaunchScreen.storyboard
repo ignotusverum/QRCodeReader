@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-background" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-by-SXd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-background" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-by-SXd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                             </imageView>
                         </subviews>
@@ -76,7 +76,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="login-background" width="375" height="812"/>
+        <image name="default-background" width="375" height="667"/>
         <image name="logo" width="73" height="30"/>
     </resources>
 </document>

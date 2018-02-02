@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct DefaultButtonStyle: GradientButtonStyleProtocol {
+struct DefaultButtonStyle: ButtonStyleProtocol {
     
     func initialState(button: @escaping () -> UIButton) {
         normalState { () -> UIButton in

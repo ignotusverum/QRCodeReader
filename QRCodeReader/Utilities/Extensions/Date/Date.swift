@@ -25,23 +25,38 @@ extension Date {
     }
     
     public var year: Int {
-        return Calendar.current.component(Calendar.Component.year, from: self)
+        var calendar = Calendar.current
+        calendar.timeZone = .current
+        
+        return calendar.component(Calendar.Component.year, from: self)
     }
     
     public var month: Int {
-        return Calendar.current.component(Calendar.Component.month, from: self)
+        var calendar = Calendar.current
+        calendar.timeZone = .current
+        
+        return calendar.component(Calendar.Component.month, from: self)
     }
     
     public var day: Int {
-        return Calendar.current.component(Calendar.Component.day, from: self)
+        var calendar = Calendar.current
+        calendar.timeZone = .current
+        
+        return calendar.component(Calendar.Component.day, from: self)
     }
     
     public var hour: Int {
-        return Calendar.current.component(Calendar.Component.hour, from: self)
+        var calendar = Calendar.current
+        calendar.timeZone = .current
+        
+        return calendar.component(Calendar.Component.hour, from: self)
     }
     
     public var minute: Int {
-        return Calendar.current.component(Calendar.Component.minute, from: self)
+        var calendar = Calendar.current
+        calendar.timeZone = .current
+        
+        return calendar.component(Calendar.Component.minute, from: self)
     }
     
     var defaultFormat: String? {
@@ -72,11 +87,11 @@ extension Date {
         
         let currentYear = Date().year
         
-        var startDateFormat = "d MMM h:mm a yyyy"
-        var endDateFormat = "d MMM h:mm a yyyy"
+        var startDateFormat = "d MMM yyyy\nh:mm a"
+        var endDateFormat = "d MMM yyyy h:mm a"
         
-        if currentYear >= start.year {
-            endDateFormat = endDateFormat.replacingOccurrences(of: "yyyy", with: "")
+        if currentYear == start.year {
+            endDateFormat = endDateFormat.replacingOccurrences(of: "yyyy ", with: "")
             startDateFormat = startDateFormat.replacingOccurrences(of: "yyyy", with: "")
         }
         
@@ -88,25 +103,27 @@ extension Date {
         }
         
         if start.year == end.year {
-            endDateFormat = endDateFormat.replacingOccurrences(of: "yyyy", with: "")
+            endDateFormat = endDateFormat.replacingOccurrences(of: "yyyy ", with: "")
         }
         
         if start.month == end.month {
-            endDateFormat = endDateFormat.replacingOccurrences(of: "MMM", with: "")
+            endDateFormat = endDateFormat.replacingOccurrences(of: "MMM ", with: "")
         }
         
         if start.day == end.day {
-            endDateFormat = endDateFormat.replacingOccurrences(of: "d", with: "")
+            endDateFormat = endDateFormat.replacingOccurrences(of: "d ", with: "")
+        } else {
+            startDateFormat = startDateFormat.replacingOccurrences(of: "\n ", with: "")
         }
         
         if start.hour == end.hour && start.minute == end.minute {
-            endDateFormat = endDateFormat.replacingOccurrences(of: "h:mm a", with: "")
+            endDateFormat = endDateFormat.replacingOccurrences(of: " h:mm a", with: "")
         }
         
         endFormatter.dateFormat = endDateFormat
         
         let endResult = endFormatter.string(from: end)
-        return "\(startResult) - \(endResult)"
+        return "\(startResult) - \(endResult)".uppercased()
     }
 }
 

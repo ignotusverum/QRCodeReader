@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Camera_selected.png",
+      "filename" : "scan black.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Camera_selected@2x.png",
+      "filename" : "scan black@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Camera_selected@3x.png",
+      "filename" : "scan black@3x.png",
       "scale" : "3x"
     }
   ],

@@ -60,11 +60,11 @@ struct Guest: Unmarshaling {
     /// Full name
     var fullName: String {
         
-        var fullNameString = firstName
+        var fullNameString = firstName.capitalizeFirst()
         if lastName.count > 0 {
             
             let additionalSpace = firstName.count > 0 ? " " : ""
-            fullNameString = fullNameString + additionalSpace + lastName
+            fullNameString = fullNameString + additionalSpace + lastName.capitalizeFirst()
         }
         
         return fullNameString

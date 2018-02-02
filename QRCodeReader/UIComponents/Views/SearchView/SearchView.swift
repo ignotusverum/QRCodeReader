@@ -41,12 +41,17 @@ class SearchView: UIView {
         return button
     }()
     
+    /// Placeholder
+    var placeholder: String = "Search" {
+        didSet {
+            searchTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor.lightGray, .font: UIFont.type(type: .markPro)])
+        }
+    }
+    
     /// Text field
     lazy var searchTextField: UITextField = {
         
         let textField = UITextField()
-        
-        textField.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightText, NSAttributedStringKey.font: UIFont.type(type: .markPro)])
         
         textField.autocorrectionType = .no
         textField.textColor = UIColor.black
@@ -94,7 +99,7 @@ class SearchView: UIView {
         /// Search text field
         searchTextField.snp.updateConstraints { maker in
             maker.left.equalTo(24 + 17 + 10)
-            maker.right.equalTo(self).offset(-27 - 16 - 5)
+            maker.right.equalTo(self).offset(-20 - 16 - 5)
             maker.centerY.equalTo(self).offset(1)
         }
     }

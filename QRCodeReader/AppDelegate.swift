@@ -140,7 +140,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let config = Config.shared
             config.agentGUID = nil
-            config.qrShowAlert = true
             
             // Reset baddges
             UIApplication.shared.applicationIconBadgeNumber = 0

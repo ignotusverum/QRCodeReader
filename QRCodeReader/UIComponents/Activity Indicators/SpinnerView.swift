@@ -45,11 +45,9 @@ class SpinnerView: UIView {
     
     private func customInit() {
         indicatorImageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-        indicatorImageView.image = #imageLiteral(resourceName: "small-spinner")
+        indicatorImageView.image = #imageLiteral(resourceName: "small_spinner_default")
         indicatorImageView.contentMode = .scaleAspectFit
         addSubview(indicatorImageView)
-        
-        
         
         startSpinning()
     }

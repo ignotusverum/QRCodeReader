@@ -22,6 +22,12 @@ extension UIColor {
     /// Grays
     static let defaultGray = UIColor.hex("#F8F7F6")
     
+    /// Greens
+    static let defaultGreen = UIColor.hex("#00C97D")
+    
+    /// Blue
+    static let defaultBlue = UIColor.hex("#3462F7")
+    
     class func hex(_ hexString: String)-> UIColor {
         var cString:String = hexString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         

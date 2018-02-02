@@ -24,8 +24,7 @@ class GuestsViewController: UIViewController {
     /// Loading cell number
     var loadingCellCount = 8
     
-    /// Search view
-    lazy var searchView = SearchView()
+    var searchInput: UITextField?
     
     lazy var collectionView: UICollectionView = { [unowned self] in
         
@@ -39,6 +38,7 @@ class GuestsViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collectionView.register(GuestCell.self, forCellWithReuseIdentifier: "\(GuestCell.self)")
+        collectionView.register(SearchViewCell.self, forCellWithReuseIdentifier: "\(SearchViewCell.self)")
         
         collectionView.backgroundColor = .defaultGray
         
@@ -47,6 +47,9 @@ class GuestsViewController: UIViewController {
         
         /// Empty source delegate
         collectionView.emptyDataSetSource = self
+        
+        /// Backgrdoun image
+        collectionView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "default-background"))
         
         return collectionView
     }()
@@ -76,26 +79,15 @@ class GuestsViewController: UIViewController {
         
         /// Layout setup
         layoutSetup()
-        
-        /// Setup search logic
-        searchSetup()
     }
     
     // MARK: Utilities
     private func layoutSetup() {
         
-        /// Search view
-        view.addSubview(searchView)
-        searchView.snp.updateConstraints { maker in
-            maker.height.equalTo(55)
-            maker.top.left.right.equalToSuperview()
-        }
-        
         /// Collection view layout
         view.addSubview(collectionView)
         collectionView.snp.updateConstraints { maker in
-            maker.top.equalToSuperview().offset(55)
-            maker.bottom.left.right.equalToSuperview()
+            maker.bottom.top.left.right.equalToSuperview()
         }
         
         /// Loader
@@ -105,12 +97,6 @@ class GuestsViewController: UIViewController {
                 $0.animationLayerOpacity = 0.5
             }
             .start()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        searchView.addBottomBorder()
     }
     
     private func fetchData() {
@@ -126,17 +112,6 @@ class GuestsViewController: UIViewController {
                 
                 JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
         }
-    }
-    
-    private func searchSetup() {
-        searchView.onClearButton { [unowned self] in
-            self.searchTextChanged("")
-        }
-        
-        searchView.textDidChange { [unowned self] text in
-            self.searchTextChanged(text ?? "")
-        }
-        
     }
     
     /// Loading timeout - disables loading animation and shows empty collectionView
@@ -162,33 +137,61 @@ class GuestsViewController: UIViewController {
             self.datasource = originalDatasource.filter { $0.fullName.lowercased().contains(text.lowercased()) }
         }
         
-        collectionView.reloadData()
+        collectionView.reloadSections([1])
     }
 }
 
 extension GuestsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath)-> CGSize {
         
-        if DeviceType.IS_IPHONE_5 {
-            return CGSize(width: collectionView.frame.width / 2 - 20, height: collectionView.frame.height / 1.5)
-        } else if DeviceType.IS_IPHONE_6 {
-            return CGSize(width: collectionView.frame.width / 2 - 20, height: collectionView.frame.height / 2)
+        let width: CGFloat = collectionView.frame.width - 40
+        let height: CGFloat = indexPath.section == 0 ? 60 : 100
+        
+        return CGSize(width: width, height: height)
+    }
+}
+
+extension GuestsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0 {
+            return
         }
         
-        return CGSize(width: collectionView.frame.width / 2 - 20, height: collectionView.frame.height / 2.3)
+        let cell = collectionView.cellForItem(at: indexPath) as! GuestCell
+        guard let guest = cell.guest else {
+            return
+        }
+        
+        let vc = GuestDetailsViewController(guest: guest)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension GuestsViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if section == 0 {
+            return 1
+        }
+        
         return datasource == nil ?  loadingCellCount : datasource!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.section == 0 {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(SearchViewCell.self)", for: indexPath) as! SearchViewCell
+            cell.delegate = self
+            searchInput = cell.searchView.searchTextField
+            
+            return cell
+        }
         
         let guestCell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(GuestCell.self)", for: indexPath) as! GuestCell
         
@@ -234,5 +237,15 @@ extension GuestsViewController: DZNEmptyDataSetSource {
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "Please add guests", attributes: [.font: UIFont.type(type: .markPro, size: 15), .foregroundColor: UIColor.lightGray])
+    }
+}
+
+extension GuestsViewController: SearchViewCellDelegate {
+    func onClearButton() {
+        searchTextChanged("")
+    }
+    
+    func textDidChange(_ text: String?) {
+        searchTextChanged(text ?? "")
     }
 }

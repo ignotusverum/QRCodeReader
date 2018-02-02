@@ -1,5 +1,5 @@
 //
-//  GradientButtonStyleProtocol.swift
+//  ButtonStyleProtocol.swift
 //  QRCodeReader
 //
 //  Created by Vladislav Zagorodnyuk on 1/12/18.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-//MARK: - GradientButtonStyleProtocol
+//MARK: - ButtonStyleProtocol
 
-protocol GradientButtonStyleProtocol {
+protocol ButtonStyleProtocol {
     
     /// Contains all properties to set in a button for its initial state.
     ///
@@ -38,9 +38,9 @@ protocol GradientButtonStyleProtocol {
     func gradientColors() -> [CGColor]
 }
 
-//MARK: - GradientButtonStyleProtocol Extension
+//MARK: - ButtonStyleProtocol Extension
 
-extension GradientButtonStyleProtocol {
+extension ButtonStyleProtocol {
     
     /// Set up for a layers black shadow.
     ///

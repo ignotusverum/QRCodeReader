@@ -23,28 +23,43 @@ class GuestCell: UICollectionViewCell {
                 return
             }
             
-            /// Order number
-            orderNumberLabel.text = "Order id: \(guest.orderItemID)"
+            /// Name label
+            nameLabel.text = guest.fullName
             
-            /// Initials view
-            initialsView.copyString = "\(guest.firstName) \(guest.lastName)"
+            /// Order number
+            orderNumberLabel.text = "Order ID: \(guest.orderItemID)"
             
             /// Inventory info label
-            inventoryInfoLabel.text = "\(guest.inventoryName)\n\(guest.inventoryItemTitle)"
+            inventoryInfoLabel.text = "\(guest.inventoryName) \(guest.inventoryItemTitle)"
             
             checkInButton.isHidden = guest.checkInStatus
-            checkedIninfoLabel.isHidden = !guest.checkInStatus
+            checkedInIcon.isHidden = !guest.checkInStatus
             
-            /// Checked in info
-            guard let date = guest.checkedInAt?.defaultFormat else {
-                return
-            }
-            
-            checkedIninfoLabel.text = "Checked in at:\n\(date)"
+            noteIcon.isHidden = guest.notes == nil
         }
     }
     
     // MARK: UI Elements
+    private lazy var noteIcon: UIImageView = {
+       
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.image = #imageLiteral(resourceName: "pencil_icon").imageWithInsets(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        view.tintColor = UIColor.defaultGreen
+        
+        return view
+    }()
+    
+    private lazy var checkedInIcon: UIImageView = {
+       
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.image = #imageLiteral(resourceName: "checkmark_icon").imageWithInsets(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        view.tintColor = UIColor.defaultBlue
+        
+        return view
+    }()
+    
     private lazy var orderNumberLabel: UILabel = {
        
         let label = UILabel()
@@ -54,98 +69,100 @@ class GuestCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var initialsView: NameInitialsView = {
-       
-        let view = NameInitialsView()
-        view.isWindlessable = true
-        
-        return view
-    }()
-    
     private lazy var inventoryInfoLabel: UILabel = {
        
         let label = UILabel()
         label.numberOfLines = 0
-        label.textAlignment = .center
         label.font = UIFont.type(type: .markPro, size: 14)
         label.isWindlessable = true
         
         return label
     }()
     
+    private lazy var nameLabel: UILabel = {
+       
+        let label = UILabel()
+        label.font = UIFont.type(type: .markPro, style: .medium, size: 20)
+        
+        return label
+    }()
+    
     lazy var checkInButton: UIButton = { [unowned self] in
        
-        let button = UIButton.button(style: .defaultButton)
-        button.setTitle("Check in", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont.type(type: .markPro)
-        button.setBackgroundColor(.white, forState: .normal)
+        let button = UIButton.button(style: .black)
         button.addTarget(self, action: #selector(onCheckIn(_:)), for: .touchUpInside)
         button.layer.shadowOpacity = 0
         
-        return button
-    }()
-    
-    private lazy var checkedIninfoLabel: UILabel = {
-       
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = UIFont.type(type: .markPro, style: .medium, size: 12)
-        label.textAlignment = .center
-        label.isWindlessable = true
+        let title = NSAttributedString(string: "CHECK IN", attributes: [.font: UIFont.type(type: .markPro), .kern: 2.0, .foregroundColor: UIColor.white])
+        button.setAttributedTitle(title, for: .normal)
         
-        return label
+        return button
     }()
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        /// Order number layout
-        addSubview(orderNumberLabel)
-        orderNumberLabel.snp.updateConstraints { maker in
-            maker.top.equalToSuperview()
-            maker.left.equalToSuperview().offset(5)
-            maker.width.equalTo(100)
-            maker.height.equalTo(40)
+        /// Guest name
+        addSubview(nameLabel)
+        nameLabel.sizeToFit()
+        nameLabel.snp.updateConstraints { maker in
+            maker.top.equalToSuperview().offset(15)
+            maker.left.equalToSuperview().offset(15)
+            maker.right.equalToSuperview().offset(-40)
         }
         
-        /// User info view
-        addSubview(initialsView)
-        initialsView.snp.updateConstraints { maker in
-            maker.top.equalTo(orderNumberLabel.snp.bottom)
-            maker.left.equalToSuperview()
-            maker.right.equalToSuperview()
-            maker.height.equalTo(90)
+        /// Note icon
+        addSubview(noteIcon)
+        noteIcon.snp.updateConstraints { maker in
+            maker.height.width.equalTo(25)
+            maker.right.equalToSuperview().offset(-10)
+            maker.top.equalToSuperview().offset(15)
         }
         
         /// Inventory label
         addSubview(inventoryInfoLabel)
+        inventoryInfoLabel.sizeToFit()
         inventoryInfoLabel.snp.updateConstraints { maker in
-            maker.left.equalToSuperview()
-            maker.right.equalToSuperview()
-            maker.height.equalTo(50)
-            maker.top.equalTo(initialsView.snp.bottom).offset(5)
+            maker.left.equalToSuperview().offset(15)
+            maker.right.equalToSuperview().offset(-15)
+            maker.top.equalTo(nameLabel.snp.bottom)
+        }
+        
+        /// Order number layout
+        addSubview(orderNumberLabel)
+        orderNumberLabel.snp.updateConstraints { maker in
+            maker.top.equalTo(inventoryInfoLabel.snp.bottom).offset(5)
+            maker.left.equalToSuperview().offset(15)
+            maker.right.equalToSuperview().offset(-15)
+            maker.bottom.equalToSuperview().offset(-10)
         }
         
         if let _ = guest {
             /// Check in button
             addSubview(checkInButton)
             checkInButton.snp.updateConstraints { maker in
+                maker.width.equalTo(110)
+                maker.height.equalTo(35)
                 maker.bottom.equalToSuperview().offset(-10)
-                maker.left.equalToSuperview().offset(20)
-                maker.right.equalToSuperview().offset(-20)
-                maker.top.equalTo(inventoryInfoLabel.snp.bottom).offset(10)
+                maker.right.equalToSuperview().offset(-10)
             }
         }
         
-        /// Check in info
-        addSubview(checkedIninfoLabel)
-        checkedIninfoLabel.snp.updateConstraints { maker in
+        /// Checked-in icon
+        addSubview(checkedInIcon)
+        checkedInIcon.snp.updateConstraints { maker in
+            maker.width.height.equalTo(25)
             maker.bottom.equalToSuperview().offset(-10)
-            maker.left.equalToSuperview().offset(5)
-            maker.right.equalToSuperview().offset(-5)
-            maker.top.equalTo(inventoryInfoLabel.snp.bottom).offset(5)
+            maker.right.equalToSuperview().offset(-10)
         }
+        
+        noteIcon.makeRound()
+        noteIcon.layer.borderWidth = 0.5
+        noteIcon.layer.borderColor = UIColor.defaultGreen.cgColor
+        
+        checkedInIcon.makeRound()
+        checkedInIcon.layer.borderWidth = 0.5
+        checkedInIcon.layer.borderColor = UIColor.defaultBlue.cgColor
     }
     
     // MARK: Actions

@@ -9,14 +9,15 @@
 import UIKit
 import MessageUI
 import Foundation
-import ParallaxHeader
 
 private enum AccountCellTitles: String {
     
-    case contactUs = "Contact us"
-    case settings
+    case account
+    case qrWeb = "Enable web checkin ?"
+    case signOut
+    case contactInfo = "CONTACT FEVO"
     
-    static let allValues = [settings, contactUs]
+    static let allValues = [account, qrWeb, signOut, contactInfo]
 }
 
 class AccountViewController: UIViewController {
@@ -27,14 +28,17 @@ class AccountViewController: UIViewController {
     /// Logout handler
     var logoutHandler: (()->())?
     
+    /// Initials label
+    var initialsLabel: UILabel?
+    
     /// Collection datasource
     fileprivate var datasource = AccountCellTitles.allValues
     
-    /// Collection view header view
-    lazy var headerView: AccountView = { [unowned self] in
+    /// Background image
+    private lazy var backgroundImage: UIImageView = {
         
-        let view = AccountView(agent: agent)
-        return view
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "default-background"))
+        return imageView
     }()
     
     /// Collection setup
@@ -47,9 +51,10 @@ class AccountViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
+        collectionView.register(SwitcherCell.self, forCellWithReuseIdentifier: "\(SwitcherCell.self)")
+        collectionView.register(ButtonCell.self, forCellWithReuseIdentifier: "\(ButtonCell.self)")
         collectionView.register(TitleCell.self, forCellWithReuseIdentifier: "\(TitleCell.self)")
-        collectionView.register(SignOutCell.self, forCellWithReuseIdentifier: "\(SignOutCell.self)")
-        collectionView.register(VersionCell.self, forCellWithReuseIdentifier: "\(VersionCell.self)")
+        collectionView.register(AccountCell.self, forCellWithReuseIdentifier: "\(AccountCell.self)")
         
         collectionView.backgroundColor = .white
         
@@ -73,15 +78,22 @@ class AccountViewController: UIViewController {
         layoutSetup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        initialsLabel?.makeRound()
+        initialsLabel?.addGradientBorder(lineWidth: 2)
+    }
+    
     func layoutSetup() {
         
         setNavigationImage(#imageLiteral(resourceName: "logo"))
         
-        /// Collection header setup
-        collectionView.parallaxHeader.view = headerView
-        collectionView.parallaxHeader.height = 280
-        collectionView.parallaxHeader.minimumHeight = 80
-        collectionView.parallaxHeader.mode = .centerFill
+        /// Background img layout
+        view.addSubview(backgroundImage)
+        backgroundImage.snp.updateConstraints { maker in
+            maker.left.right.top.bottom.equalToSuperview()
+        }
         
         /// CollectionView layout
         view.addSubview(collectionView)
@@ -91,12 +103,6 @@ class AccountViewController: UIViewController {
         collectionView.snp.updateConstraints { maker in
             maker.top.bottom.left.right.equalToSuperview()
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        headerView.initialsLabel.addGradientBorder(lineWidth: 2)
     }
     
     // MARK: Utilities
@@ -134,18 +140,9 @@ extension AccountViewController: UICollectionViewDelegate {
         if indexPath.section < datasource.count {
             
             let type = datasource[indexPath.section]
-            
-            switch type {
-            case .contactUs:
-                /// Show mail client
+            if type == .contactInfo {
                 composeEmail()
-            case .settings:
-                let settingsVC = SettingsViewController()
-                navigationController?.pushViewController(settingsVC, animated: true)
             }
-        } else {
-            /// Signout handler
-            TransitionHandler.signOut()
         }
     }
 }
@@ -153,13 +150,17 @@ extension AccountViewController: UICollectionViewDelegate {
 extension AccountViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath)-> CGSize {
         
-        return CGSize(width: collectionView.frame.width, height: 80)
+        if indexPath.section == 0 {
+            return CGSize(width: collectionView.frame.width, height: 120)
+        }
+        
+        return CGSize(width: collectionView.frame.width, height: 90)
     }
 }
 
 extension AccountViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return datasource.count + 2
+        return datasource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -168,27 +169,51 @@ extension AccountViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        /// Signout button
-        if indexPath.section == datasource.count + 1 {
+        let type = datasource[indexPath.section]
+        
+        print(type)
+        
+        switch type {
+        case .account:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(AccountCell.self)", for: indexPath) as! AccountCell
             
-            /// Sign out button
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(SignOutCell.self)", for: indexPath) as! SignOutCell
+            cell.agent = agent
+            initialsLabel = cell.accountView.initialsLabel
             
             return cell
-        } else if indexPath.section == datasource.count {
+        case .qrWeb:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(SwitcherCell.self)", for: indexPath) as! SwitcherCell
             
-            /// Version setup
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(VersionCell.self)", for: indexPath)
+            /// Cell setup
+            cell.delegate = self
+            cell.indexPath = indexPath
+            cell.text = type.rawValue
+            
+            let config = Config.shared
+            cell.radioButton.isOn = config.qrWebEnabled
+            
+            cell.dividerView.isHidden = true
+            
+            return cell
+            
+        case .signOut:
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ButtonCell.self)", for: indexPath) as! ButtonCell
+            cell.indexPath = indexPath
+            cell.delegate = self
+            cell.buttonTitle = "SIGN OUT"
+            
+            return cell
+            
+        case .contactInfo:
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TitleCell.self)", for: indexPath) as! TitleCell
+            cell.text = "CONTACT FEVO"
+            cell.dividerView.isHidden = true
+            cell.titleLabel.textAlignment = .center
+            
             return cell
         }
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TitleCell.self)", for: indexPath) as! TitleCell
-        
-        /// Cell setup
-        let titleModel = datasource[indexPath.section]
-        cell.text = titleModel.rawValue
-        
-        return cell
     }
 }
 
@@ -198,5 +223,20 @@ extension AccountViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension AccountViewController: SwitcherCellDelegate {
+    /// Switcher changed
+    func switcherChangedTo(value: Bool, indexPath: IndexPath) {
+        let config = Config.shared
+        config.qrWebEnabled = value
+    }
+}
+
+extension AccountViewController: ButtonCellDelegate {
+    func onButton(_ cell: ButtonCell, indexPath: IndexPath) {
+        /// Signout handler
+        TransitionHandler.signOut()
     }
 }

@@ -27,7 +27,7 @@
 		F506E41620056E5B00DBC504 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41520056E5B00DBC504 /* ViewController.swift */; };
 		F50EE2692007E32600B489CE /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2682007E32600B489CE /* EmptyView.swift */; };
 		F50EE26F2007ECC100B489CE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE26E2007ECC100B489CE /* Colors.swift */; };
-		F50EE2732009089B00B489CE /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2722009089B00B489CE /* GradientButton.swift */; };
+		F50EE2732009089B00B489CE /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2722009089B00B489CE /* Button.swift */; };
 		F50EE275200908F200B489CE /* GradientButtonStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */; };
 		F50EE2772009099200B489CE /* CircleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2762009099200B489CE /* CircleButtonStyle.swift */; };
 		F50F8E51201919480051ECD3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50F8E50201919480051ECD3 /* LoginViewController.swift */; };
@@ -44,14 +44,18 @@
 		F50F8E6920192F6E0051ECD3 /* DividerCellprotocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50F8E6720192F6E0051ECD3 /* DividerCellprotocol.swift */; };
 		F50F8E6C20193B360051ECD3 /* VIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50F8E6B20193B360051ECD3 /* VIew.swift */; };
 		F50F8E6D20193B380051ECD3 /* VIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50F8E6B20193B360051ECD3 /* VIew.swift */; };
+		F51D5DA62024BEFF003710B3 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D5DA52024BEFF003710B3 /* ButtonCell.swift */; };
+		F51D5DA72024BEFF003710B3 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D5DA52024BEFF003710B3 /* ButtonCell.swift */; };
+		F51D5DAA2024C1DB003710B3 /* SeachCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D5DA92024C1DB003710B3 /* SeachCell.swift */; };
+		F51D5DAB2024C1DB003710B3 /* SeachCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D5DA92024C1DB003710B3 /* SeachCell.swift */; };
+		F51D5DAE2024E1DE003710B3 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D5DAD2024E1DE003710B3 /* AccountCell.swift */; };
+		F51D5DAF2024E1DE003710B3 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D5DAD2024E1DE003710B3 /* AccountCell.swift */; };
 		F51DD1F2201F94FB00B3D834 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DD1F1201F94FB00B3D834 /* AccountView.swift */; };
 		F51DD1F3201F94FB00B3D834 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DD1F1201F94FB00B3D834 /* AccountView.swift */; };
 		F51DD1F5201F9D6D00B3D834 /* TitleCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DD1F4201F9D6D00B3D834 /* TitleCellProtocol.swift */; };
 		F51DD1F6201F9D6D00B3D834 /* TitleCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DD1F4201F9D6D00B3D834 /* TitleCellProtocol.swift */; };
 		F51DD1F9201F9D9B00B3D834 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DD1F8201F9D9B00B3D834 /* TitleCell.swift */; };
 		F51DD1FA201F9D9B00B3D834 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DD1F8201F9D9B00B3D834 /* TitleCell.swift */; };
-		F51DD1FC201FA59000B3D834 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DD1FB201FA59000B3D834 /* SettingsViewController.swift */; };
-		F51DD1FD201FA59000B3D834 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DD1FB201FA59000B3D834 /* SettingsViewController.swift */; };
 		F51DD200201FA5AF00B3D834 /* SwitcherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DD1FF201FA5AF00B3D834 /* SwitcherCell.swift */; };
 		F51DD201201FA5AF00B3D834 /* SwitcherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DD1FF201FA5AF00B3D834 /* SwitcherCell.swift */; };
 		F51DD204201FAAB500B3D834 /* VersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DD203201FAAB500B3D834 /* VersionCell.swift */; };
@@ -72,6 +76,16 @@
 		F5247184201A558A004AEC3A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5247182201A558A004AEC3A /* Date.swift */; };
 		F524718B201A7EF9004AEC3A /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524718A201A7EF9004AEC3A /* EventCell.swift */; };
 		F524718C201A7EF9004AEC3A /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F524718A201A7EF9004AEC3A /* EventCell.swift */; };
+		F5258371202376EB00F851AC /* ValidationField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5258370202376EB00F851AC /* ValidationField.swift */; };
+		F5258372202376EB00F851AC /* ValidationField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5258370202376EB00F851AC /* ValidationField.swift */; };
+		F52583762023956000F851AC /* ValidationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52583752023956000F851AC /* ValidationCell.swift */; };
+		F52583772023956000F851AC /* ValidationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52583752023956000F851AC /* ValidationCell.swift */; };
+		F525837A2023A3F200F851AC /* BlackButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52583792023A3F200F851AC /* BlackButtonStyle.swift */; };
+		F525837B2023A3F200F851AC /* BlackButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52583792023A3F200F851AC /* BlackButtonStyle.swift */; };
+		F525837E2023CE9500F851AC /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = F525837D2023CE9500F851AC /* Image.swift */; };
+		F525837F2023CE9500F851AC /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = F525837D2023CE9500F851AC /* Image.swift */; };
+		F52583812023D1FC00F851AC /* GuestDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52583802023D1FC00F851AC /* GuestDetailsViewController.swift */; };
+		F52583822023D1FC00F851AC /* GuestDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52583802023D1FC00F851AC /* GuestDetailsViewController.swift */; };
 		F5591F44201B759700BC08B3 /* GuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F43201B759700BC08B3 /* GuestsViewController.swift */; };
 		F5591F45201B759700BC08B3 /* GuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F43201B759700BC08B3 /* GuestsViewController.swift */; };
 		F5591F48201B788000BC08B3 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F47201B788000BC08B3 /* Guest.swift */; };
@@ -84,7 +98,7 @@
 		F5591F5E201B907500BC08B3 /* NameInitialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F5C201B907500BC08B3 /* NameInitialsView.swift */; };
 		F5591F60201BAB8100BC08B3 /* DefaultButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F5F201BAB8100BC08B3 /* DefaultButtonStyle.swift */; };
 		F5591F61201BAB8100BC08B3 /* DefaultButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F5F201BAB8100BC08B3 /* DefaultButtonStyle.swift */; };
-		F5673FAB2006B4B70024B663 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAA2006B4B70024B663 /* Button.swift */; };
+		F5673FAB2006B4B70024B663 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAA2006B4B70024B663 /* UIButton.swift */; };
 		F5673FB12006BA0D0024B663 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FB02006BA0D0024B663 /* QRReaderView.swift */; };
 		F568C5E5201FB73100CD39DE /* ActionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568C5E4201FB73100CD39DE /* ActionOverlay.swift */; };
 		F568C5E6201FB73100CD39DE /* ActionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568C5E4201FB73100CD39DE /* ActionOverlay.swift */; };
@@ -106,7 +120,7 @@
 		F5969BF82011589200F27DD7 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2682007E32600B489CE /* EmptyView.swift */; };
 		F5969BF92011589200F27DD7 /* AccessoryCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB1720113A3D00D70260 /* AccessoryCellProtocol.swift */; };
 		F5969BFA2011589200F27DD7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3F620054B2A00DBC504 /* String.swift */; };
-		F5969BFB2011589200F27DD7 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2722009089B00B489CE /* GradientButton.swift */; };
+		F5969BFB2011589200F27DD7 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2722009089B00B489CE /* Button.swift */; };
 		F5969BFD2011589200F27DD7 /* CircleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE2762009099200B489CE /* CircleButtonStyle.swift */; };
 		F5969BFE2011589200F27DD7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5804037200FAE2600FD1268 /* APIManager.swift */; };
 		F5969BFF2011589200F27DD7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0E200FE32100D70260 /* MainViewController.swift */; };
@@ -117,7 +131,7 @@
 		F5969C042011589200F27DD7 /* SignOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB11200FE4B900D70260 /* SignOutCell.swift */; };
 		F5969C052011589200F27DD7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EF200545F400DBC504 /* CameraViewController.swift */; };
 		F5969C062011589200F27DD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41520056E5B00DBC504 /* ViewController.swift */; };
-		F5969C072011589200F27DD7 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAA2006B4B70024B663 /* Button.swift */; };
+		F5969C072011589200F27DD7 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAA2006B4B70024B663 /* UIButton.swift */; };
 		F5969C082011589200F27DD7 /* TitleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41220055E7C00DBC504 /* TitleImageCell.swift */; };
 		F5969C092011589200F27DD7 /* GradientButtonStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */; };
 		F5969C0D2011589200F27DD7 /* SharpSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4032005546900DBC504 /* SharpSans-Bold.otf */; };
@@ -159,7 +173,7 @@
 		F50EE2682007E32600B489CE /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		F50EE26A2007EC3700B489CE /* QRCodeReader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QRCodeReader-Bridging-Header.h"; sourceTree = "<group>"; };
 		F50EE26E2007ECC100B489CE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		F50EE2722009089B00B489CE /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		F50EE2722009089B00B489CE /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonStyleProtocol.swift; sourceTree = "<group>"; };
 		F50EE2762009099200B489CE /* CircleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonStyle.swift; sourceTree = "<group>"; };
 		F50F8E50201919480051ECD3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -169,10 +183,12 @@
 		F50F8E6420192F160051ECD3 /* FormInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInputProtocol.swift; sourceTree = "<group>"; };
 		F50F8E6720192F6E0051ECD3 /* DividerCellprotocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerCellprotocol.swift; sourceTree = "<group>"; };
 		F50F8E6B20193B360051ECD3 /* VIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIew.swift; sourceTree = "<group>"; };
+		F51D5DA52024BEFF003710B3 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		F51D5DA92024C1DB003710B3 /* SeachCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachCell.swift; sourceTree = "<group>"; };
+		F51D5DAD2024E1DE003710B3 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		F51DD1F1201F94FB00B3D834 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		F51DD1F4201F9D6D00B3D834 /* TitleCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCellProtocol.swift; sourceTree = "<group>"; };
 		F51DD1F8201F9D9B00B3D834 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
-		F51DD1FB201FA59000B3D834 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F51DD1FF201FA5AF00B3D834 /* SwitcherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherCell.swift; sourceTree = "<group>"; };
 		F51DD203201FAAB500B3D834 /* VersionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCell.swift; sourceTree = "<group>"; };
 		F51DD207201FAAE400B3D834 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
@@ -183,13 +199,18 @@
 		F524717E201A554F004AEC3A /* Marshal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marshal.swift; sourceTree = "<group>"; };
 		F5247182201A558A004AEC3A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F524718A201A7EF9004AEC3A /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		F5258370202376EB00F851AC /* ValidationField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationField.swift; sourceTree = "<group>"; };
+		F52583752023956000F851AC /* ValidationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationCell.swift; sourceTree = "<group>"; };
+		F52583792023A3F200F851AC /* BlackButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackButtonStyle.swift; sourceTree = "<group>"; };
+		F525837D2023CE9500F851AC /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		F52583802023D1FC00F851AC /* GuestDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestDetailsViewController.swift; sourceTree = "<group>"; };
 		F5591F43201B759700BC08B3 /* GuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsViewController.swift; sourceTree = "<group>"; };
 		F5591F47201B788000BC08B3 /* Guest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
 		F5591F4B201B7B8800BC08B3 /* GuestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestAdapter.swift; sourceTree = "<group>"; };
 		F5591F57201B8F5700BC08B3 /* GuestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCell.swift; sourceTree = "<group>"; };
 		F5591F5C201B907500BC08B3 /* NameInitialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameInitialsView.swift; sourceTree = "<group>"; };
 		F5591F5F201BAB8100BC08B3 /* DefaultButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButtonStyle.swift; sourceTree = "<group>"; };
-		F5673FAA2006B4B70024B663 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		F5673FAA2006B4B70024B663 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		F5673FB02006BA0D0024B663 /* QRReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderView.swift; sourceTree = "<group>"; };
 		F568C5E4201FB73100CD39DE /* ActionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionOverlay.swift; sourceTree = "<group>"; };
 		F568C5E8201FB80D00CD39DE /* ActionOverlayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionOverlayCell.swift; sourceTree = "<group>"; };
@@ -257,7 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				F500CB0C200FE31B00D70260 /* AccountViewController.swift */,
-				F51DD1FB201FA59000B3D834 /* SettingsViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -335,6 +355,7 @@
 		F506E3F420054B1E00DBC504 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F525837C2023CE8D00F851AC /* Image */,
 				F568C5F7201FDA3700CD39DE /* Device */,
 				F51DD206201FAADB00B3D834 /* Bundle */,
 				F5247181201A5585004AEC3A /* Date */,
@@ -359,6 +380,7 @@
 		F506E3FB2005538800DBC504 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				F525836F202376DC00F851AC /* ValidationField */,
 				F568C5E3201FB72400CD39DE /* ActionOverlay */,
 				F5591F5A201B905900BC08B3 /* Views */,
 				F569CC29201A289B007162C8 /* Activity Indicators */,
@@ -373,10 +395,14 @@
 		F506E3FC2005539100DBC504 /* Collection Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F51D5DAC2024E1D6003710B3 /* AccountCell */,
+				F51D5DA82024C1D3003710B3 /* SearchCell */,
+				F51D5DA42024BEF5003710B3 /* ButtonCell */,
+				F52583732023953A00F851AC /* Validation */,
 				F568C5E7201FB80400CD39DE /* ActionOverlay */,
 				F51DD202201FAAAB00B3D834 /* VersionCell */,
 				F51DD1FE201FA5A500B3D834 /* SwitcherCell */,
-				F51DD1F7201F9D9500B3D834 /* TitleCell */,
+				F51DD1F7201F9D9500B3D834 /* TitleAccessoryCell */,
 				F5591F56201B8F4900BC08B3 /* Guest */,
 				F5247189201A7EDA004AEC3A /* Event */,
 				F50F8E6020192EBD0051ECD3 /* Input */,
@@ -472,8 +498,8 @@
 		F50EE2712009087A00B489CE /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				F50EE2722009089B00B489CE /* GradientButton.swift */,
-				F50EE2762009099200B489CE /* CircleButtonStyle.swift */,
+				F52583782023A3E400F851AC /* Button Styles */,
+				F50EE2722009089B00B489CE /* Button.swift */,
 				F50EE274200908F200B489CE /* GradientButtonStyleProtocol.swift */,
 				F5591F5F201BAB8100BC08B3 /* DefaultButtonStyle.swift */,
 			);
@@ -540,6 +566,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F51D5DA42024BEF5003710B3 /* ButtonCell */ = {
+			isa = PBXGroup;
+			children = (
+				F51D5DA52024BEFF003710B3 /* ButtonCell.swift */,
+			);
+			path = ButtonCell;
+			sourceTree = "<group>";
+		};
+		F51D5DA82024C1D3003710B3 /* SearchCell */ = {
+			isa = PBXGroup;
+			children = (
+				F51D5DA92024C1DB003710B3 /* SeachCell.swift */,
+			);
+			path = SearchCell;
+			sourceTree = "<group>";
+		};
+		F51D5DAC2024E1D6003710B3 /* AccountCell */ = {
+			isa = PBXGroup;
+			children = (
+				F51D5DAD2024E1DE003710B3 /* AccountCell.swift */,
+			);
+			path = AccountCell;
+			sourceTree = "<group>";
+		};
 		F51DD1F0201F948500B3D834 /* AccountView */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,12 +598,12 @@
 			path = AccountView;
 			sourceTree = "<group>";
 		};
-		F51DD1F7201F9D9500B3D834 /* TitleCell */ = {
+		F51DD1F7201F9D9500B3D834 /* TitleAccessoryCell */ = {
 			isa = PBXGroup;
 			children = (
 				F51DD1F8201F9D9B00B3D834 /* TitleCell.swift */,
 			);
-			path = TitleCell;
+			path = TitleAccessoryCell;
 			sourceTree = "<group>";
 		};
 		F51DD1FE201FA5A500B3D834 /* SwitcherCell */ = {
@@ -585,6 +635,7 @@
 			children = (
 				F524716D201A4F29004AEC3A /* EventsViewController.swift */,
 				F5591F43201B759700BC08B3 /* GuestsViewController.swift */,
+				F52583802023D1FC00F851AC /* GuestDetailsViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -637,6 +688,39 @@
 			path = Event;
 			sourceTree = "<group>";
 		};
+		F525836F202376DC00F851AC /* ValidationField */ = {
+			isa = PBXGroup;
+			children = (
+				F5258370202376EB00F851AC /* ValidationField.swift */,
+			);
+			path = ValidationField;
+			sourceTree = "<group>";
+		};
+		F52583732023953A00F851AC /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				F52583752023956000F851AC /* ValidationCell.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		F52583782023A3E400F851AC /* Button Styles */ = {
+			isa = PBXGroup;
+			children = (
+				F50EE2762009099200B489CE /* CircleButtonStyle.swift */,
+				F52583792023A3F200F851AC /* BlackButtonStyle.swift */,
+			);
+			path = "Button Styles";
+			sourceTree = "<group>";
+		};
+		F525837C2023CE8D00F851AC /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				F525837D2023CE9500F851AC /* Image.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		F5591F46201B787A00BC08B3 /* Guest */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,7 +766,7 @@
 		F5673FA92006B4B10024B663 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				F5673FAA2006B4B70024B663 /* Button.swift */,
+				F5673FAA2006B4B70024B663 /* UIButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -1085,6 +1169,7 @@
 				F50F8E6C20193B360051ECD3 /* VIew.swift in Sources */,
 				F51DD208201FAAE400B3D834 /* Bundle.swift in Sources */,
 				F524717B201A50F5004AEC3A /* Event.swift in Sources */,
+				F525837A2023A3F200F851AC /* BlackButtonStyle.swift in Sources */,
 				F51DD204201FAAB500B3D834 /* VersionCell.swift in Sources */,
 				F5591F4C201B7B8800BC08B3 /* GuestAdapter.swift in Sources */,
 				F50F8E6520192F160051ECD3 /* FormInputProtocol.swift in Sources */,
@@ -1094,18 +1179,18 @@
 				F5591F44201B759700BC08B3 /* GuestsViewController.swift in Sources */,
 				F50EE26F2007ECC100B489CE /* Colors.swift in Sources */,
 				F50F8E5E201929880051ECD3 /* Validation.swift in Sources */,
+				F525837E2023CE9500F851AC /* Image.swift in Sources */,
 				F524716E201A4F29004AEC3A /* EventsViewController.swift in Sources */,
 				F5591F58201B8F5700BC08B3 /* GuestCell.swift in Sources */,
 				F50F8E51201919480051ECD3 /* LoginViewController.swift in Sources */,
 				F51DD1F9201F9D9B00B3D834 /* TitleCell.swift in Sources */,
 				F50F8E5620191AD60051ECD3 /* AgentAdapter.swift in Sources */,
 				F50EE2692007E32600B489CE /* EmptyView.swift in Sources */,
-				F51DD1FC201FA59000B3D834 /* SettingsViewController.swift in Sources */,
 				F569CC2B201A28C0007162C8 /* SpinnerView.swift in Sources */,
 				F500CB1820113A3D00D70260 /* AccessoryCellProtocol.swift in Sources */,
 				F51DD1F2201F94FB00B3D834 /* AccountView.swift in Sources */,
 				F506E3F720054B2A00DBC504 /* String.swift in Sources */,
-				F50EE2732009089B00B489CE /* GradientButton.swift in Sources */,
+				F50EE2732009089B00B489CE /* Button.swift in Sources */,
 				F50EE2772009099200B489CE /* CircleButtonStyle.swift in Sources */,
 				F5591F60201BAB8100BC08B3 /* DefaultButtonStyle.swift in Sources */,
 				F5247183201A558A004AEC3A /* Date.swift in Sources */,
@@ -1114,13 +1199,18 @@
 				F5804038200FAE2600FD1268 /* APIManager.swift in Sources */,
 				F50F8E6820192F6E0051ECD3 /* DividerCellprotocol.swift in Sources */,
 				F500CB0F200FE32100D70260 /* MainViewController.swift in Sources */,
+				F51D5DAA2024C1DB003710B3 /* SeachCell.swift in Sources */,
 				F500CB1E2011409200D70260 /* TransitionHandler.swift in Sources */,
 				F568C5F9201FDA3D00CD39DE /* Device.swift in Sources */,
+				F52583812023D1FC00F851AC /* GuestDetailsViewController.swift in Sources */,
 				F506E4102005553F00DBC504 /* Font.swift in Sources */,
+				F51D5DA62024BEFF003710B3 /* ButtonCell.swift in Sources */,
 				F5247177201A50EC004AEC3A /* Agent.swift in Sources */,
+				F51D5DAE2024E1DE003710B3 /* AccountCell.swift in Sources */,
 				F500CB0D200FE31B00D70260 /* AccountViewController.swift in Sources */,
 				F5673FB12006BA0D0024B663 /* QRReaderView.swift in Sources */,
 				F568C5E9201FB80D00CD39DE /* ActionOverlayCell.swift in Sources */,
+				F52583762023956000F851AC /* ValidationCell.swift in Sources */,
 				F5591F5D201B907500BC08B3 /* NameInitialsView.swift in Sources */,
 				F5969C2020115BC500F27DD7 /* Config.swift in Sources */,
 				F500CB12200FE4B900D70260 /* SignOutCell.swift in Sources */,
@@ -1129,8 +1219,9 @@
 				F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */,
 				F506E41620056E5B00DBC504 /* ViewController.swift in Sources */,
 				F51DD200201FA5AF00B3D834 /* SwitcherCell.swift in Sources */,
-				F5673FAB2006B4B70024B663 /* Button.swift in Sources */,
+				F5673FAB2006B4B70024B663 /* UIButton.swift in Sources */,
 				F524717F201A554F004AEC3A /* Marshal.swift in Sources */,
+				F5258371202376EB00F851AC /* ValidationField.swift in Sources */,
 				F506E41320055E7C00DBC504 /* TitleImageCell.swift in Sources */,
 				F50F8E6220192ECE0051ECD3 /* InputCollectionCell.swift in Sources */,
 				F50EE275200908F200B489CE /* GradientButtonStyleProtocol.swift in Sources */,
@@ -1145,6 +1236,7 @@
 				F50F8E6D20193B380051ECD3 /* VIew.swift in Sources */,
 				F51DD209201FAAE400B3D834 /* Bundle.swift in Sources */,
 				F524717C201A50F5004AEC3A /* Event.swift in Sources */,
+				F525837B2023A3F200F851AC /* BlackButtonStyle.swift in Sources */,
 				F51DD205201FAAB500B3D834 /* VersionCell.swift in Sources */,
 				F5591F4D201B7B8800BC08B3 /* GuestAdapter.swift in Sources */,
 				F50F8E6620192F160051ECD3 /* FormInputProtocol.swift in Sources */,
@@ -1154,18 +1246,18 @@
 				F5591F45201B759700BC08B3 /* GuestsViewController.swift in Sources */,
 				F5969BF72011589200F27DD7 /* Colors.swift in Sources */,
 				F50F8E5F2019298B0051ECD3 /* Validation.swift in Sources */,
+				F525837F2023CE9500F851AC /* Image.swift in Sources */,
 				F524716F201A4F29004AEC3A /* EventsViewController.swift in Sources */,
 				F5591F59201B8F5700BC08B3 /* GuestCell.swift in Sources */,
 				F50F8E522019194C0051ECD3 /* LoginViewController.swift in Sources */,
 				F51DD1FA201F9D9B00B3D834 /* TitleCell.swift in Sources */,
 				F50F8E5720191AD60051ECD3 /* AgentAdapter.swift in Sources */,
 				F5969BF82011589200F27DD7 /* EmptyView.swift in Sources */,
-				F51DD1FD201FA59000B3D834 /* SettingsViewController.swift in Sources */,
 				F569CC2C201A28C0007162C8 /* SpinnerView.swift in Sources */,
 				F5969BF92011589200F27DD7 /* AccessoryCellProtocol.swift in Sources */,
 				F51DD1F3201F94FB00B3D834 /* AccountView.swift in Sources */,
 				F5969BFA2011589200F27DD7 /* String.swift in Sources */,
-				F5969BFB2011589200F27DD7 /* GradientButton.swift in Sources */,
+				F5969BFB2011589200F27DD7 /* Button.swift in Sources */,
 				F5969BFD2011589200F27DD7 /* CircleButtonStyle.swift in Sources */,
 				F5591F61201BAB8100BC08B3 /* DefaultButtonStyle.swift in Sources */,
 				F5247184201A558A004AEC3A /* Date.swift in Sources */,
@@ -1174,13 +1266,18 @@
 				F5969BFE2011589200F27DD7 /* APIManager.swift in Sources */,
 				F50F8E6920192F6E0051ECD3 /* DividerCellprotocol.swift in Sources */,
 				F5969BFF2011589200F27DD7 /* MainViewController.swift in Sources */,
+				F51D5DAB2024C1DB003710B3 /* SeachCell.swift in Sources */,
 				F5969C002011589200F27DD7 /* TransitionHandler.swift in Sources */,
 				F568C5FA201FDA3D00CD39DE /* Device.swift in Sources */,
+				F52583822023D1FC00F851AC /* GuestDetailsViewController.swift in Sources */,
 				F5969C012011589200F27DD7 /* Font.swift in Sources */,
+				F51D5DA72024BEFF003710B3 /* ButtonCell.swift in Sources */,
 				F5247178201A50EC004AEC3A /* Agent.swift in Sources */,
+				F51D5DAF2024E1DE003710B3 /* AccountCell.swift in Sources */,
 				F5969C022011589200F27DD7 /* AccountViewController.swift in Sources */,
 				F5969C032011589200F27DD7 /* QRReaderView.swift in Sources */,
 				F568C5EA201FB80D00CD39DE /* ActionOverlayCell.swift in Sources */,
+				F52583772023956000F851AC /* ValidationCell.swift in Sources */,
 				F5591F5E201B907500BC08B3 /* NameInitialsView.swift in Sources */,
 				F5969C2120115BC900F27DD7 /* Config.swift in Sources */,
 				F5969C042011589200F27DD7 /* SignOutCell.swift in Sources */,
@@ -1189,8 +1286,9 @@
 				F5969C052011589200F27DD7 /* CameraViewController.swift in Sources */,
 				F5969C062011589200F27DD7 /* ViewController.swift in Sources */,
 				F51DD201201FA5AF00B3D834 /* SwitcherCell.swift in Sources */,
-				F5969C072011589200F27DD7 /* Button.swift in Sources */,
+				F5969C072011589200F27DD7 /* UIButton.swift in Sources */,
 				F5247180201A554F004AEC3A /* Marshal.swift in Sources */,
+				F5258372202376EB00F851AC /* ValidationField.swift in Sources */,
 				F5969C082011589200F27DD7 /* TitleImageCell.swift in Sources */,
 				F50F8E6320192ECE0051ECD3 /* InputCollectionCell.swift in Sources */,
 				F5969C092011589200F27DD7 /* GradientButtonStyleProtocol.swift in Sources */,

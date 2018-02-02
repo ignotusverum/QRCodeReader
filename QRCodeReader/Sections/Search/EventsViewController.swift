@@ -44,6 +44,9 @@ class EventsViewController: UIViewController {
         /// Empty source delegate
         collectionView.emptyDataSetSource = self
         
+        /// Background view
+        collectionView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "default-background"))
+        
         return collectionView
     }()
     
@@ -142,7 +145,7 @@ class EventsViewController: UIViewController {
 
 extension EventsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath)-> CGSize {
-        return CGSize(width: collectionView.frame.width - 40, height: 150)
+        return CGSize(width: collectionView.frame.width - 40, height: 180)
     }
 }
 

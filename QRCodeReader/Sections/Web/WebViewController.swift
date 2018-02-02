@@ -123,7 +123,7 @@ class WebViewController: UIViewController {
             
             if type == .back {
                 
-                actionButton.setImage(#imageLiteral(resourceName: "back"), for: .normal)
+                actionButton.setImage(#imageLiteral(resourceName: "back_icon"), for: .normal)
             }
         }
     }

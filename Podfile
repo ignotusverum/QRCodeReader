@@ -27,9 +27,6 @@ def shared_pods
     # Common
     pod 'Common', :git => 'https://github.com/fevo-tech/iOS-common.git'
     
-    # Parallax
-    pod 'ParallaxHeader'
-    
     # Empty stat loading
     pod 'Windless'
     

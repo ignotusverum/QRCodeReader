@@ -17,36 +17,31 @@ class CameraViewController: UIViewController {
     /// Success/Failure feedback
     let generator = UINotificationFeedbackGenerator()
     
+    /// QR Scan area
+    lazy var squareImageView: UIImageView = {
+        
+        let view = UIImageView()
+        view.image = #imageLiteral(resourceName: "scan-icon")
+        
+        return view
+    }()
+    
     /// QR Code reader view
     lazy var qrReaderView: QRReaderView = QRReaderView()
     
     /// Empty view for camera permissions
     lazy var emptyView: EmptyView = EmptyView(title: "Please check your camera permissions in settings")
     
-    /// Gallery image picker
-    var imagePicker = UIImagePickerController()
-    
-    /// Camera roll button
-    lazy var galleryButton: UIButton = { [unowned self] in
-       
-        let button = UIButton.button(style: .gradient)
-        button.setImage(#imageLiteral(resourceName: "gallery"), for: .normal)
-        button.setBackgroundColor(.white, forState: .normal)
-        button.addTarget(self, action: #selector(onGallery(_:)), for: .touchUpInside)
-        
-        return button
-    }()
-    
     /// Flashlight button
     lazy var flashButton: UIButton = { [unowned self] in
-       
+        
         let button = UIButton.button(style: .gradient)
         button.setImage(#imageLiteral(resourceName: "flash"), for: .normal)
         button.setBackgroundColor(.white, forState: .normal)
         button.addTarget(self, action: #selector(onFlash(_:)), for: .touchUpInside)
         
         return button
-    }()
+        }()
     
     // MARK: Controller lifecycle
     override func viewDidLoad() {
@@ -75,7 +70,7 @@ class CameraViewController: UIViewController {
     }
     
     private func layoutSetup() {
-     
+        
         setNavigationImage(#imageLiteral(resourceName: "logo"))
         view.backgroundColor = .black
         
@@ -92,15 +87,15 @@ class CameraViewController: UIViewController {
             maker.bottom.equalTo(self.view).offset(-50)
             maker.centerX.equalTo(self.view)
             maker.width.height.equalTo(80)
-        }
+        } 
         
-//        /// Gallery button layout
-//        view.addSubview(galleryButton)
-//        galleryButton.snp.makeConstraints { [unowned self] maker in
-//            maker.bottom.equalTo(self.view).offset(-80)
-//            maker.centerX.equalTo(self.view).offset(60)
-//            maker.width.height.equalTo(80)
-//        }
+        /// Square area image
+        view.addSubview(squareImageView)
+        squareImageView.snp.updateConstraints { maker in
+            maker.top.left.equalToSuperview().offset(40)
+            maker.right.equalToSuperview().offset(-40)
+            maker.height.equalTo(view.frame.height*0.38)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -108,27 +103,11 @@ class CameraViewController: UIViewController {
         
         /// Layer updates
         flashButton.makeRound()
-        galleryButton.makeRound()
-    }
-    
-    // MARK: Actions
-    @objc
-    private func onGallery(_ sender: UIButton?) {
-        showGallery()
     }
     
     @objc
     private func onFlash(_ sender: UIButton?) {
         qrReaderView.toggleFlash()
-    }
-    
-    // MARK: Utilities
-    private func showGallery() {
-        
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.navigationBar.isTranslucent = false
-        present(imagePicker, animated: true, completion: nil)
     }
     
     private func emptyViewLayout() {
@@ -158,31 +137,6 @@ class CameraViewController: UIViewController {
     
     fileprivate func handle(orderItemGUID: String) {
         
-        /// Check if need to show modal, or handle networking request
-        let config = Config.shared
-        if config.qrShowAlert {
-         
-            GuestAdapter.fetchGuestFor(orderItemGUID: orderItemGUID).then { response-> Void in
-            
-                let actionOverlay = ActionOverlay(title: "Warning", subTitle: "Are you sure you want to checkin \(response.fullName).")
-                let okAction = OverlayAction(title: "Yes", style: .button) { [unowned self] in
-                    self.handle(orderItemGUID: orderItemGUID)
-                }
-                let cancelAction = OverlayAction(title: "Cancel", style: .cancel) {
-                    print("Cancel Yo")
-                }
-                
-                actionOverlay.addAction(action: okAction)
-                actionOverlay.addAction(action: cancelAction)
-                actionOverlay.present()
-                
-                }.catch { [unowned self] error in
-                    self.showError(error)
-            }
-            
-            return
-        }
-
         /// Handle networking request
         handleCheckin(orderItemGUID: orderItemGUID)
     }
@@ -203,7 +157,7 @@ class CameraViewController: UIViewController {
     }
     
     fileprivate func showError(_ error: Error) {
-     
+        
         generator.notificationOccurred(.error)
         JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
     }
@@ -221,7 +175,7 @@ extension CameraViewController: QRReaderViewDelegate {
     
     /// Discovered output
     func qrReader(_ qrReader: QRReaderView, didOutput url: URL) {
-
+        
         generator.notificationOccurred(.success)
         openLink(url)
     }
@@ -250,3 +204,4 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
         }
     }
 }
+

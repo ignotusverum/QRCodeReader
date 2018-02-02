@@ -11,7 +11,6 @@ import Foundation
 let AgentKey = "AgentKey"
 let AgentIDKey = "AgentIDKey"
 let QRWebSetupKey = "QRWebSetupKey"
-let QRShowAlertKey = "QRShowAlertKey"
 
 enum EnvironmentType: String {
     case prod = "prod"
@@ -42,15 +41,6 @@ class Config {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: QRWebSetupKey)
-        }
-    }
-    
-    var qrShowAlert: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: QRShowAlertKey)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: QRShowAlertKey)
         }
     }
     
