@@ -15,11 +15,15 @@ class AccountCell: UICollectionViewCell {
     lazy var accountView: AccountView = { [unowned self] in
        
         let view = AccountView(agent: agent)
+        view.backgroundColor = .clear
+        
         return view
     }()
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        backgroundColor = .clear
         
         addSubview(accountView)
         accountView.snp.updateConstraints { maker in

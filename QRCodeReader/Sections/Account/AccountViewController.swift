@@ -34,13 +34,6 @@ class AccountViewController: UIViewController {
     /// Collection datasource
     fileprivate var datasource = AccountCellTitles.allValues
     
-    /// Background image
-    private lazy var backgroundImage: UIImageView = {
-        
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "default-background"))
-        return imageView
-    }()
-    
     /// Collection setup
     lazy var collectionView: UICollectionView = {
         
@@ -56,7 +49,7 @@ class AccountViewController: UIViewController {
         collectionView.register(TitleCell.self, forCellWithReuseIdentifier: "\(TitleCell.self)")
         collectionView.register(AccountCell.self, forCellWithReuseIdentifier: "\(AccountCell.self)")
         
-        collectionView.backgroundColor = .white
+        collectionView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "default-background"))
         
         return collectionView
     }()
@@ -88,12 +81,6 @@ class AccountViewController: UIViewController {
     func layoutSetup() {
         
         setNavigationImage(#imageLiteral(resourceName: "logo"))
-        
-        /// Background img layout
-        view.addSubview(backgroundImage)
-        backgroundImage.snp.updateConstraints { maker in
-            maker.left.right.top.bottom.equalToSuperview()
-        }
         
         /// CollectionView layout
         view.addSubview(collectionView)

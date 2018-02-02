@@ -40,6 +40,9 @@ class SwitcherCell: UICollectionViewCell, DividerCellProtocol, TitleCellProtocol
     var radioButton: UISwitch = {
         
         var radioButton = UISwitch(frame: .zero)
+        radioButton.tintColor = UIColor.defaultBlue
+        radioButton.onTintColor = UIColor.defaultBlue
+        
         return radioButton
     }()
     
