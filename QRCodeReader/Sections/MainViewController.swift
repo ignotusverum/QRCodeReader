@@ -92,12 +92,7 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if APIManager.shared.cookies == nil {
-            selectedIndex = 0
-            APIManager.shared.cookies = HTTPCookieStorage.shared.cookies
-        } else {
-            selectedIndex = 1
-        }
+        APIManager.shared.cookies = HTTPCookieStorage.shared.cookies
         
         /// Init controllers
         viewControllers = controllers

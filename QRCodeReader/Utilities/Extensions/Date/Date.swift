@@ -87,8 +87,8 @@ extension Date {
         
         let currentYear = Date().year
         
-        var startDateFormat = "d MMM yyyy\nh:mm a"
-        var endDateFormat = "d MMM yyyy h:mm a"
+        var startDateFormat = "d MMM yyyy h:mm a"
+        var endDateFormat = "\nd MMM yyyy h:mm a"
         
         if currentYear == start.year {
             endDateFormat = endDateFormat.replacingOccurrences(of: "yyyy ", with: "")
@@ -116,7 +116,7 @@ extension Date {
             startDateFormat = startDateFormat.replacingOccurrences(of: "\n ", with: "")
         }
         
-        if start.hour == end.hour && start.minute == end.minute {
+        if start.hour == end.hour && start.minute == end.minute && start.day == end.day {
             endDateFormat = endDateFormat.replacingOccurrences(of: " h:mm a", with: "")
         }
         

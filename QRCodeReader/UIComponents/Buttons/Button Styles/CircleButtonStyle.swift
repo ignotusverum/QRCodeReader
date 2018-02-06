@@ -9,6 +9,9 @@
 import UIKit
 
 struct CircleButtonStyle: ButtonStyleProtocol {
+    func titleAttributedString(text: String) -> NSAttributedString {
+        return NSAttributedString()
+    }
     
     func initialState(button: @escaping () -> UIButton) {
         normalState { () -> UIButton in

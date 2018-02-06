@@ -6,6 +6,8 @@
 //  Copyright © 2018 Fevo. All rights reserved.
 //
 
+import UIKit
+
 class TitleCell: UICollectionViewCell, DividerCellProtocol, TitleCellProtocol {
     
     /// Divider view

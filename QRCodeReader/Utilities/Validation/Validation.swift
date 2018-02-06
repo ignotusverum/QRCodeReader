@@ -6,6 +6,9 @@
 //  Copyright © 2018 Fevo. All rights reserved.
 //
 
+import UIKit
+import Foundation
+
 enum CreateError: Error {
     
     case email

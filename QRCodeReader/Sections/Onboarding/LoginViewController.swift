@@ -9,7 +9,6 @@
 import UIKit
 import Foundation
 import PromiseKit
-import JDStatusBarNotification
 
 /// LoginVC datasource with validation logic
 enum LoginViewControllerCellType: String {
@@ -165,7 +164,7 @@ class LoginViewController: UIViewController {
     private func handleLogin() {
         /// Validation
         guard let email = email, let password = password else {
-            JDStatusBarNotification.show(withStatus: "Please enter email & password.", dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
+            NavigationStatusView.showError(controller: self, subtitle: "Please enter email & password")
             return
         }
         
@@ -173,7 +172,7 @@ class LoginViewController: UIViewController {
             let _ = try Validation.isValidEmail(email)
             let _ = try Validation.isValidPassword(password)
         } catch {
-            JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
+            NavigationStatusView.showError(controller: self, subtitle: error.localizedDescription)
             return
         }
         
@@ -207,7 +206,7 @@ class LoginViewController: UIViewController {
             }.catch { [unowned self] error in
                 self.handleLoading(false)
                 self.emailFormInput?.becomeFirstResponder()
-                JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
+                NavigationStatusView.showError(controller: self, subtitle: error.localizedDescription)
         }
     }
     

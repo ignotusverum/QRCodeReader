@@ -46,6 +46,8 @@ struct Event: Unmarshaling, Codable {
     var numberOfGuests: Int
     var numberOfCheckedInGuests: Int
     
+    var venueName: String?
+    
     init(object: MarshaledObject) throws {
         
         id = try object.value(for: EventJSONKeys.id.rawValue)

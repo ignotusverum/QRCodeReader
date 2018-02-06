@@ -28,6 +28,10 @@ extension UIColor {
     /// Blue
     static let defaultBlue = UIColor.hex("#3462F7")
     
+    /// Navigation status colors
+    static let navigationSuccess = UIColor.hex("#0DCA82")
+    static let navigationFailure = UIColor.hex("#F46C5A")
+    
     class func hex(_ hexString: String)-> UIColor {
         var cString:String = hexString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         

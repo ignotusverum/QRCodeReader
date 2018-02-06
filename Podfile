@@ -30,8 +30,8 @@ def shared_pods
     # Empty stat loading
     pod 'Windless'
     
-    # Status bar view
-    pod 'JDStatusBarNotification'
+    # Error view
+    pod 'SwiftMessages'
 end
 
 target ‘Prod’ do

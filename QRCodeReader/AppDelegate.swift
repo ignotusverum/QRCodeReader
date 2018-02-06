@@ -10,7 +10,6 @@ import UIKit
 import Fabric
 import Crashlytics
 import IQKeyboardManager
-import JDStatusBarNotification
 
 let AppDefaultAlertStyle = "AppDefaultAlertStyle"
 let AppDefaultSuccessStyle = "AppDefaultSuccessStyle"
@@ -49,9 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
     
-        /// Alert status view
-        setupStatusAlertView()
-        
         let apiMan = APIManager.shared
         if let cookies = apiMan.cookies {
             /// Checking for expired cookie
@@ -99,32 +95,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         NotificationCenter.default.post(name: Notification.Name(rawValue: AppWakeNotificationKey), object: nil)
-    }
-    
-    // MARK: Utilities
-    func setupStatusAlertView() {
-        
-        JDStatusBarNotification.addStyleNamed(AppDefaultAlertStyle) { style -> JDStatusBarStyle! in
-            
-            style?.barColor = UIColor.errorRed
-            style?.textColor = UIColor.white
-            style?.font = UIFont.type(type: .markPro, size: 12)
-            
-            style?.animationType = .bounce
-            
-            return style
-        }
-        
-        JDStatusBarNotification.addStyleNamed(AppDefaultSuccessStyle) { style -> JDStatusBarStyle! in
-            
-            style?.barColor = UIColor.green
-            style?.textColor = UIColor.white
-            style?.font = UIFont.type(type: .markPro, size: 12)
-            
-            style?.animationType = .bounce
-            
-            return style
-        }
     }
     
     /// First install check

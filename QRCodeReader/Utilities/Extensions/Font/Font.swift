@@ -28,8 +28,19 @@ extension UIFont {
     /// Default font setup
     static func type(type: FontType, style: FontStyle = .regular, size: CGFloat = 14)-> UIFont {
         let style = style != .regular ? "-\(style.rawValue)" : ""
-        return UIFont(name: "\(type.rawValue)\(style)", size: size)!
+        return UIFont(name: "\(type.rawValue)\(style)", size: fontScalingSize(size))!
+    }
+    
+    // MARK: - Scaling logic
+    class func fontScalingSize(_ size: CGFloat)-> CGFloat {
+        
+        switch UIDevice().screenType {
+        case .iPhone4, .iPhone5:
+            return size - 2
+        case .iPhone6Plus, .iPhoneX :
+            return size + 2
+        default:
+            return size
+        }
     }
 }
-
-

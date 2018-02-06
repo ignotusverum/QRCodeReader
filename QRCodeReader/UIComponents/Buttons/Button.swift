@@ -61,6 +61,16 @@ extension UIButton {
 /// Custom button implementation.
 private class Button: UIButton {
     
+    override func setTitle(_ title: String?, for state: UIControlState) {
+        guard let newTitle = title?.uppercased() else {
+            return
+        }
+        
+        super.setTitle(newTitle, for: state)
+        
+        titleLabel?.attributedText = styleDelegate?.titleAttributedString(text: newTitle)
+    }
+    
     override var isHighlighted: Bool {
         didSet {
             

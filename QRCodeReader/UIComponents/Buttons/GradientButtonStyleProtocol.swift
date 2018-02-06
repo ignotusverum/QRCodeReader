@@ -12,6 +12,12 @@ import UIKit
 
 protocol ButtonStyleProtocol {
     
+    /// Title attributes to use for button title label.
+    ///
+    /// - Parameter text: Text to get attributes for.
+    /// - Returns: Attributed string for text.
+    func titleAttributedString(text: String) -> NSAttributedString
+    
     /// Contains all properties to set in a button for its initial state.
     ///
     /// - Parameter button: Closure that returns button to stylize.

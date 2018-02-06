@@ -6,6 +6,7 @@
 //  Copyright © 2018 Fevo. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 protocol GuestCellDelegate {
@@ -44,7 +45,7 @@ class GuestCell: UICollectionViewCell {
        
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
-        view.image = #imageLiteral(resourceName: "pencil_icon").imageWithInsets(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        view.image = #imageLiteral(resourceName: "note-blue-icon").imageWithInsets(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         view.tintColor = UIColor.defaultGreen
         
         return view
@@ -54,7 +55,7 @@ class GuestCell: UICollectionViewCell {
        
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
-        view.image = #imageLiteral(resourceName: "checkmark_icon").imageWithInsets(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        view.image = #imageLiteral(resourceName: "check-green-icon").imageWithInsets(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         view.tintColor = UIColor.defaultBlue
         
         return view
@@ -63,7 +64,7 @@ class GuestCell: UICollectionViewCell {
     private lazy var orderNumberLabel: UILabel = {
        
         let label = UILabel()
-        label.font = UIFont.type(type: .markPro, size: 12)
+        label.font = UIFont.type(type: .markPro, size: 15)
         label.isWindlessable = true
         
         return label
@@ -73,7 +74,7 @@ class GuestCell: UICollectionViewCell {
        
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont.type(type: .markPro, size: 14)
+        label.font = UIFont.type(type: .markPro, size: 15)
         label.isWindlessable = true
         
         return label
@@ -82,7 +83,7 @@ class GuestCell: UICollectionViewCell {
     private lazy var nameLabel: UILabel = {
        
         let label = UILabel()
-        label.font = UIFont.type(type: .markPro, style: .medium, size: 20)
+        label.font = UIFont.type(type: .markPro, style: .medium, size: 17)
         
         return label
     }()
@@ -93,7 +94,7 @@ class GuestCell: UICollectionViewCell {
         button.addTarget(self, action: #selector(onCheckIn(_:)), for: .touchUpInside)
         button.layer.shadowOpacity = 0
         
-        let title = NSAttributedString(string: "CHECK IN", attributes: [.font: UIFont.type(type: .markPro), .kern: 2.0, .foregroundColor: UIColor.white])
+        let title = NSAttributedString(string: "CHECK IN", attributes: [.font: UIFont.type(type: .markPro, size: 10), .kern: 2.0, .foregroundColor: UIColor.white])
         button.setAttributedTitle(title, for: .normal)
         
         return button
@@ -114,7 +115,7 @@ class GuestCell: UICollectionViewCell {
         /// Note icon
         addSubview(noteIcon)
         noteIcon.snp.updateConstraints { maker in
-            maker.height.width.equalTo(25)
+            maker.height.width.equalTo(30)
             maker.right.equalToSuperview().offset(-10)
             maker.top.equalToSuperview().offset(15)
         }
@@ -151,18 +152,10 @@ class GuestCell: UICollectionViewCell {
         /// Checked-in icon
         addSubview(checkedInIcon)
         checkedInIcon.snp.updateConstraints { maker in
-            maker.width.height.equalTo(25)
+            maker.width.height.equalTo(30)
             maker.bottom.equalToSuperview().offset(-10)
             maker.right.equalToSuperview().offset(-10)
         }
-        
-        noteIcon.makeRound()
-        noteIcon.layer.borderWidth = 0.5
-        noteIcon.layer.borderColor = UIColor.defaultGreen.cgColor
-        
-        checkedInIcon.makeRound()
-        checkedInIcon.layer.borderWidth = 0.5
-        checkedInIcon.layer.borderColor = UIColor.defaultBlue.cgColor
     }
     
     // MARK: Actions

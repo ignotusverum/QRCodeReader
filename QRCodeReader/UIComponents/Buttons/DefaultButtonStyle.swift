@@ -10,6 +10,14 @@ import UIKit
 
 struct DefaultButtonStyle: ButtonStyleProtocol {
     
+    func titleAttributedString(text: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: text.uppercased())
+        attributedString.addAttribute(NSAttributedStringKey.kern, value: CGFloat(2), range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.font, value: UIFont.type(type: .markPro), range: NSRange(location: 0, length: attributedString.length))
+        
+        return attributedString
+    }
+    
     func initialState(button: @escaping () -> UIButton) {
         normalState { () -> UIButton in
             return button()

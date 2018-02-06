@@ -16,10 +16,10 @@ import PromiseKit
 /// JSON
 import Marshal
 
-//localhost:7050
 //localhost:3000
 //"checkin.fevo.com"
-let hostName = "api-mobile-stage.fevo.com:3000"
+//api-mobile-stage.fevo.com:3000
+let hostName = "localhost:3000"
 
 public let NetworkingManagerAccessTokenKey = "NetworkingManagerAccessTokenKey"
 public let NetworkingManagerCookiesTokenKey = "NetworkingManagerCookiesTokenKey"

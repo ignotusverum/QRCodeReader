@@ -7,6 +7,7 @@
 //  Copyright © 2018 Fevo. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 /// Validation model
@@ -124,6 +125,7 @@ class ValidationField: UIView {
     
     /// Current validation status
     var status: ValidationFieldStatus = .iddle
+    var previousStatus: ValidationFieldStatus = .iddle
     
     // MARK: Initialization
     init(model: ValidationFieldModel) {
@@ -183,10 +185,12 @@ class ValidationField: UIView {
             
             /// Check if need to change status
             if newStatus != status {
+                previousStatus = status
                 status = newStatus
                 delegate?.validationField(self, statusChanged: status)
             }
         } catch {
+            previousStatus = status
             status = .failed
             
             /// Pass error
@@ -197,34 +201,38 @@ class ValidationField: UIView {
     /// Validation UI
     private func updateValidationUI() {
         
-        if self.status != .failed {
-            
-            statusLabel.textColor = .red
-            UIView.transition(with: statusLabel, duration: 0.3, options: .transitionCrossDissolve, animations: { [unowned self] in
-                self.statusLabel.textColor = .clear
-            }, completion: nil)
-            
-            textInputContainer.layer.borderColor = UIColor.white.cgColor
-            
-            borderAnimation.fromValue = UIColor.red.cgColor
-            borderAnimation.toValue = UIColor.white.cgColor
-            
-            textInputContainer.layer.add(borderAnimation, forKey: "borderColor")
-            
-            return
-        }
-        
         textInputContainer.layer.borderWidth = 1
         
-        statusLabel.textColor = .clear
+        var statusColor = UIColor.red
+        var borderFromColor = UIColor.defaultBlue.cgColor
+        var borderToColor = UIColor.white.cgColor
+        
+        switch status {
+        case .failed:
+            statusColor = .red
+            borderFromColor = previousStatus == .failed ? UIColor.red.cgColor : previousStatus == .inProgress ? UIColor.defaultBlue.cgColor : UIColor.white.cgColor
+            borderToColor = UIColor.red.cgColor
+            
+        case .iddle, .success:
+            statusColor = .clear
+            borderFromColor = UIColor.defaultBlue.cgColor
+            borderToColor = UIColor.clear.cgColor
+            
+        case .inProgress:
+            statusColor = .clear
+            borderFromColor = previousStatus == .failed ? UIColor.red.cgColor : previousStatus == .inProgress ? UIColor.defaultBlue.cgColor : UIColor.white.cgColor
+            borderToColor = UIColor.defaultBlue.cgColor
+        }
+        
+        statusLabel.textColor = statusColor
         UIView.transition(with: statusLabel, duration: 0.3, options: .transitionCrossDissolve, animations: { [unowned self] in
-            self.statusLabel.textColor = .red
-        }, completion: nil)
+            self.statusLabel.textColor = self.status == .failed ? .red : .clear
+            }, completion: nil)
         
-        textInputContainer.layer.borderColor = UIColor.red.cgColor
+        textInputContainer.layer.borderColor = borderToColor
         
-        borderAnimation.fromValue = UIColor.white.cgColor
-        borderAnimation.toValue = UIColor.red.cgColor
+        borderAnimation.fromValue = borderFromColor
+        borderAnimation.toValue = borderToColor
         
         textInputContainer.layer.add(borderAnimation, forKey: "borderColor")
     }
@@ -239,6 +247,7 @@ class ValidationField: UIView {
 
 extension ValidationField: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        previousStatus = status
         status = .inProgress
         updateValidationUI()
     }

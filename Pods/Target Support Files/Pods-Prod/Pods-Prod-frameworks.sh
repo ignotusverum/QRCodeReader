@@ -108,9 +108,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ParallaxHeader/ParallaxHeader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Windless/Windless.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -120,9 +120,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ParallaxHeader/ParallaxHeader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Windless/Windless.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

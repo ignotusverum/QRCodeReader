@@ -6,8 +6,8 @@
 //  Copyright © 2018 Fevo. All rights reserved.
 //
 
+import UIKit
 import Foundation
-import JDStatusBarNotification
 
 enum GuestDetailsDatasource {
     case name
@@ -77,6 +77,9 @@ class GuestDetailsViewController: UIViewController {
     // MARK: Controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(guest.orderItemID)
+        print(guest.orderItemGUID)
         
         layoutSetup()
     }
@@ -148,7 +151,7 @@ extension GuestDetailsViewController: UICollectionViewDataSource {
             switch type {
             case .name:
                 title = guest.fullName
-                cell.titleLabel.font = UIFont.type(type: .markPro, style: .medium, size: 20)
+                cell.titleLabel.font = UIFont.type(type: .markPro, style: .medium, size: 17)
             case .inventoryInfo:
                 title = "\(guest.inventoryName) \(guest.inventoryItemTitle)"
             case .orderID:
@@ -173,6 +176,7 @@ extension GuestDetailsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ButtonCell.self)", for: indexPath) as! ButtonCell
             
             cell.delegate = self
+            cell.indexPath = indexPath
             cell.backgroundColor = .white
             
             cell.clipsToBounds = true
@@ -223,13 +227,13 @@ extension GuestDetailsViewController: ButtonCellDelegate {
         }
         
         let orderID = guest.orderItemGUID
-        GuestAdapter.checkIn(orderID, agentID: agentID).then { [unowned self] response-> Void in
+        OrderItemAdapter.checkIn(orderID, agentID: agentID).then { [unowned self] response-> Void in
             
             self.guest = response
             cell.button.hideLoader()
             self.collectionView.reloadData()
-            }.catch { error in
-                JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
+            }.catch { [unowned self] error in
+                NavigationStatusView.showError(controller: self, subtitle: error.localizedDescription)
                 cell.button.hideLoader()
         }
     }

@@ -17,16 +17,6 @@ class SearchView: UIView {
     /// Closure for detecting when close button pressed
     fileprivate var onClearButton: (()->())?
     
-    /// Search Icon
-    lazy var searchIcon: UIImageView = {
-        
-        let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "Search")
-        imageView.tintColor = UIColor.white
-        
-        return imageView
-    }()
-    
     /// Cancel button
     lazy var cancelButton: UIButton = {
         
@@ -44,7 +34,7 @@ class SearchView: UIView {
     /// Placeholder
     var placeholder: String = "Search" {
         didSet {
-            searchTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor.lightGray, .font: UIFont.type(type: .markPro)])
+            searchTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor.lightGray, .font: UIFont.type(type: .markPro, style: .medium, size: 12)])
         }
     }
     
@@ -67,9 +57,6 @@ class SearchView: UIView {
         searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         searchTextField.tintColor = .black
         
-        /// Search icon
-        addSubview(searchIcon)
-        
         /// Cancel Button
         addSubview(cancelButton)
         
@@ -79,14 +66,6 @@ class SearchView: UIView {
         
         /// Hide cancel initially
         cancelButton.isHidden = true
-        
-        /// Search layout
-        searchIcon.snp.updateConstraints { maker in
-            maker.centerY.equalTo(self)
-            maker.left.equalTo(self).offset(24)
-            maker.height.equalTo(16)
-            maker.width.equalTo(16)
-        }
         
         /// Cancel layout
         cancelButton.snp.updateConstraints { maker in
@@ -98,8 +77,8 @@ class SearchView: UIView {
         
         /// Search text field
         searchTextField.snp.updateConstraints { maker in
-            maker.left.equalTo(24 + 17 + 10)
-            maker.right.equalTo(self).offset(-20 - 16 - 5)
+            maker.left.equalTo(20)
+            maker.right.equalTo(self).offset(-20 - 5)
             maker.centerY.equalTo(self).offset(1)
         }
     }

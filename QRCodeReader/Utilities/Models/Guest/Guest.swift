@@ -71,6 +71,7 @@ struct Guest: Unmarshaling {
     }
     
     init(object: MarshaledObject) throws {
+        
         lastName = try object.value(for: GuestJSONKeys.lastName.rawValue)
         firstName = try object.value(for: GuestJSONKeys.firstName.rawValue)
         

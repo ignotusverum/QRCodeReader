@@ -10,7 +10,6 @@ import Foundation
 
 /// Utilities
 import DZNEmptyDataSet
-import JDStatusBarNotification
 
 class GuestsViewController: UIViewController {
     
@@ -100,7 +99,7 @@ class GuestsViewController: UIViewController {
     }
     
     private func fetchData() {
-        GuestAdapter.fetchGuestsFor(eventID: eventID).then { [unowned self] response-> Void in
+        EventAdapter.fetchGuestsFor(eventID: eventID).then { [unowned self] response-> Void in
             self.datasource = response
             self.collectionView.reloadData()
             self.originalDatasource = response
@@ -110,7 +109,7 @@ class GuestsViewController: UIViewController {
                 self.collectionView.reloadData()
                 self.collectionView.windless.end()
                 
-                JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
+                NavigationStatusView.showError(controller: self, subtitle: error.localizedDescription)
         }
     }
     
@@ -134,7 +133,12 @@ class GuestsViewController: UIViewController {
         if text.count == 0 {
             self.datasource = originalDatasource
         } else {
-            self.datasource = originalDatasource.filter { $0.fullName.lowercased().contains(text.lowercased()) }
+            EventAdapter.findGuestsFor(eventID: eventID, query: text).then { response-> Void in
+                
+                }.catch { error in
+                    NavigationStatusView.showError(controller: self, subtitle: error.localizedDescription)
+                    self.datasource = originalDatasource
+            }
         }
         
         collectionView.reloadSections([1])
@@ -179,7 +183,7 @@ extension GuestsViewController: UICollectionViewDataSource {
             return 1
         }
         
-        return datasource == nil ?  loadingCellCount : datasource!.count
+        return datasource == nil ? loadingCellCount : datasource!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -218,12 +222,12 @@ extension GuestsViewController: GuestCellDelegate {
         }
         
         let orderID = guest.orderItemGUID
-        GuestAdapter.checkIn(orderID, agentID: agentID).then { response-> Void in
+        OrderItemAdapter.checkIn(orderID, agentID: agentID).then { response-> Void in
             
             cell.guest = response
             cell.checkInButton.hideLoader()
-            }.catch { error in
-                JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
+            }.catch { [unowned self] error in
+                NavigationStatusView.showError(controller: self, subtitle: error.localizedDescription)
                 cell.checkInButton.hideLoader()
         }
     }

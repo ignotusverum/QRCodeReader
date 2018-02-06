@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import AVFoundation
 import SafariServices
-import JDStatusBarNotification
 
 class CameraViewController: UIViewController {
     
@@ -36,12 +35,13 @@ class CameraViewController: UIViewController {
     lazy var flashButton: UIButton = { [unowned self] in
         
         let button = UIButton.button(style: .gradient)
-        button.setImage(#imageLiteral(resourceName: "flash"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "torch-on-icon"), for: .normal)
         button.setBackgroundColor(.white, forState: .normal)
         button.addTarget(self, action: #selector(onFlash(_:)), for: .touchUpInside)
+        button.alpha = 0.5
         
         return button
-        }()
+    }()
     
     // MARK: Controller lifecycle
     override func viewDidLoad() {
@@ -86,7 +86,7 @@ class CameraViewController: UIViewController {
         flashButton.snp.makeConstraints { [unowned self] maker in
             maker.bottom.equalTo(self.view).offset(-50)
             maker.centerX.equalTo(self.view)
-            maker.width.height.equalTo(80)
+            maker.width.height.equalTo(50)
         } 
         
         /// Square area image
@@ -148,9 +148,9 @@ class CameraViewController: UIViewController {
             return
         }
         
-        GuestAdapter.checkIn(orderItemGUID, agentID: agentID).then { response-> Void in
+        OrderItemAdapter.checkIn(orderItemGUID, agentID: agentID).then { response-> Void in
             /// Show success message
-            JDStatusBarNotification.show(withStatus: "Success!", dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
+            NavigationStatusView.showNotification(controller: self, title: "Successfully checked in", subtitle: response.inventoryItemTitle, status: .success)
             }.catch { [unowned self] error in
                 self.showError(error)
         }
@@ -159,7 +159,7 @@ class CameraViewController: UIViewController {
     fileprivate func showError(_ error: Error) {
         
         generator.notificationOccurred(.error)
-        JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
+        NavigationStatusView.showError(controller: self, subtitle: error.localizedDescription)
     }
 }
 
@@ -186,6 +186,11 @@ extension CameraViewController: QRReaderViewDelegate {
     
     func qrReader(_ qrReader: QRReaderView, failedToGetCamera error: Error) {
         showError(error)
+    }
+    
+    func qrReader(_ qrReader: QRReaderView, flashOptionChanged: AVCaptureDevice.TorchMode) {
+        let image: UIImage = flashOptionChanged == .on ? #imageLiteral(resourceName: "torch-off-icon") : #imageLiteral(resourceName: "torch-on-icon")
+        flashButton.setImage(image, for: .normal)
     }
 }
 

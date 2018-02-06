@@ -15,7 +15,6 @@ import Windless
 /// Utilities
 import PromiseKit
 import DZNEmptyDataSet
-import JDStatusBarNotification
 
 class EventsViewController: UIViewController {
     
@@ -110,7 +109,7 @@ class EventsViewController: UIViewController {
                 self.collectionView.reloadData()
                 self.collectionView.windless.end()
                 
-                JDStatusBarNotification.show(withStatus: error.localizedDescription, dismissAfter: 2.0, styleName: AppDefaultAlertStyle)
+                NavigationStatusView.showError(controller: self, subtitle: error.localizedDescription)
         }
     }
     

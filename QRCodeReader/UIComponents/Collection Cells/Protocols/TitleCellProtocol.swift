@@ -32,7 +32,7 @@ extension TitleCellProtocol where Self: UICollectionViewCell {
     func generateTitleLabel()-> UILabel {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont.type(type: .markPro, size: 17)
+        label.font = UIFont.type(type: .markPro, size: 15)
         
         label.textAlignment = .left
         return label

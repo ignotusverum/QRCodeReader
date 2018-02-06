@@ -158,8 +158,6 @@ extension AccountViewController: UICollectionViewDataSource {
         
         let type = datasource[indexPath.section]
         
-        print(type)
-        
         switch type {
         case .account:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(AccountCell.self)", for: indexPath) as! AccountCell

@@ -11,7 +11,6 @@
 		CD8FC102B811CF1EDF82C51B /* Pods_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 856BE1C42E58C6292E41A9F2 /* Pods_Stage.framework */; };
 		F500CB0D200FE31B00D70260 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0C200FE31B00D70260 /* AccountViewController.swift */; };
 		F500CB0F200FE32100D70260 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0E200FE32100D70260 /* MainViewController.swift */; };
-		F500CB12200FE4B900D70260 /* SignOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB11200FE4B900D70260 /* SignOutCell.swift */; };
 		F500CB15200FE8A700D70260 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB14200FE8A700D70260 /* WebViewController.swift */; };
 		F500CB1820113A3D00D70260 /* AccessoryCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB1720113A3D00D70260 /* AccessoryCellProtocol.swift */; };
 		F500CB1E2011409200D70260 /* TransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB1D2011409200D70260 /* TransitionHandler.swift */; };
@@ -90,8 +89,6 @@
 		F5591F45201B759700BC08B3 /* GuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F43201B759700BC08B3 /* GuestsViewController.swift */; };
 		F5591F48201B788000BC08B3 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F47201B788000BC08B3 /* Guest.swift */; };
 		F5591F49201B788000BC08B3 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F47201B788000BC08B3 /* Guest.swift */; };
-		F5591F4C201B7B8800BC08B3 /* GuestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F4B201B7B8800BC08B3 /* GuestAdapter.swift */; };
-		F5591F4D201B7B8800BC08B3 /* GuestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F4B201B7B8800BC08B3 /* GuestAdapter.swift */; };
 		F5591F58201B8F5700BC08B3 /* GuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F57201B8F5700BC08B3 /* GuestCell.swift */; };
 		F5591F59201B8F5700BC08B3 /* GuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F57201B8F5700BC08B3 /* GuestCell.swift */; };
 		F5591F5D201B907500BC08B3 /* NameInitialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5591F5C201B907500BC08B3 /* NameInitialsView.swift */; };
@@ -128,7 +125,6 @@
 		F5969C012011589200F27DD7 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E40F2005553F00DBC504 /* Font.swift */; };
 		F5969C022011589200F27DD7 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB0C200FE31B00D70260 /* AccountViewController.swift */; };
 		F5969C032011589200F27DD7 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FB02006BA0D0024B663 /* QRReaderView.swift */; };
-		F5969C042011589200F27DD7 /* SignOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500CB11200FE4B900D70260 /* SignOutCell.swift */; };
 		F5969C052011589200F27DD7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E3EF200545F400DBC504 /* CameraViewController.swift */; };
 		F5969C062011589200F27DD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506E41520056E5B00DBC504 /* ViewController.swift */; };
 		F5969C072011589200F27DD7 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5673FAA2006B4B70024B663 /* UIButton.swift */; };
@@ -143,6 +139,18 @@
 		F5969C132011589200F27DD7 /* MarkOT.otf in Resources */ = {isa = PBXBuildFile; fileRef = F506E4082005548E00DBC504 /* MarkOT.otf */; };
 		F5969C2020115BC500F27DD7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5969C1F20115BC500F27DD7 /* Config.swift */; };
 		F5969C2120115BC900F27DD7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5969C1F20115BC500F27DD7 /* Config.swift */; };
+		F5C40DCA2028BC0D00582744 /* VenueAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C40DC92028BC0D00582744 /* VenueAdapter.swift */; };
+		F5C40DCB2028BC1000582744 /* VenueAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C40DC92028BC0D00582744 /* VenueAdapter.swift */; };
+		F5C40DCE2028BC5B00582744 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C40DCD2028BC5B00582744 /* Venue.swift */; };
+		F5C40DCF2028BC5B00582744 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C40DCD2028BC5B00582744 /* Venue.swift */; };
+		F5C40DD22028F0C700582744 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C40DD12028F0C700582744 /* OrderItem.swift */; };
+		F5C40DD32028F0C700582744 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C40DD12028F0C700582744 /* OrderItem.swift */; };
+		F5C40DD62028F37E00582744 /* OrderItemAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C40DD52028F37E00582744 /* OrderItemAdapter.swift */; };
+		F5C40DD72028F37E00582744 /* OrderItemAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C40DD52028F37E00582744 /* OrderItemAdapter.swift */; };
+		F5C40DDA2028F7F000582744 /* NavigationStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C40DD92028F7F000582744 /* NavigationStatusView.swift */; };
+		F5C40DDB2028F7F000582744 /* NavigationStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C40DD92028F7F000582744 /* NavigationStatusView.swift */; };
+		F5C40DDD2028F93700582744 /* NavigationStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5C40DDC2028F93700582744 /* NavigationStatusView.xib */; };
+		F5C40DDE2028F93700582744 /* NavigationStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5C40DDC2028F93700582744 /* NavigationStatusView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,7 +164,6 @@
 		D5579718568F7D5533C24581 /* Pods-QRCodeReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRCodeReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.debug.xcconfig"; sourceTree = "<group>"; };
 		F500CB0C200FE31B00D70260 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		F500CB0E200FE32100D70260 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		F500CB11200FE4B900D70260 /* SignOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutCell.swift; sourceTree = "<group>"; };
 		F500CB14200FE8A700D70260 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F500CB1720113A3D00D70260 /* AccessoryCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryCellProtocol.swift; sourceTree = "<group>"; };
 		F500CB1D2011409200D70260 /* TransitionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionHandler.swift; sourceTree = "<group>"; };
@@ -206,7 +213,6 @@
 		F52583802023D1FC00F851AC /* GuestDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestDetailsViewController.swift; sourceTree = "<group>"; };
 		F5591F43201B759700BC08B3 /* GuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsViewController.swift; sourceTree = "<group>"; };
 		F5591F47201B788000BC08B3 /* Guest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
-		F5591F4B201B7B8800BC08B3 /* GuestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestAdapter.swift; sourceTree = "<group>"; };
 		F5591F57201B8F5700BC08B3 /* GuestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCell.swift; sourceTree = "<group>"; };
 		F5591F5C201B907500BC08B3 /* NameInitialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameInitialsView.swift; sourceTree = "<group>"; };
 		F5591F5F201BAB8100BC08B3 /* DefaultButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButtonStyle.swift; sourceTree = "<group>"; };
@@ -228,6 +234,12 @@
 		F5969C1C2011598300F27DD7 /* Stage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stage.entitlements; sourceTree = "<group>"; };
 		F5969C1D2011598B00F27DD7 /* Fevo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fevo.entitlements; sourceTree = "<group>"; };
 		F5969C1F20115BC500F27DD7 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F5C40DC92028BC0D00582744 /* VenueAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueAdapter.swift; sourceTree = "<group>"; };
+		F5C40DCD2028BC5B00582744 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		F5C40DD12028F0C700582744 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
+		F5C40DD52028F37E00582744 /* OrderItemAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemAdapter.swift; sourceTree = "<group>"; };
+		F5C40DD92028F7F000582744 /* NavigationStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStatusView.swift; sourceTree = "<group>"; };
+		F5C40DDC2028F93700582744 /* NavigationStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationStatusView.xib; sourceTree = "<group>"; };
 		FD178C4A21E029D26A93A69B /* Pods-Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stage.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stage/Pods-Stage.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -280,14 +292,6 @@
 				F500CB0C200FE31B00D70260 /* AccountViewController.swift */,
 			);
 			path = Account;
-			sourceTree = "<group>";
-		};
-		F500CB10200FE4B100D70260 /* SignOut */ = {
-			isa = PBXGroup;
-			children = (
-				F500CB11200FE4B900D70260 /* SignOutCell.swift */,
-			);
-			path = SignOut;
 			sourceTree = "<group>";
 		};
 		F500CB13200FE89B00D70260 /* Web */ = {
@@ -380,6 +384,7 @@
 		F506E3FB2005538800DBC504 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				F5C40DD82028F7C800582744 /* NavigationStatusView */,
 				F525836F202376DC00F851AC /* ValidationField */,
 				F568C5E3201FB72400CD39DE /* ActionOverlay */,
 				F5591F5A201B905900BC08B3 /* Views */,
@@ -407,7 +412,6 @@
 				F5247189201A7EDA004AEC3A /* Event */,
 				F50F8E6020192EBD0051ECD3 /* Input */,
 				F500CB1620113A3400D70260 /* Protocols */,
-				F500CB10200FE4B100D70260 /* SignOut */,
 				F506E41120055E7200DBC504 /* TitleImage */,
 			);
 			path = "Collection Cells";
@@ -517,7 +521,8 @@
 		F50F8E5320191AC10051ECD3 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				F5591F4A201B7B7B00BC08B3 /* GuestAdapter */,
+				F5C40DD42028F37100582744 /* OrderItemAdapter */,
+				F5C40DC82028BC0300582744 /* VenueAdapter */,
 				F5247170201A4F58004AEC3A /* EventAdapter */,
 				F50F8E5420191ACA0051ECD3 /* AgentAdapter */,
 			);
@@ -535,6 +540,8 @@
 		F50F8E5820191B280051ECD3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F5C40DD02028EBB500582744 /* OrderItem */,
+				F5C40DCC2028BC5100582744 /* Venue */,
 				F5591F46201B787A00BC08B3 /* Guest */,
 				F5247179201A50EF004AEC3A /* Event */,
 				F5247175201A50E1004AEC3A /* Agent */,
@@ -729,14 +736,6 @@
 			path = Guest;
 			sourceTree = "<group>";
 		};
-		F5591F4A201B7B7B00BC08B3 /* GuestAdapter */ = {
-			isa = PBXGroup;
-			children = (
-				F5591F4B201B7B8800BC08B3 /* GuestAdapter.swift */,
-			);
-			path = GuestAdapter;
-			sourceTree = "<group>";
-		};
 		F5591F56201B8F4900BC08B3 /* Guest */ = {
 			isa = PBXGroup;
 			children = (
@@ -869,6 +868,47 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		F5C40DC82028BC0300582744 /* VenueAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				F5C40DC92028BC0D00582744 /* VenueAdapter.swift */,
+			);
+			path = VenueAdapter;
+			sourceTree = "<group>";
+		};
+		F5C40DCC2028BC5100582744 /* Venue */ = {
+			isa = PBXGroup;
+			children = (
+				F5C40DCD2028BC5B00582744 /* Venue.swift */,
+			);
+			path = Venue;
+			sourceTree = "<group>";
+		};
+		F5C40DD02028EBB500582744 /* OrderItem */ = {
+			isa = PBXGroup;
+			children = (
+				F5C40DD12028F0C700582744 /* OrderItem.swift */,
+			);
+			path = OrderItem;
+			sourceTree = "<group>";
+		};
+		F5C40DD42028F37100582744 /* OrderItemAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				F5C40DD52028F37E00582744 /* OrderItemAdapter.swift */,
+			);
+			path = OrderItemAdapter;
+			sourceTree = "<group>";
+		};
+		F5C40DD82028F7C800582744 /* NavigationStatusView */ = {
+			isa = PBXGroup;
+			children = (
+				F5C40DD92028F7F000582744 /* NavigationStatusView.swift */,
+				F5C40DDC2028F93700582744 /* NavigationStatusView.xib */,
+			);
+			path = NavigationStatusView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -968,6 +1008,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C40DDD2028F93700582744 /* NavigationStatusView.xib in Resources */,
 				F506E4052005546900DBC504 /* SharpSans-Bold.otf in Resources */,
 				F506E40D2005549A00DBC504 /* MarkOT-Bold.otf in Resources */,
 				F5786E592005295700CB4D94 /* LaunchScreen.storyboard in Resources */,
@@ -982,6 +1023,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C40DDE2028F93700582744 /* NavigationStatusView.xib in Resources */,
 				F5969C0D2011589200F27DD7 /* SharpSans-Bold.otf in Resources */,
 				F5969C0E2011589200F27DD7 /* MarkOT-Bold.otf in Resources */,
 				F5969C0F2011589200F27DD7 /* LaunchScreen.storyboard in Resources */,
@@ -1026,9 +1068,9 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework",
 				"${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework",
-				"${BUILT_PRODUCTS_DIR}/ParallaxHeader/ParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/Windless/Windless.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1039,9 +1081,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JDStatusBarNotification.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Marshal.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Windless.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1108,9 +1150,9 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework",
 				"${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework",
-				"${BUILT_PRODUCTS_DIR}/ParallaxHeader/ParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/Windless/Windless.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1121,9 +1163,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JDStatusBarNotification.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Marshal.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Windless.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1171,7 +1213,6 @@
 				F524717B201A50F5004AEC3A /* Event.swift in Sources */,
 				F525837A2023A3F200F851AC /* BlackButtonStyle.swift in Sources */,
 				F51DD204201FAAB500B3D834 /* VersionCell.swift in Sources */,
-				F5591F4C201B7B8800BC08B3 /* GuestAdapter.swift in Sources */,
 				F50F8E6520192F160051ECD3 /* FormInputProtocol.swift in Sources */,
 				F500CB15200FE8A700D70260 /* WebViewController.swift in Sources */,
 				F5786E4F2005295700CB4D94 /* AppDelegate.swift in Sources */,
@@ -1185,20 +1226,24 @@
 				F50F8E51201919480051ECD3 /* LoginViewController.swift in Sources */,
 				F51DD1F9201F9D9B00B3D834 /* TitleCell.swift in Sources */,
 				F50F8E5620191AD60051ECD3 /* AgentAdapter.swift in Sources */,
+				F5C40DD62028F37E00582744 /* OrderItemAdapter.swift in Sources */,
 				F50EE2692007E32600B489CE /* EmptyView.swift in Sources */,
 				F569CC2B201A28C0007162C8 /* SpinnerView.swift in Sources */,
 				F500CB1820113A3D00D70260 /* AccessoryCellProtocol.swift in Sources */,
 				F51DD1F2201F94FB00B3D834 /* AccountView.swift in Sources */,
 				F506E3F720054B2A00DBC504 /* String.swift in Sources */,
+				F5C40DCE2028BC5B00582744 /* Venue.swift in Sources */,
 				F50EE2732009089B00B489CE /* Button.swift in Sources */,
 				F50EE2772009099200B489CE /* CircleButtonStyle.swift in Sources */,
 				F5591F60201BAB8100BC08B3 /* DefaultButtonStyle.swift in Sources */,
 				F5247183201A558A004AEC3A /* Date.swift in Sources */,
 				F51DD1F5201F9D6D00B3D834 /* TitleCellProtocol.swift in Sources */,
 				F5247172201A4F62004AEC3A /* EventAdapter.swift in Sources */,
+				F5C40DD22028F0C700582744 /* OrderItem.swift in Sources */,
 				F5804038200FAE2600FD1268 /* APIManager.swift in Sources */,
 				F50F8E6820192F6E0051ECD3 /* DividerCellprotocol.swift in Sources */,
 				F500CB0F200FE32100D70260 /* MainViewController.swift in Sources */,
+				F5C40DDA2028F7F000582744 /* NavigationStatusView.swift in Sources */,
 				F51D5DAA2024C1DB003710B3 /* SeachCell.swift in Sources */,
 				F500CB1E2011409200D70260 /* TransitionHandler.swift in Sources */,
 				F568C5F9201FDA3D00CD39DE /* Device.swift in Sources */,
@@ -1211,9 +1256,9 @@
 				F5673FB12006BA0D0024B663 /* QRReaderView.swift in Sources */,
 				F568C5E9201FB80D00CD39DE /* ActionOverlayCell.swift in Sources */,
 				F52583762023956000F851AC /* ValidationCell.swift in Sources */,
+				F5C40DCA2028BC0D00582744 /* VenueAdapter.swift in Sources */,
 				F5591F5D201B907500BC08B3 /* NameInitialsView.swift in Sources */,
 				F5969C2020115BC500F27DD7 /* Config.swift in Sources */,
-				F500CB12200FE4B900D70260 /* SignOutCell.swift in Sources */,
 				F524718B201A7EF9004AEC3A /* EventCell.swift in Sources */,
 				F5591F48201B788000BC08B3 /* Guest.swift in Sources */,
 				F506E3F0200545F400DBC504 /* CameraViewController.swift in Sources */,
@@ -1238,7 +1283,6 @@
 				F524717C201A50F5004AEC3A /* Event.swift in Sources */,
 				F525837B2023A3F200F851AC /* BlackButtonStyle.swift in Sources */,
 				F51DD205201FAAB500B3D834 /* VersionCell.swift in Sources */,
-				F5591F4D201B7B8800BC08B3 /* GuestAdapter.swift in Sources */,
 				F50F8E6620192F160051ECD3 /* FormInputProtocol.swift in Sources */,
 				F5969BF52011589200F27DD7 /* WebViewController.swift in Sources */,
 				F5969BF62011589200F27DD7 /* AppDelegate.swift in Sources */,
@@ -1252,20 +1296,24 @@
 				F50F8E522019194C0051ECD3 /* LoginViewController.swift in Sources */,
 				F51DD1FA201F9D9B00B3D834 /* TitleCell.swift in Sources */,
 				F50F8E5720191AD60051ECD3 /* AgentAdapter.swift in Sources */,
+				F5C40DD72028F37E00582744 /* OrderItemAdapter.swift in Sources */,
 				F5969BF82011589200F27DD7 /* EmptyView.swift in Sources */,
 				F569CC2C201A28C0007162C8 /* SpinnerView.swift in Sources */,
 				F5969BF92011589200F27DD7 /* AccessoryCellProtocol.swift in Sources */,
 				F51DD1F3201F94FB00B3D834 /* AccountView.swift in Sources */,
 				F5969BFA2011589200F27DD7 /* String.swift in Sources */,
+				F5C40DCF2028BC5B00582744 /* Venue.swift in Sources */,
 				F5969BFB2011589200F27DD7 /* Button.swift in Sources */,
 				F5969BFD2011589200F27DD7 /* CircleButtonStyle.swift in Sources */,
 				F5591F61201BAB8100BC08B3 /* DefaultButtonStyle.swift in Sources */,
 				F5247184201A558A004AEC3A /* Date.swift in Sources */,
 				F51DD1F6201F9D6D00B3D834 /* TitleCellProtocol.swift in Sources */,
 				F5247173201A4F62004AEC3A /* EventAdapter.swift in Sources */,
+				F5C40DD32028F0C700582744 /* OrderItem.swift in Sources */,
 				F5969BFE2011589200F27DD7 /* APIManager.swift in Sources */,
 				F50F8E6920192F6E0051ECD3 /* DividerCellprotocol.swift in Sources */,
 				F5969BFF2011589200F27DD7 /* MainViewController.swift in Sources */,
+				F5C40DDB2028F7F000582744 /* NavigationStatusView.swift in Sources */,
 				F51D5DAB2024C1DB003710B3 /* SeachCell.swift in Sources */,
 				F5969C002011589200F27DD7 /* TransitionHandler.swift in Sources */,
 				F568C5FA201FDA3D00CD39DE /* Device.swift in Sources */,
@@ -1278,9 +1326,9 @@
 				F5969C032011589200F27DD7 /* QRReaderView.swift in Sources */,
 				F568C5EA201FB80D00CD39DE /* ActionOverlayCell.swift in Sources */,
 				F52583772023956000F851AC /* ValidationCell.swift in Sources */,
+				F5C40DCB2028BC1000582744 /* VenueAdapter.swift in Sources */,
 				F5591F5E201B907500BC08B3 /* NameInitialsView.swift in Sources */,
 				F5969C2120115BC900F27DD7 /* Config.swift in Sources */,
-				F5969C042011589200F27DD7 /* SignOutCell.swift in Sources */,
 				F524718C201A7EF9004AEC3A /* EventCell.swift in Sources */,
 				F5591F49201B788000BC08B3 /* Guest.swift in Sources */,
 				F5969C052011589200F27DD7 /* CameraViewController.swift in Sources */,

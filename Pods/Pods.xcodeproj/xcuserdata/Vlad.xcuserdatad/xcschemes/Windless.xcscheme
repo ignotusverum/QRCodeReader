@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F3937F5D59A7DE28392F8E5E6EBDBC20"
+               BlueprintIdentifier = "6BD91DF1E082B39F04119A03C2493B16"
                BuildableName = "Windless.framework"
                BlueprintName = "Windless"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F3937F5D59A7DE28392F8E5E6EBDBC20"
+            BlueprintIdentifier = "6BD91DF1E082B39F04119A03C2493B16"
             BuildableName = "Windless.framework"
             BlueprintName = "Windless"
             ReferencedContainer = "container:Pods.xcodeproj">

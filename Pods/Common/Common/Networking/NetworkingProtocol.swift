@@ -46,8 +46,6 @@ public extension NetworkingProtocol {
         
         let path = baseURL(path: URLString)
         
-        print(path)
-        
         return Promise { fulfill, reject in
             manager.request(path, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
                 .validate()
@@ -60,10 +58,14 @@ public extension NetworkingProtocol {
                         
                     case .failure(let error):
                         
-                        print(error)
-                        
                         if response.response?.statusCode == 401 {
                             reject(AuthenticationError)
+                        }
+                        
+                        if let data = response.data, let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any], let errorMessage = json?["message"] as? String {
+                            
+                            let localError = NSError(domain: "fevo.com", code: response.response?.statusCode ?? 400, userInfo: [NSLocalizedDescriptionKey : errorMessage])
+                            reject(localError)
                         }
                         
                         reject(error)

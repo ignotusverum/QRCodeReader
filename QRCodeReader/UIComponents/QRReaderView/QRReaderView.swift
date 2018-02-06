@@ -47,6 +47,9 @@ protocol QRReaderViewDelegate {
     
     /// Discovered Event ID
     func qrReader(_ qrReader: QRReaderView, didOutput orderItemGUID: String)
+    
+    /// QRReader flash
+    func qrReader(_ qrReader: QRReaderView, flashOptionChanged: AVCaptureDevice.TorchMode)
 }
 
 class QRReaderView: UIView {
@@ -167,6 +170,7 @@ class QRReaderView: UIView {
         do {
             try device.lockForConfiguration()
             device.torchMode = device.torchMode == .on ? .off : .on
+            delegate?.qrReader(self, flashOptionChanged: device.torchMode)
         } catch {
             print("configuration issues")
         }
@@ -214,8 +218,6 @@ class QRReaderView: UIView {
         let options = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
         return CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: options)!
     }
-    
-    
 }
 
 extension QRReaderView: AVCaptureMetadataOutputObjectsDelegate {
